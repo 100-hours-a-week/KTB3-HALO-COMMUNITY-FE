@@ -4,7 +4,7 @@ import { renderFindWrap} from "/component/auth/login_wrap/find_wrap.js";
 import { renderGladBanner } from "/component/auth/gladbanner/gladbanner.js";
 import { renderFooter} from "/component/auth/footer/footer_inner.js";
 
-import {addLoginEvent} from "/service/auth/addLoginEvent.js"
+import {addLoginEvent} from "/service/auth/login/addLoginEvent.js"
 
 
 document.addEventListener("DOMContentLoaded", () => {
