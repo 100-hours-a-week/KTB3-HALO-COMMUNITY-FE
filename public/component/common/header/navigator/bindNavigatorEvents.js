@@ -1,3 +1,4 @@
+
 export function bindNavigatorEvents(isLoggedIn) {
   const profileBtn = document.getElementById('profileBtn');
   const dropdownMenu = document.getElementById('dropdownMenu');
@@ -16,16 +17,36 @@ export function bindNavigatorEvents(isLoggedIn) {
     dropdownMenu.classList.remove('show');
   };
 
-  // 로그인/로그아웃 버튼 처리
+  // 로그인/로그아웃 이벤트 분리 호출
+  addLogoutEvent(authBtn, isLoggedIn);
+}
+
+
+
+import { API_BASE } from "/config.js";
+
+
+function addLogoutEvent(authBtn, isLoggedIn) {
+  if (!authBtn) return;
+
   authBtn.onclick = async () => {
     if (isLoggedIn) {
       if (confirm('정말로 로그아웃하시겠습니까?')) {
-        localStorage.removeItem('accessToken');
         try {
-          await fetch('/api/v1/auth/logout', { method: 'POST', credentials: 'include' });
+          const token = localStorage.getItem('accessToken');
+
+          await fetch(`${API_BASE}/auth/logout`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+
         } catch (err) {
           console.error('서버 로그아웃 실패', err);
         }
+        localStorage.removeItem('accessToken');
         window.location.href = '/pages/post/postList/postList.html';
       }
     } else {
