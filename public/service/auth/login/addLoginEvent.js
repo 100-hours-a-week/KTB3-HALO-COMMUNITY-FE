@@ -1,9 +1,12 @@
+// /service/auth/addLoginEvent.js
 import { API_BASE } from "/config.js";
 
 export function addLoginEvent() {
     const emailInput = document.querySelector("#email");
     const passwordInput = document.querySelector("#password");
     const loginBtn = document.querySelector(".btn_login_button");
+
+    if (!loginBtn) return;
 
     loginBtn.addEventListener("click", async () => {
         const email = emailInput.value.trim();
@@ -17,24 +20,21 @@ export function addLoginEvent() {
         try {
             const response = await fetch(`${API_BASE}/auth/login`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
+                credentials: 'include',
                 body: JSON.stringify({ email, passWord }),
             });
 
-            const result = await response.json();
+            const result = await response.json().catch(() => ({}));
 
             if (response.ok && result.status === 200) {
                 const token = result.data?.accessToken;
 
-                //  JWT 토큰 저장
                 if (token) {
                     localStorage.setItem("accessToken", token);
                 }
 
-                // 로그인 후 바로 메인 페이지로 이동
-                window.location.href = "/pages/main/main.html";
+                window.location.href = "/pages/post/postList/postList.html";
             } else {
                 alert(result.message || "로그인 실패");
             }
