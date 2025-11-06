@@ -15,4 +15,6 @@ router.get("/password", (req, res) => {
   res.sendFile(path.join(rootDir, "public/pages/user/password/password.html"));
 });
 
+
+
 export default router;
