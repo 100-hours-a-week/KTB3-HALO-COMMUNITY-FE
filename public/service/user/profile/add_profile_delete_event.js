@@ -24,7 +24,7 @@ export function addProfileDeleteEvent(container) {
                 if (status === 200) {
                     alert("회원 탈퇴가 완료되었습니다.");
                     localStorage.removeItem("accessToken");
-                    window.location.href = post_list_path; // 로그인 페이지로 이동
+                    window.location.href = post_list_path; // 포스트 페이지로 이동
                 } else {
                     alert(body.message || "회원 탈퇴에 실패했습니다.");
                 }
