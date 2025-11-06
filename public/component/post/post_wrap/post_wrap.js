@@ -3,11 +3,7 @@ import { renderPostItem } from './post_item/post_item.js';
 
 // 더미 데이터
 const dummyPosts = [
-    { id: 1, title: '제목 1', date: '2021-01-01 00:00:00', likes: 0, comments: 0, views: 0, author: 'Halo' },
-    { id: 2, title: '제목 2', date: '2021-01-01 00:00:00', likes: 5, comments: 2, views: 10, author: '더미 작성자 2' },
-    { id: 3, title: '제목 3', date: '2021-01-01 00:00:00', likes: 3, comments: 1, views: 7, author: '더미 작성자 3' },
-    { id: 4, title: '제목 4', date: '2021-01-01 00:00:00', likes: 0, comments: 0, views: 0, author: '더미 작성자 4' },
-    { id: 5, title: '제목 5', date: '2021-01-01 00:00:00', likes: 8, comments: 3, views: 15, author: '더미 작성자 5' }
+    
 ];
 
 // post_wrap 전체를 렌더링 (네비게이터처럼 컨테이너 받아서 렌더링)
