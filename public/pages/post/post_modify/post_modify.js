@@ -6,9 +6,10 @@ import { renderArticleWrap } from "/component/post/post_modify/article_wrap/arti
 import { renderImageWrap } from "/component/post/post_modify/image_wrap/image_wrap.js";
 import { renderModifyButtonWrap } from "/component/post/post_modify/modify_button_wrap/modify_button_wrap.js";
 import { renderFooter } from "/component/common/footer/footer_inner.js";
+import { addPostUpdateEvent } from "/service/post/post_update/add_post_update_event.js";
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const header = document.getElementById("header");
   const info_wrap = document.getElementById("info_wrap");
   const title_wrap = document.getElementById("title_wrap");
@@ -25,4 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderModifyButtonWrap(modify_button_wrap);
   renderFooter(footer);
 
+  // Extract postId from URL
+  const path = window.location.pathname; // e.g., "/posts/123/edit"
+  const postId = parseInt(path.split('/')[2], 10); // Get the ID part
+
+  if (isNaN(postId)) {
+    alert("유효하지 않은 게시글 ID입니다.");
+    return;
+  }
+
+  await addPostUpdateEvent(postId); // Call the update event function
 });

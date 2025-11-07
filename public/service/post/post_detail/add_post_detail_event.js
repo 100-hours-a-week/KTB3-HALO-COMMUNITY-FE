@@ -28,7 +28,7 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
         }
         const { data } = await res.json();
 
-        renderUserInfoWrap(userInfoEl, { nickname: data.nickname, createdAt: data.createdAt });
+        renderUserInfoWrap(userInfoEl, { nickname: data.nickname, createdAt: data.createdAt }, postId);
         renderArticleWrap(articleEl, { title: data.title, content: data.content, imageUrl: data.imageUrl });
         renderStatsWrap(statsEl, { likeCount: data.likeCount, viewCount: data.viewCount, commentCount: data.commentCount });
         renderCommentWrap(commentEl, data.comments || []);
