@@ -20,11 +20,10 @@ export function addPostListEvent(rootEl) {
         if (!hasNext || isLoading) return;
         isLoading = true;
 
+        
+
         fetch(`${API_BASE}/posts?cursor=${nextCursor}`, {
             method: "GET",
-            headers: {
-                "Authorization": token ? `Bearer ${token}` : ""
-            }
         })
             .then(res => res.json())
             .then(({ status, data }) => {
