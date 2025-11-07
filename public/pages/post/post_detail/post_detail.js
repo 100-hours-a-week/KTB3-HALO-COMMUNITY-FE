@@ -6,7 +6,7 @@ import { renderStatsWrap } from "/component/post/post_detail/stats_wrap/stats_wr
 import { renderCommentWrap } from "/component/post/post_detail/comment_wrap/comment_wrap.js";
 
 import { renderFooter } from "/component/common/footer/footer_inner.js";
-
+import { addPostDetailEvent } from "/service/post/post_detail/add_post_detail_event.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
@@ -16,13 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const comment_wrap = document.getElementById("comment_wrap");
     const footer = document.getElementById("footer");
 
-
+    // 네비게이터, Footer 렌더링
     renderNavigator(header);
-    renderUserInfoWrap(user_info_wrap);
-    renderArticleWrap(article_wrap);
-    renderStatsWrap(stats_wrap);
-    renderCommentWrap(comment_wrap);
     renderFooter(footer);
 
-});
+    // URL에서 postId 추출
+    const path = window.location.pathname; // 예: "/posts/6"
+    const postId = parseInt(path.split("/").pop(), 10);
 
+    if (isNaN(postId)) {
+        alert("게시글 ID를 찾을 수 없습니다.");
+        return;
+    }
+
+    // 게시글 상세 렌더링 및 이벤트 바인딩
+    addPostDetailEvent(postId, user_info_wrap, article_wrap, stats_wrap, comment_wrap);
+});
