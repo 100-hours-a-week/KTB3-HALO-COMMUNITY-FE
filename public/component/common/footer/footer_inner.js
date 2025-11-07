@@ -11,8 +11,8 @@ export function renderFooter(rootEl) {
         <div class="footer_section footer_brand">
           <h3 class="footer_logo">NOT ME</h3>
           <p class="footer_description">
-            "당신에게 꼭 맞는 책, 북미가 찾아드립니다."<br>
-            지금의 기분, 상황, 취향을 바탕으로 추천받는 독서 큐레이션
+            "가끔 너가 아니여도 돼"<br>
+            나다움과 개성을 강요받는 세상에 지쳐 모인 곳, Not Me
           </p>
           <div class="footer_socials">
             <a href="#" class="social_link" aria-label="Thread">🧵</a>
