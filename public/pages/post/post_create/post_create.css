@@ -1,0 +1,75 @@
+body {
+    background: linear-gradient(180deg, #f8f9ff 0%, #e8ebff 100%);
+    font-family: "Pretendard", sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.post_create_wrap {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 4px 16px rgba(124, 92, 255, 0.1);
+}
+
+.page_title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #212121;
+}
+
+.form_group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post_title,
+.post_content {
+    border: 2px solid #e8ebff;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.post_title:focus,
+.post_content:focus {
+    outline: none;
+    border-color: #9c7ff2;
+    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.1);
+}
+
+.post_content {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.btn_submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #9c7ff2 0%, #7c5cff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
+}

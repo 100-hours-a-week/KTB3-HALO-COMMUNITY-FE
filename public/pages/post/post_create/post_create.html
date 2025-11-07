@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 작성 | NOT ME</title>
+
+    <link rel="stylesheet" href="../../../component/common/header/navigator/navigator.css">
+    <link rel="stylesheet" href="/pages/post/post_create/post_create.css">
+    <link rel="stylesheet" href="../../../component/common/footer/footer_inner.css">
+
+    <script type="module" src="/pages/post/post_create/post_create.js" defer></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header id="header" class="header" role="nav"></header>
+        <main id="container" class="container">
+            <div class="post_create_wrap">
+                <h1 class="page_title">새 게시글 작성</h1>
+
+                <div class="form_group">
+                    <label>제목</label>
+                    <input type="text" class="post_title" placeholder="제목을 입력하세요" />
+                </div>
+
+                <div class="form_group">
+                    <label>내용</label>
+                    <textarea class="post_content" placeholder="내용을 입력하세요"></textarea>
+                </div>
+
+                <div class="form_group">
+                    <label>이미지</label>
+                    <input type="file" class="post_image" accept="image/*" />
+                </div>
+
+                <button class="btn_submit">등록</button>
+            </div>
+        </main>
+        <footer id="footer" class="footer"></footer>
+    </div>
+</body>
+
+</html>
