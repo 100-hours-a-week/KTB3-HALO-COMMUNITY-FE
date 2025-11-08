@@ -1,3 +1,6 @@
+import { API_BASE } from "/config.js";
+
+
 export function addPostCreateEvent() {
   const submitButton = document.querySelector(".btn_submit");
   if (submitButton) {
@@ -36,7 +39,7 @@ export function addPostCreateEvent() {
       }
 
       try {
-        const response = await fetch("http://localhost:8080/api/v1/posts", {
+        const response = await fetch(`${API_BASE}/posts`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json', // Set Content-Type to application/json

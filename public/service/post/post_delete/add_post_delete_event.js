@@ -1,3 +1,5 @@
+import { API_BASE } from "/config.js";
+
 export function addPostDeleteEvent() {
   const deleteButton = document.querySelector(".btn_message"); // Assuming a delete button with this class
   if (deleteButton) {
@@ -21,7 +23,7 @@ export function addPostDeleteEvent() {
       }
 
       try {
-        const response = await fetch(`http://localhost:8080/api/v1/posts/${postId}`, {
+        const response = await fetch(`${API_BASE}/${postId}`, {
           method: "DELETE",
           headers: {
             'Authorization': `Bearer ${accessToken}`,

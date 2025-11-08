@@ -1,3 +1,6 @@
+import { API_BASE } from "/config.js";
+
+
 
 export function addPostDetailLikeEvent() {
   const likeButton = document.getElementById('like_button');
@@ -9,7 +12,7 @@ export function addPostDetailLikeEvent() {
       }
 
       const postId = window.location.pathname.split('/').pop();
-      const API_URL = `http://localhost:8080/api/v1/like/posts/${postId}`;
+      const API_URL = `${API_BASE}/${postId}`;
 
       try {
         const response = await fetch(API_URL, {
