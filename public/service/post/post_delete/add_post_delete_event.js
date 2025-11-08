@@ -23,7 +23,7 @@ export function addPostDeleteEvent() {
       }
 
       try {
-        const response = await fetch(`${API_BASE}/${postId}`, {
+        const response = await fetch(`${API_BASE}/posts/${postId}`, {
           method: "DELETE",
           headers: {
             'Authorization': `Bearer ${accessToken}`,
