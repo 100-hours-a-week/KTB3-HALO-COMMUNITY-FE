@@ -49,8 +49,8 @@ export async function addPostUpdateEvent(postId) {
   const updateButton = document.querySelector(".btn_submit"); // 이 클래스를 가진 버튼으로 가정
   if (updateButton) {
     updateButton.addEventListener("click", async () => {
-      const title = document.querySelector(".post_title_input").value;
-      const content = document.querySelector(".post_content_textarea").value;
+      const title = document.querySelector(".title_input").value;
+      const content = document.querySelector(".article_textarea").value;
       const imageInput = document.querySelector(".image_input"); // 이미지 입력 필드의 클래스로 가정
       const imageFile = imageInput.files[0];
 
