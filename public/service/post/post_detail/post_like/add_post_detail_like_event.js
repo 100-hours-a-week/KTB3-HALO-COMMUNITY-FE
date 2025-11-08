@@ -12,7 +12,7 @@ export function addPostDetailLikeEvent() {
       }
 
       const postId = window.location.pathname.split('/').pop();
-      const API_URL = `${API_BASE}/${postId}`;
+      const API_URL = `${API_BASE}/like/posts/${postId}`;
 
       try {
         const response = await fetch(API_URL, {
