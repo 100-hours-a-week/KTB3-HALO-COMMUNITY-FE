@@ -58,7 +58,7 @@
     font-weight: 500;
   }
   
-  .btn_follow:hover,
+  .btn_edit:hover,
   .btn_message:hover {
     background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
     color: #fff;

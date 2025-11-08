@@ -1,4 +1,4 @@
-export function renderUserInfoWrap(container, user = { nickname: "익명", createdAt: "" }) {
+export function renderUserInfoWrap(container, user = { nickname: "익명", createdAt: "" }, postId) {
   container.innerHTML = `
     <div class="user_info_container">
       <div class="user_header">
@@ -10,7 +10,7 @@ export function renderUserInfoWrap(container, user = { nickname: "익명", creat
           </div>
         </div>
         <div class="action_buttons">
-          <button class="btn_follow" onclick="location.href='/posts/${user.postId}/edit'">수정</button>
+          <button class="btn_edit" onclick="location.href='/posts/${postId}/edit'">수정</button>
           <button class="btn_message">삭제</button>
         </div>
       </div>
