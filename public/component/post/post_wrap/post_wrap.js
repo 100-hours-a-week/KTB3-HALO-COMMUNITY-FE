@@ -21,7 +21,7 @@ export function renderPostWrap(rootEl) {
   rootEl.innerHTML = `
   <div class="post-wrap">
     <div class="post-wrap__header">
-      <span class="post-wrap__greeting">안녕하세요, 아무 말 대잔치 게시판입니다.</span>
+      <span class="post-wrap__greeting">평소 하고싶었던 말을 적어봐</span>
       <button class="post-wrap__add-btn">게시글 작성</button>
     </div>
     <div class="post-wrap__list">
