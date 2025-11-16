@@ -1,0 +1,389 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "HALO Community API",
+    "version": "1.0.0",
+    "description": "API documentation for the HALO Community project"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "User authentication and authorization"
+    },
+    {
+      "name": "Posts",
+      "description": "The posts managing API"
+    },
+    {
+      "name": "Users",
+      "description": "User profile and account management"
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "User login",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid credentials"
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "summary": "User registration",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupRequest"
+              }
+            }
+          }
+            }
+          },
+        "responses": {
+          "201": {
+            "description": "User registered successfully"
+          },
+          "400": {
+            "description": "Bad Request - Invalid input"
+          },
+          "409": {
+            "description": "Conflict - User with this email already exists"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "get": {
+        "summary": "Returns the list of all the posts",
+        "tags": ["Posts"],
+        "responses": {
+          "200": {
+            "description": "The list of the posts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "summary": "Get the post by id",
+        "tags": ["Posts"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The post id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The post description by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The post was not found"
+          }
+        }
+      }
+    },
+    "/users/me": {
+      "get": {
+        "summary": "Get current user's profile",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "User profile data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - User not logged in"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update current user's profile",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserProfileUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Profile updated successfully"
+          },
+          "400": {
+            "description": "Bad Request - Invalid input"
+          },
+          "401": {
+            "description": "Unauthorized - User not logged in"
+          }
+        }
+      }
+    },
+    "/users/me/password": {
+      "put": {
+        "summary": "Change current user's password",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordChangeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password changed successfully"
+          },
+          "400": {
+            "description": "Bad Request - Invalid input or current password mismatch"
+          },
+          "401": {
+            "description": "Unauthorized - User not logged in"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User's email address"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "description": "User's password"
+          }
+        },
+        "example": {
+          "email": "user@example.com",
+          "password": "password123"
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "description": "JWT access token"
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "JWT refresh token"
+          }
+        },
+        "example": {
+          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        }
+      },
+      "SignupRequest": {
+        "type": "object",
+        "required": ["email", "password", "username"],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User's email address"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "description": "User's password"
+          },
+          "username": {
+            "type": "string",
+            "description": "User's chosen username"
+          }
+        },
+        "example": {
+          "email": "newuser@example.com",
+          "password": "newpassword123",
+          "username": "newuser"
+        }
+      },
+      "Post": {
+        "type": "object",
+        "required": ["title", "content"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The auto-generated id of the post"
+          },
+          "title": {
+            "type": "string",
+            "description": "The post title"
+          },
+          "content": {
+            "type": "string",
+            "description": "The post content"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date",
+            "description": "The date the post was added"
+          }
+        },
+        "example": {
+          "id": "d5fE_asz",
+          "title": "The New Turing Omnibus",
+          "content": "An amazing book about computer science.",
+          "createdAt": "2025-11-15T10:00:00.000Z"
+        }
+      },
+      "UserProfile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's unique ID"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User's email address"
+          },
+          "username": {
+            "type": "string",
+            "description": "User's username"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to user's avatar image"
+          }
+        },
+        "example": {
+          "id": "user123",
+          "email": "user@example.com",
+          "username": "testuser",
+          "avatarUrl": "http://example.com/avatar.jpg"
+        }
+      },
+      "UserProfileUpdate": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "New username"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "New URL to user's avatar image"
+          }
+        },
+        "example": {
+          "username": "updateduser",
+          "avatarUrl": "http://example.com/new_avatar.jpg"
+        }
+      },
+      "PasswordChangeRequest": {
+        "type": "object",
+        "required": ["currentPassword", "newPassword"],
+        "properties": {
+          "currentPassword": {
+            "type": "string",
+            "format": "password",
+            "description": "User's current password"
+          },
+          "newPassword": {
+            "type": "string",
+            "format": "password",
+            "description": "User's new password"
+          }
+        },
+        "example": {
+          "currentPassword": "oldpassword123",
+          "newPassword": "newstrongpassword"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
