@@ -15,7 +15,7 @@ export function renderLoginWrap(rootEl) {
 
     <p class="signup_cta">
       아직 회원이 아니신가요?
-      <a href="/signup">회원가입</a>
+      <a href="/auth/signup">회원가입</a>
     </p>
   `;
 }
