@@ -7,7 +7,7 @@ env:
 on:
   push:
     branches:
-      - feat/ci-cd # 테스트때만 해당 브랜치 바로 docker에 반영
+      - feat/ci-cd # CI-CD 구축 때만 해당 브랜치 바로 docker에 반영
   pull_request:
     branches:
         - develop
