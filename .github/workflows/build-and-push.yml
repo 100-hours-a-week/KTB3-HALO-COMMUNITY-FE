@@ -9,7 +9,7 @@ on:
       - feat/ci-cd # 테스트때만 해당 브랜치 바로 docker에 반영
   pull_request:
     branches:
-        - features
+        - develop
   
 jobs:
   build-and-push:
