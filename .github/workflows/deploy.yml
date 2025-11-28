@@ -42,7 +42,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} 'bash -s' <<EOF
           set -e
-          cd /home/${{secrets.SERVER_USER}}/projects/docker/fe
+          cd /home/${{secrets.SERVER_USER}}/project/docker/fe
           docker compose down
           docker compose up -d
           EOF
