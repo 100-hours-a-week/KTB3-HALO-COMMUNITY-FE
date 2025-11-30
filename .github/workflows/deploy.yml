@@ -5,9 +5,6 @@ env:
   IMAGE_TAG: 1.0.0
 
 on:
-  push:
-    branches:
-      - feat/ci-cd # CI-CD 구축 때만 해당 브랜치 바로 docker에 반영
   pull_request:
     branches:
         - develop

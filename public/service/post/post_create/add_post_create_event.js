@@ -1,4 +1,5 @@
 import { API_BASE } from "/config.js";
+import { post_image_lambda_url } from "/config.js";
 
 export function addPostCreateEvent() {
   const submitButton = document.querySelector(".btn_submit");
@@ -22,7 +23,7 @@ export function addPostCreateEvent() {
 
         try {
           const uploadResponse = await fetch(
-            "https://9sdsv6n2dj.execute-api.ap-northeast-2.amazonaws.com/upload/post-image",
+            post_image_lambda_url,
             { method: "POST", body: formData }
           );
 
