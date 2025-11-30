@@ -1,0 +1,147 @@
+name: Express Deploy CI/CD (v1.2)
+
+
+env:
+  IMAGE_TAG: 1.0.0
+
+on:
+  pull_request:
+    branches:
+        - develop
+
+jobs:
+
+
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # 깃허브 액션이 코드가져옴
+      - name: Docker Hub Login
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_TOKEN}}
+
+      - name: Express Image Build and Push
+        run: |
+          docker build -t wonseoop/not-me-fe:1.0.0 . --push
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 1. checkout repo
+        uses: actions/checkout@v2 # 깃허브 액션이 코드가져옴
+
+      # 1. SSH 설정
+      - name: Set up SSH    
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        
+      # 2. 깃허브 액션에서 env 생성
+      - name: Create .env file
+        run: |
+          echo "IMAGE=${{ secrets.IMAGE }}" >> .env       
+      
+
+      # 3. 깃허브 액션에 AWS CLI 설치
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          version: 2
+
+      # 4. 깃허브 액션 CLI 환경변수 설정
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      # 5. FE1 인스턴스 퍼블릭 IP 반환
+      - name: Get FE1 Public IP
+        run: |
+          FE1_IP=$(aws ec2 describe-instances \
+            --filters "Name=tag:Name,Values=Our-Universe-FE1" \
+                      "Name=instance-state-name,Values=running" \
+            --query "Reservations[].Instances[].PublicIpAddress" \
+            --output text \
+          )
+          echo "FE1_IP=$FE1_IP" >> $GITHUB_ENV
+          echo "불러온 FE1 IP => $FE1_IP"
+
+
+      # 6. B2 IP 가져오기
+      - name: Get FE2 Public IP
+        run: |
+          FE2_IP=$(aws ec2 describe-instances \
+            --filters "Name=tag:Name,Values=Our-Universe-FE2" \
+                      "Name=instance-state-name,Values=running" \
+            --query "Reservations[].Instances[].PublicIpAddress" \
+            --output text \
+          )
+          echo "FE2_IP=$FE2_IP" >> $GITHUB_ENV
+          echo "불러온 FE2 IP => $FE2_IP"
+
+
+
+      # 7. B1에 .env 전송
+      - name: Upload .env to FE1
+        run: |
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa .env \
+          ubuntu@$FE1_IP:/home/ubuntu/AWS_DOCKER/fe
+
+
+      # 8. B2에 .env 전송
+      - name: Upload .env to FE2
+        run: |
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa .env \
+          ubuntu@$FE2_IP:/home/${{ secrets.SERVER_USER }}/AWS_DOCKER/fe
+      
+      
+      
+
+      # 9. FE1 배포
+      - name: Deploy to FE1
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@$FE1_IP 'bash -s' <<'EOF'
+            set -e
+            cd /home/ubuntu/AWS_DOCKER/fe
+            docker compose down
+            docker compose pull
+            docker compose up -d
+          EOF
+
+
+
+      # 10. FE2 배포
+      - name: Deploy to FE2
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@$FE2_IP 'bash -s' <<'EOF'
+            set -e
+            cd /home/ubuntu/AWS_DOCKER/fe
+            docker compose down
+            docker compose pull
+            docker compose up -d
+          EOF
+
+    
+    
+    
+
+
+          
+          
+          
+          
+
+
+
+
+     
+
+
+    

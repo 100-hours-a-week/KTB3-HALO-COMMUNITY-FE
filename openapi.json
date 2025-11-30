@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Not ME FE API",
+    "version": "1.0.0",
+    "description": "Static page routes for HALO Community project"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "get": {
+        "summary": "Login page",
+        "responses": {
+          "200": {
+            "description": "HTML page for login"
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "get": {
+        "summary": "Signup page",
+        "responses": {
+          "200": {
+            "description": "HTML page for signup"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "get": {
+        "summary": "Posts list page",
+        "responses": {
+          "200": {
+            "description": "HTML page for posts list"
+          }
+        }
+      }
+    },
+    "/posts/write": {
+      "get": {
+        "summary": "Post creation page",
+        "responses": {
+          "200": {
+            "description": "HTML page for creating a new post"
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "summary": "Post detail page",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "ID of the post"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HTML page for post detail"
+          }
+        }
+      }
+    },
+    "/posts/{id}/edit": {
+      "get": {
+        "summary": "Post edit page",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "ID of the post to edit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HTML page for editing a post"
+          }
+        }
+      }
+    },
+    "/account": {
+      "get": {
+        "summary": "User account page",
+        "responses": {
+          "200": {
+            "description": "HTML page for user account settings"
+          }
+        }
+      }
+    },
+    "/password": {
+      "get": {
+        "summary": "Password change page",
+        "responses": {
+          "200": {
+            "description": "HTML page for changing user password"
+          }
+        }
+      }
+    }
+  }
+}
