@@ -4,8 +4,13 @@ import { rootDir } from "../utils/path.js";
 
 const router = express.Router();
 
-// 게시글 목록 페이지
+
 router.get("/posts", (req, res) => {
+  // This route currently serves an HTML page.
+  // For an API, you would fetch data from a database and return JSON.
+  // Example:
+  // const posts = db.getPosts();
+  // res.json(posts);
   res.sendFile(path.join(rootDir, "public/pages/post/postList/postList.html"));
 });
 
@@ -17,7 +22,6 @@ router.get("/posts/write", (req, res) => {
   res.sendFile(path.join(rootDir, "public/pages/post/post_create/post_create.html"));
 });
 
-// 게시글 상세 페이지   </head>http://localhost:3000/posts/1
 router.get("/posts/:id", (req, res) => {
   res.sendFile(path.join(rootDir, "public/pages/post/post_detail/post_detail.html"));
 });

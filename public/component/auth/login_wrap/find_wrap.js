@@ -5,7 +5,9 @@ export function renderFindWrap(rootEl) {
       <span class="divider">|</span>
       <a href="#" class="find_link">아이디 찾기</a>
       <span class="divider">|</span>
-      <a href="/signup" class="find_link">회원가입</a>
+      <a href="/auth/signup" class="find_link">회원가입</a>
     </div>
   `;
 }
+
+
