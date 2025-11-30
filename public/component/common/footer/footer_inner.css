@@ -1,0 +1,164 @@
+/* NOT ME 푸터 스타일 */
+
+.footer {
+  background: white;
+  border-top: 1px solid rgba(124, 92, 255, 0.1);
+  margin-top: 80px;
+}
+
+.footer_inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px 30px;
+}
+
+/* 푸터 상단 */
+.footer_content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+/* 브랜드 섹션 */
+.footer_brand {
+  max-width: 350px;
+}
+
+.footer_logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #7c5cff;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer_description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.footer_socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social_link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(124, 92, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.social_link:hover {
+  background: #7c5cff;
+  transform: translateY(-2px);
+}
+
+/* 푸터 섹션 */
+.footer_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+}
+
+.footer_links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer_links a {
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer_links a:hover {
+  color: #7c5cff;
+}
+
+/* 푸터 하단 */
+.footer_bottom {
+  border-top: 1px solid rgba(124, 92, 255, 0.1);
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.footer_links_bottom {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+}
+
+.footer_links_bottom a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer_links_bottom a:hover {
+  color: #7c5cff;
+}
+
+.divider {
+  color: #ddd;
+}
+
+.footer_copyright {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #999;
+}
+
+.brand_highlight {
+  font-weight: 700;
+  color: #7c5cff;
+  font-size: 14px;
+}
+
+.footer_contact {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .footer_content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer_brand {
+    max-width: 100%;
+  }
+
+  .footer_links_bottom {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

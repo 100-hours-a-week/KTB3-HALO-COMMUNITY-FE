@@ -1,0 +1,21 @@
+.header_inner {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    text-align: center;
+    padding: 100px 0 36px;
+}
+
+.header_logo {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #7f5eff;
+    /* 브랜드 보라 포인트 */
+    letter-spacing: 1px;
+    margin: 0;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.header_inner a {
+    text-decoration: none;  /* 여기에 적용! */
+}

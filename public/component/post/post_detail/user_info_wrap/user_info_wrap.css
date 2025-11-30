@@ -1,0 +1,67 @@
+.user_info_container {
+    padding: 24px;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+  
+  .user_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user_profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .user_avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+  }
+  
+  .user_details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .user_name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #212121;
+  }
+  
+  .post_date {
+    font-size: 13px;
+    color: #9E9E9E;
+  }
+  
+  .action_buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn_follow,
+  .btn_message {
+    padding: 10px 20px;
+    border: 2px solid #E8EBFF;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #7C5CFF;
+    font-weight: 500;
+  }
+  
+  .btn_edit:hover,
+  .btn_message:hover {
+    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+  }

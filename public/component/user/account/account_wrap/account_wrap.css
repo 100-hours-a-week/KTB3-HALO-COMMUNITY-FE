@@ -1,0 +1,202 @@
+.account_container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 2px 8px rgba(124, 92, 255, 0.08);
+}
+
+.account_title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #212121;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* 프로필 섹션 */
+.profile_section {
+    margin-bottom: 32px;
+}
+
+.profile_label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #212121;
+    margin-bottom: 16px;
+}
+
+.profile_image_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile_image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E8EBFF 0%, #F8F9FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid #E8EBFF;
+}
+
+.profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn_change_profile {
+    padding: 10px 24px;
+    background: #fff;
+    color: #7C5CFF;
+    border: 2px solid #E8EBFF;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_change_profile:hover {
+    background: #F8F9FF;
+    border-color: #9C7FF2;
+}
+
+/* 폼 섹션 */
+.form_section {
+    margin-bottom: 32px;
+}
+
+.form_group {
+    margin-bottom: 24px;
+}
+
+.form_label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #212121;
+    margin-bottom: 10px;
+}
+
+.form_input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #E8EBFF;
+    border-radius: 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    color: #212121;
+}
+
+.form_input:focus {
+    outline: none;
+    border-color: #9C7FF2;
+    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.1);
+}
+
+.form_input:read-only {
+    background: #F8F9FF;
+    color: #9E9E9E;
+    cursor: not-allowed;
+}
+
+.form_input::placeholder {
+    color: #BDBDBD;
+}
+
+.helper_text {
+    display: block;
+    font-size: 12px;
+    color: #FF6B6B;
+    margin-top: 8px;
+}
+
+/* 버튼 그룹 */
+.button_group {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn_primary,
+.btn_secondary {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn_primary {
+    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    color: #fff;
+}
+
+.btn_primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 92, 255, 0.4);
+}
+
+.btn_secondary {
+    background: #fff;
+    color: #FF6B6B;
+    border: 2px solid #FFE8E8;
+}
+
+.btn_secondary:hover {
+    background: #FFE8E8;
+    border-color: #FF6B6B;
+}
+
+/* 로그아웃 섹션 */
+.logout_section {
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    border-top: 1px solid #F0F0F0;
+}
+
+.btn_logout {
+    padding: 14px 48px;
+    background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
+    color: #7C5CFF;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_logout:hover {
+    background: linear-gradient(135deg, #D8DBFF 0%, #C8CBEF 100%);
+    transform: translateY(-2px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .account_container {
+        padding: 24px 16px;
+    }
+
+    .button_group {
+        flex-direction: column;
+    }
+
+    .btn_primary,
+    .btn_secondary {
+        width: 100%;
+    }
+}

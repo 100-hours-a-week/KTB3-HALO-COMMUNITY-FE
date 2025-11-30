@@ -1,0 +1,11 @@
+.gladbanner {
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.gladbanner img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(120, 80, 255, 0.15);
+}

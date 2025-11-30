@@ -1,0 +1,107 @@
+/* ===== 로그인 카드 전체 ===== */
+.login_wrap {
+  width: 100%;
+  max-width: 400px;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+
+
+  padding: 40px 32px;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(160, 120, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid rgba(200, 180, 255, 0.3);
+}
+
+
+
+/* ===== 입력 필드 ===== */
+.input_item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.input_item label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.input_item input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #c9baff;
+  border-radius: 10px;
+  background-color: #faf8ff;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.input_item input::placeholder {
+  color: #aaa;
+}
+
+.input_item input:focus {
+  outline: none;
+  border-color: #8e2de2;
+  box-shadow: 0 0 8px rgba(142, 45, 226, 0.2);
+  background-color: #fff;
+}
+
+/* ===== 로그인 버튼 ===== */
+.btn_login_button {
+  background: linear-gradient(135deg, #a66cff, #7f5eff, #4a00e0);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn_login_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(120, 80, 255, 0.3);
+}
+
+/* ===== 회원가입 안내 ===== */
+.signup_cta {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 24px;
+}
+
+.signup_cta a {
+  color: #7f5eff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+
+.signup_cta a:hover {
+  color: #4a00e0;
+  text-decoration: underline;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 480px) {
+  .login_wrap {
+    padding: 32px 24px;
+    margin: 60px auto;
+  }
+
+
+}
