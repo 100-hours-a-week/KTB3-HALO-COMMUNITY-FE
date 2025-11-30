@@ -7,7 +7,7 @@ env:
 on:
   pull_request:
     branches:
-        - develop
+        - main    # 실제 운영되는 브랜치 develop -> main 으로 변경
 
 jobs:
 
@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 # 깃허브 액션이 코드가져옴
+      
+
+
       - name: Docker Hub Login
         uses: docker/login-action@v3
         with:
