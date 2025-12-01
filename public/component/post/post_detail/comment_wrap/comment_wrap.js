@@ -7,24 +7,34 @@ export function renderCommentWrap(container, comments = []) {
       </div>
       
       <div class="comment_list">
-        ${comments.map(comment => `
-          <div class="comment_item">
+        ${comments
+          .map(
+            (comment) => `
+          <div class="comment_item" data-comment-id="${comment.commentId}">
             <div class="comment_profile">
               <div class="comment_avatar"></div>
               <div class="comment_info">
                 <div class="comment_header">
-                  <span class="comment_author">${comment.nickname || '익명'}</span>
-                  <span class="comment_date">${new Date(comment.createdAt).toLocaleString()}</span>
+                  <span class="comment_author">${comment.nickname || "익명"}</span>
+                  <span class="comment_date">
+                    ${
+                      comment.createdAt
+                        ? new Date(comment.createdAt).toLocaleString()
+                        : ""
+                    }
+                  </span>
                 </div>
-                <p class="comment_text">${comment.content}</p>
+                <p class="comment_text">${comment.content ?? ""}</p>
               </div>
             </div>
             <div class="comment_actions">
-              <button class="btn_edit">수정</button>
-              <button class="btn_delete">삭제</button>
+              <button class="btn_edit" data-comment-id="${comment.commentId}">수정</button>
+              <button class="btn_delete" data-comment-id="${comment.commentId}">삭제</button>
             </div>
           </div>
-        `).join('')}
+        `
+          )
+          .join("")}
       </div>
     </div>
   `;
