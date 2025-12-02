@@ -4,6 +4,224 @@
     min-height: calc(100vh - 200px);
     position: relative;
     padding: 40px 20px;
+    overflow: hidden;
+}
+
+/* 우주 배경 컨테이너 */
+.cosmic-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* 성운 효과 */
+.nebula {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, 
+        hsla(var(--hue, 260), 70%, 60%, 0.15) 0%,
+        hsla(var(--hue, 260), 70%, 50%, 0.1) 30%,
+        transparent 70%);
+    filter: blur(60px);
+    animation: nebulaFloat 20s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes nebulaFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+        opacity: 0.5;
+    }
+}
+
+/* 블랙홀 효과 */
+.black-hole {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 20%,
+        rgba(74, 20, 140, 0.3) 40%,
+        rgba(124, 92, 255, 0.1) 60%,
+        transparent 80%);
+    filter: blur(40px);
+    animation: blackHolePulse 8s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+        0 0 100px rgba(0, 0, 0, 0.8),
+        inset 0 0 80px rgba(74, 20, 140, 0.4);
+}
+
+@keyframes blackHolePulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+.black-hole::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center,
+        rgba(124, 92, 255, 0.2) 0%,
+        transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: blackHoleRotate 10s linear infinite;
+}
+
+@keyframes blackHoleRotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* 날아다니는 별 컨테이너 */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 개별 별 */
+.floating-star {
+    position: absolute;
+    background: rgba(183, 148, 246, 0.9);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 8px rgba(183, 148, 246, 0.8), 
+        0 0 16px rgba(124, 92, 255, 0.6), 
+        0 0 24px rgba(124, 92, 255, 0.3),
+        0 0 40px rgba(183, 148, 246, 0.2);
+    animation: floatStar linear infinite;
+}
+
+.floating-star.shooting {
+    box-shadow: 
+        0 0 12px rgba(183, 148, 246, 1), 
+        0 0 24px rgba(124, 92, 255, 0.8), 
+        0 0 40px rgba(124, 92, 255, 0.5),
+        0 0 60px rgba(183, 148, 246, 0.3);
+}
+
+.floating-star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+}
+
+.floating-star.shooting::before {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(183, 148, 246, 0.8);
+}
+
+.floating-star::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(183, 148, 246, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+.floating-star.shooting::after {
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(ellipse at center, rgba(183, 148, 246, 0.4) 0%, transparent 60%);
+    animation: starPulse 1s ease-in-out infinite;
+}
+
+@keyframes floatStar {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(calc(var(--move-x, 100vw) * 0.5), calc(var(--move-y, -100vh) * 0.5)) scale(1.2) rotate(180deg);
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--move-x, 100vw), var(--move-y, -100vh)) scale(0.3) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.floating-star.shooting {
+    animation: shootingStar linear infinite;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+        filter: blur(0px);
+    }
+    5% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(calc(var(--move-x, 100vw) * 0.5), calc(var(--move-y, -100vh) * 0.5)) scale(1.5);
+        filter: blur(2px);
+    }
+    95% {
+        opacity: 1;
+        filter: blur(1px);
+    }
+    100% {
+        transform: translate(var(--move-x, 100vw), var(--move-y, -100vh)) scale(0.2);
+        opacity: 0;
+        filter: blur(3px);
+    }
+}
+
+@keyframes starPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
 }
 
 /* 건너뛰기 버튼 */
@@ -13,43 +231,91 @@
     right: 30px;
     z-index: 100;
     padding: 10px 20px;
-    background: rgba(102, 126, 234, 0.1);
-    border: 1px solid rgba(102, 126, 234, 0.3);
+    background: rgba(124, 92, 255, 0.15);
+    border: 1px solid rgba(183, 148, 246, 0.4);
     border-radius: 20px;
-    color: #667eea;
+    color: #b794f6;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(124, 92, 255, 0.2);
 }
 
 .skip-btn:hover {
-    background: rgba(102, 126, 234, 0.2);
+    background: rgba(124, 92, 255, 0.25);
+    border-color: rgba(183, 148, 246, 0.6);
     transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(124, 92, 255, 0.4);
+    color: #e9d5ff;
 }
 
 /* 온보딩 컨테이너 */
 .onboarding-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 60px;
+    padding-top: 80px;
+    position: relative;
+    z-index: 1;
 }
 
 .onboarding-title {
     text-align: center;
-    font-size: 42px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 16px;
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #b794f6 0%, #e9d5ff 50%, #b794f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
     letter-spacing: -1px;
+    text-shadow: 0 0 40px rgba(183, 148, 246, 0.5);
+    animation: titleGlow 3s ease-in-out infinite;
+    position: relative;
+}
+
+.onboarding-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(183, 148, 246, 0.3), transparent);
+    filter: blur(40px);
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(183, 148, 246, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(183, 148, 246, 0.8));
+    }
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.2);
+    }
 }
 
 .onboarding-subtitle {
     text-align: center;
     font-size: 18px;
-    color: #666;
-    margin-bottom: 60px;
+    color: #b794f6;
+    margin-bottom: 80px;
     font-weight: 400;
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(183, 148, 246, 0.3);
 }
 
 /* 카테고리 그리드 */
@@ -70,12 +336,35 @@
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(124, 92, 255, 0.3);
+    box-shadow: 0 0 40px rgba(124, 92, 255, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(183, 148, 246, 0.1) 0%, transparent 70%);
+    animation: rotateGlow 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .category-card:hover {
     transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+    border-color: rgba(183, 148, 246, 0.6);
+    box-shadow: 0 0 60px var(--glow-color, rgba(124, 92, 255, 0.4)), 0 30px 80px rgba(0, 0, 0, 0.4);
 }
 
 .category-card:active {
@@ -93,6 +382,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.category-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(183, 148, 246, 0.2), transparent);
+    animation: pulseGlow 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
 }
 
 .category-image::before {
@@ -103,26 +415,27 @@
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(183, 148, 246, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(124, 92, 255, 0.15) 0%, transparent 50%);
 }
 
 .category-card[data-category="random-planet"] {
-    opacity: 0.7;
-    filter: grayscale(30%);
+    opacity: 0.6;
+    filter: grayscale(40%) brightness(0.7);
     cursor: not-allowed;
 }
 
 .category-card[data-category="random-planet"]:hover {
     transform: none;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 40px rgba(124, 92, 255, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-color: rgba(124, 92, 255, 0.3);
 }
 
 .category-card[data-category="random-planet"] .category-image::before {
     background: 
-        radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        rgba(0, 0, 0, 0.15);
+        radial-gradient(circle at 30% 40%, rgba(106, 27, 154, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(74, 20, 140, 0.1) 0%, transparent 50%),
+        rgba(0, 0, 0, 0.3);
 }
 
 /* 오버레이 */
@@ -138,16 +451,22 @@
     font-size: 120px;
     margin-bottom: 30px;
     animation: float 3s ease-in-out infinite;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 0 30px rgba(183, 148, 246, 0.6)) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
     line-height: 1;
 }
 
 @keyframes float {
     0%, 100% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) scale(1.05) rotate(2deg);
     }
     50% {
-        transform: translateY(-15px) scale(1.05);
+        transform: translateY(-20px) scale(1.08) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) scale(1.05) rotate(-2deg);
     }
 }
 
@@ -155,31 +474,37 @@
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 16px;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 30px rgba(183, 148, 246, 0.8), 0 4px 12px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff 0%, #e9d5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .category-description {
     font-size: 20px;
     font-weight: 400;
     opacity: 0.95;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 20px rgba(183, 148, 246, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
     margin-bottom: 24px;
     line-height: 1.6;
+    color: #e9d5ff;
 }
 
 /* 추후 개발 예정 배지 */
 .coming-soon-badge {
     display: inline-block;
     padding: 10px 24px;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(106, 27, 154, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(183, 148, 246, 0.4);
+    text-shadow: 0 0 10px rgba(183, 148, 246, 0.5);
+    box-shadow: 0 0 20px rgba(106, 27, 154, 0.3), inset 0 0 20px rgba(106, 27, 154, 0.1);
+    color: #e9d5ff;
 }
 
 /* 반응형 디자인 */
@@ -196,13 +521,13 @@
     }
 
     .onboarding-title {
-        font-size: 32px;
-        margin-bottom: 12px;
+        font-size: 36px;
+        margin-bottom: 16px;
     }
 
     .onboarding-subtitle {
         font-size: 16px;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
     }
 
     .category-grid {
@@ -234,4 +559,3 @@
         font-size: 13px;
     }
 }
-
