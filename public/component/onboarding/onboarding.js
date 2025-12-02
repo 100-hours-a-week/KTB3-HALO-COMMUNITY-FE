@@ -13,7 +13,8 @@ export function renderOnboarding(container) {
             name: '커뮤니티',
             description: '자유롭게 소통하는 공간',
             icon: '💬',
-            gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            gradient: 'linear-gradient(135deg, #7c5cff 0%, #9b7aff 50%, #b794f6 100%)',
+            glowColor: 'rgba(124, 92, 255, 0.5)',
             available: true
         },
         {
@@ -21,7 +22,8 @@ export function renderOnboarding(container) {
             name: '랜덤 행성 방문',
             description: '다른 행성을 탐험해보세요',
             icon: '🪐',
-            gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            gradient: 'linear-gradient(135deg, #4a148c 0%, #6a1b9a 50%, #7b1fa2 100%)',
+            glowColor: 'rgba(106, 27, 154, 0.4)',
             available: false
         }
     ];
@@ -34,8 +36,9 @@ export function renderOnboarding(container) {
                 <p class="onboarding-subtitle">서비스를 선택하여 시작하세요</p>
                 <div class="category-grid">
                     ${categories.map(category => `
-                        <div class="category-card" data-category="${category.id}">
+                        <div class="category-card" data-category="${category.id}" style="--glow-color: ${category.glowColor};">
                             <div class="category-image" style="background: ${category.gradient};">
+                                <div class="category-glow"></div>
                                 <div class="category-overlay">
                                     <div class="category-icon">${category.icon}</div>
                                     <h3 class="category-name">${category.name}</h3>
