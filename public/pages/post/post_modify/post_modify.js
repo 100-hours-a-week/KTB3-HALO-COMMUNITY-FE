@@ -1,3 +1,5 @@
+// API Client 초기화 (토큰 자동 갱신 활성화)
+import "/utils/initApiClient.js";
 
 import { renderNavigator } from "/component/common/header/navigator/navigator.js";
 import { renderInfoWrap } from "/component/post/post_modify/info_wrap/info_wrap.js";
