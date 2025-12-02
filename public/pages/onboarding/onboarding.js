@@ -2,23 +2,24 @@
 import "/utils/initApiClient.js";
 
 import { renderNavigator } from "/component/common/header/navigator/navigator.js";
-import { renderPostWrap } from "/component/post/post_wrap/post_wrap.js";
 import { renderFooter } from "/component/common/footer/footer_inner.js";
+import { renderOnboarding } from "/component/onboarding/onboarding.js";
+import { addOnboardingEvent } from "/service/onboarding/add_onboarding_event.js";
 
-import { addLogoutEvent } from "/service/auth/logout/addLogoutEvent.js"; // 로그아웃 이벤트
-import { addPostListEvent } from "/service/post/post_list/add_post_list_event.js"
+import { addLogoutEvent } from "/service/auth/logout/addLogoutEvent.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
-    const posts_wrap = document.getElementById("posts_wrap");
+    const onboarding_container = document.getElementById("onboarding_container");
     const footer = document.getElementById("footer");
 
     // 렌더링
     renderNavigator(header);
-    renderPostWrap(posts_wrap);
+    renderOnboarding(onboarding_container);
     renderFooter(footer);
 
     // 이벤트 바인딩
     addLogoutEvent();
-    addPostListEvent(posts_wrap);
+    addOnboardingEvent(onboarding_container);
 });
+
