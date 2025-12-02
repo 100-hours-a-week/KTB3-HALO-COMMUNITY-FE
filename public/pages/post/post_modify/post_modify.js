@@ -31,51 +31,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // 3. 게시글 상세 정보를 가져와서 작성자 확인
-  try {
-    const response = await fetchWithAuth(`/posts/${postId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      alert(errorData.message || "게시글 정보를 불러오는데 실패했습니다.");
-      window.location.href = `/posts/${postId}`;
-      return;
-    }
-
-    const responseData = await response.json();
-    const post = responseData.data;
-
-    // 4. JWT 토큰에서 현재 사용자 ID 추출
-    const decodedToken = decodeJwtToken(accessToken);
-    const currentUserId = decodedToken?.userId;
-
-    if (!currentUserId) {
-      alert('로그인 정보를 확인할 수 없습니다.');
-      window.location.href = '/auth/login';
-      return;
-    }
-
-    // 5. 게시글 작성자 ID 확인 (BE API 응답에 author.userId가 없으므로, 
-    //    게시글 수정 API를 호출해서 권한을 확인)
-    //    실제로는 BE에서 권한 체크를 하므로, 여기서는 로그인 체크만 하고
-    //    실제 권한 검증은 addPostUpdateEvent에서 BE API 호출 시 처리됨
-    //    하지만 사용자 경험을 위해 미리 체크하려면 게시글 수정 API를 먼저 호출해볼 수 있음
-    //    또는 게시글 상세 API 응답에 작성자 ID가 포함되어야 함
-    
-    // 일단 로그인 체크는 완료했으므로, 실제 권한 검증은 addPostUpdateEvent에서
-    // 게시글 수정 API 호출 시 BE에서 처리됨
-
-  } catch (error) {
-    console.error("게시글 정보 로드 중 오류 발생:", error);
-    alert("게시글 정보를 불러오는데 실패했습니다.");
-    window.location.href = '/posts';
-    return;
-  }
+  // 3. 권한 확인은 addPostUpdateEvent에서 게시글 상세 정보를 가져올 때
+  //    게시글 수정 API 호출 시 BE에서 처리됨
+  //    여기서는 로그인 체크만 완료
 
   const header = document.getElementById("header");
   const info_wrap = document.getElementById("info_wrap");

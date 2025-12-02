@@ -9,7 +9,15 @@ export async function addPostUpdateEvent(postId) {
     return;
   }
 
-  // 1. 기존 게시글 데이터를 가져와서 폼을 미리 채웁니다.
+  // 1. 로그인 체크
+  const accessToken = localStorage.getItem('accessToken');
+  if (!accessToken) {
+    alert('로그인이 필요합니다.');
+    window.location.href = '/auth/login';
+    return;
+  }
+
+  // 2. 기존 게시글 데이터를 가져와서 폼을 미리 채웁니다.
   let post; // 업데이트 이벤트 리스너에서 post 데이터에 접근할 수 있도록 함수 스코프에 변수를 선언합니다.
 
   try {
@@ -22,11 +30,47 @@ export async function addPostUpdateEvent(postId) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "게시글 정보를 불러오는데 실패했습니다.");
+      alert(errorData.message || "게시글 정보를 불러오는데 실패했습니다.");
+      window.location.href = `/posts/${postId}`;
+      return;
     }
 
     const responseData = await response.json();
     post = responseData.data;
+
+    // 3. 권한 확인: 게시글 수정 API를 호출해서 권한 확인 (변경사항 없이 호출)
+    //    BE에서 작성자만 수정 가능하도록 체크하므로, 권한이 없으면 에러 발생
+    try {
+      const permissionCheckResponse = await fetchWithAuth(`/posts/${postId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: post.title,
+          content: post.content,
+          imageUrl: post.imageUrl
+        })
+      });
+
+      if (!permissionCheckResponse.ok) {
+        const errorData = await permissionCheckResponse.json();
+        // 권한이 없거나 게시글이 없는 경우
+        if (permissionCheckResponse.status === 403 || permissionCheckResponse.status === 401) {
+          alert('수정 권한이 없습니다. 본인이 작성한 게시글만 수정할 수 있습니다.');
+          window.location.href = `/posts/${postId}`;
+          return;
+        }
+        alert(errorData.message || "게시글 수정 권한을 확인할 수 없습니다.");
+        window.location.href = `/posts/${postId}`;
+        return;
+      }
+    } catch (permissionError) {
+      console.error("권한 확인 중 오류 발생:", permissionError);
+      alert("게시글 수정 권한을 확인할 수 없습니다.");
+      window.location.href = `/posts/${postId}`;
+      return;
+    }
 
     // 폼 필드를 미리 채웁니다.
     document.querySelector(".title_input").value = post.title; // 제목 입력 필드의 클래스로 가정
