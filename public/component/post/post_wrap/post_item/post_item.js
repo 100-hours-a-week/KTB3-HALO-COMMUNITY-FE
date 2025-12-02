@@ -14,7 +14,11 @@ export function renderPostItem(post) {
         </div>
         
         <div class="post-item__author">
-          <div class="post-item__author-img"></div>
+          <div class="post-item__author-img">
+            ${post.profileImageUrl 
+              ? `<img src="${post.profileImageUrl}" alt="${post.author}" />` 
+              : ''}
+          </div>
           <span class="post-item__author-name">${post.author}</span>
         </div>
       </div>

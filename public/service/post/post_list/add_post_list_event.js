@@ -40,7 +40,8 @@ export function addPostListEvent(rootEl) {
                     likes: post.likeCount,
                     comments: post.commentCount,
                     views: post.viewCount,
-                    author: post.nickname
+                    author: post.nickname,
+                    profileImageUrl: post.profileImageUrl
                 })).join("");
 
                 listContainer.innerHTML += postsHTML;
