@@ -1,4 +1,5 @@
 import { bindNavigatorEvents } from '/component/common/header/navigator/bindNavigatorEvents.js';
+import { loadNavigatorProfileImage } from '/service/user/profile/add_navigator_profile_image.js';
 
 export function renderNavigator(rootEl) {
   const isLoggedIn = !!localStorage.getItem('accessToken'); // 로그인 여부 확인
@@ -41,4 +42,9 @@ export function renderNavigator(rootEl) {
 
   // 렌더링 후 이벤트 바인딩
   bindNavigatorEvents(isLoggedIn);
+  
+  // 로그인한 경우 프로필 이미지 로드 (비동기로 실행)
+  if (isLoggedIn) {
+    loadNavigatorProfileImage();
+  }
 }
