@@ -1,0 +1,59 @@
+/* 게시글 목록 래퍼 스타일 */
+.post-wrap {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.post-wrap__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+
+.post-wrap__greeting {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2a2a2a;
+}
+
+.post-wrap__add-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #7c5cff 0%, #9b7aff 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
+}
+
+.post-wrap__add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 92, 255, 0.4);
+}
+
+.post-wrap__back-btn {
+  padding: 8px 16px;
+  background: rgba(124, 92, 255, 0.1);
+  color: #7c5cff;
+  border: 1px solid rgba(124, 92, 255, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.post-wrap__back-btn:hover {
+  background: rgba(124, 92, 255, 0.15);
+  border-color: rgba(124, 92, 255, 0.3);
+}
+
+.post-wrap__list {
+  width: 100%;
+}
+
