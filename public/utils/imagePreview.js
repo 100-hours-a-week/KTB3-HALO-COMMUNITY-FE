@@ -79,9 +79,16 @@ export function setupImagePreview(
         return;
     }
 
+    // 이미 설정되었는지 확인 (중복 등록 방지)
+    if (imageInput.dataset.previewSetup === 'true') {
+        return;
+    }
+
     // 업로드 버튼 클릭 시 파일 선택
     if (uploadButton) {
-        uploadButton.addEventListener("click", () => {
+        uploadButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             imageInput.click();
         });
     }
@@ -93,5 +100,8 @@ export function setupImagePreview(
             displayImageFilePreview(file, imagePreview, imagePlaceholder);
         }
     });
+
+    // 설정 완료 표시
+    imageInput.dataset.previewSetup = 'true';
 }
 

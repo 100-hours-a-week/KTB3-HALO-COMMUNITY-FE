@@ -1,5 +1,7 @@
 import { API_BASE } from "/config.js";
+import { post_image_lambda_url } from "/config.js";
 import { setupImagePreview, displayImageUrlPreview } from "/utils/imagePreview.js";
+import { fetchWithAuth } from "/utils/fetchWithAuth.js";
 
 export async function addPostUpdateEvent(postId) {
   if (!postId) {
@@ -8,21 +10,13 @@ export async function addPostUpdateEvent(postId) {
   }
 
   // 1. 기존 게시글 데이터를 가져와서 폼을 미리 채웁니다.
-  const token = localStorage.getItem("accessToken");
-  if (!token) {
-    alert("로그인이 필요합니다.");
-    window.location.href = "/login";
-    return;
-  }
-
   let post; // 업데이트 이벤트 리스너에서 post 데이터에 접근할 수 있도록 함수 스코프에 변수를 선언합니다.
 
   try {
-    const response = await fetch(`${API_BASE}/posts/${postId}`, {
+    const response = await fetchWithAuth(`/posts/${postId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
       }
     });
 
@@ -73,11 +67,31 @@ export async function addPostUpdateEvent(postId) {
         return;
       }
 
-      // 새 이미지를 선택한 경우, 먼저 업로드하여 새 imageUrl을 받아야 합니다.
-      // 지금은 이미지 업로드가 별도의 단계이거나 이 업데이트에서 처리되지 않는다고 가정합니다.
+      let imageUrl = post.imageUrl || ""; // 기본값은 기존 이미지 URL
+
+      // 새 이미지를 선택한 경우 Lambda로 업로드
       if (imageFile) {
-        alert("새 이미지 업로드는 별도의 API 호출이 필요합니다. 현재는 기존 이미지 URL을 유지합니다.");
-        // TODO: 새 imageUrl을 얻기 위한 이미지 업로드 로직 구현
+        const formData = new FormData();
+        formData.append("profileImage", imageFile);
+
+        try {
+          const uploadResponse = await fetch(
+            post_image_lambda_url,
+            { method: "POST", body: formData }
+          );
+
+          if (!uploadResponse.ok) {
+            alert("이미지 업로드 실패");
+            return;
+          }
+
+          const uploadResult = await uploadResponse.json();
+          imageUrl = uploadResult.data?.filePath || uploadResult.data?.imageUrl || uploadResult.filePath || "";
+        } catch (error) {
+          console.error("이미지 업로드 중 오류 발생:", error);
+          alert("이미지 업로드 중 오류가 발생했습니다.");
+          return;
+        }
       }
 
       const updatedFields = {};
@@ -87,26 +101,21 @@ export async function addPostUpdateEvent(postId) {
       if (content !== post.content) {
         updatedFields.content = content;
       }
-      // TODO: imageUrl 변경 처리 로직 추가 필요
+      // 이미지가 변경되었거나 새로 업로드된 경우 imageUrl 업데이트
+      if (imageUrl !== (post.imageUrl || "")) {
+        updatedFields.imageUrl = imageUrl;
+      }
 
       if (Object.keys(updatedFields).length === 0) {
         alert("변경된 내용이 없습니다.");
         return;
       }
 
-      const accessToken = localStorage.getItem('accessToken');
-      if (!accessToken) {
-        alert('로그인이 필요합니다.');
-        window.location.href = '/login';
-        return;
-      }
-
       try {
-        const response = await fetch(`${API_BASE}/posts/${postId}`, {
-          method: "PATCH", // 부분 업데이트를 위해 PUT 대신 PATCH를 사용합니다.
+        const response = await fetchWithAuth(`/posts/${postId}`, {
+          method: "PATCH",
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${accessToken}`,
           },
           body: JSON.stringify(updatedFields),
         });

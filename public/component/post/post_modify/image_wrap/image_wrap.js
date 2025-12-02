@@ -6,7 +6,7 @@ export function renderImageWrap(container) {
           <span class="image_placeholder">이미지를 선택해주세요</span>
         </div>
         <input type="file" id="image_input" class="image_input" accept="image/*" hidden>
-        <button class="btn_image_upload" onclick="document.getElementById('image_input').click()">
+        <button type="button" class="btn_image_upload">
           이미지 업로드
         </button>
       </div>
