@@ -42,13 +42,13 @@ export function isTokenExpired(token) {
     const exp = getTokenExpiration(token);
     if (!exp) return true;
 
-    // 현재 시간보다 5분 이상 지났으면 만료로 간주
+    // 현재 시간보다 작거나 같으면 만료
     const now = Math.floor(Date.now() / 1000);
-    return exp <= now + 300; // 5분(300초) 여유
+    return exp <= now;
 }
 
 /**
- * Access Token이 만료 예정인지 확인 (1시간 이내 만료)
+ * Access Token이 만료 예정인지 확인 (5분 이내 만료)
  * @param {string} token - JWT Access Token
  * @returns {boolean} 만료 예정 여부
  */
@@ -56,9 +56,9 @@ export function isTokenExpiringSoon(token) {
     const exp = getTokenExpiration(token);
     if (!exp) return true;
 
-    // 현재 시간 + 1시간보다 작으면 곧 만료 예정
+    // 현재 시간 + 5분보다 작거나 같으면 곧 만료 예정
     const now = Math.floor(Date.now() / 1000);
-    const oneHour = 3600;
-    return exp <= now + oneHour;
+    const fiveMinutes = 300; // 5분(300초)
+    return exp <= now + fiveMinutes;
 }
 

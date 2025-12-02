@@ -1,4 +1,5 @@
 import { API_BASE } from "/config.js";
+import { fetchWithAuth } from "/utils/fetchWithAuth.js";
 import { renderUserInfoWrap } from "/component/post/post_detail/user_info_wrap/user_info_wrap.js";
 import { renderArticleWrap } from "/component/post/post_detail/article_wrap/article_wrap.js";
 import { renderStatsWrap } from "/component/post/post_detail/stats_wrap/stats_wrap.js";
@@ -17,18 +18,12 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
     if (!postId) return console.error("postId가 필요합니다.");
 
     try {
-        // 1. 게시글 상세 조회
-        const token = localStorage.getItem("accessToken");
-        const detailRes = await fetch(`${API_BASE}/posts/${postId}`, {
+        // 1. 게시글 상세 조회 (토큰 자동 갱신)
+        const detailRes = await fetchWithAuth(`/posts/${postId}`, {
             method: "GET",
-            headers: token
-                ? {
-                      "Content-Type": "application/json",
-                      Authorization: `Bearer ${token}`,
-                  }
-                : {
-                      "Content-Type": "application/json",
-                  },
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
 
         if (!detailRes.ok) {
