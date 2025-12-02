@@ -21,6 +21,18 @@
     height: 48px;
     border-radius: 50%;
     background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .user_avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
   
   .user_details {

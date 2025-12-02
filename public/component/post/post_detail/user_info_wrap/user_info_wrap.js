@@ -1,9 +1,13 @@
-export function renderUserInfoWrap(container, user = { nickname: "익명", createdAt: "" }, postId) {
+export function renderUserInfoWrap(container, user = { nickname: "익명", profileImageUrl: null, createdAt: "" }, postId) {
   container.innerHTML = `
     <div class="user_info_container">
       <div class="user_header">
         <div class="user_profile">
-          <div class="user_avatar"></div>
+          <div class="user_avatar">
+            ${user.profileImageUrl 
+              ? `<img src="${user.profileImageUrl}" alt="${user.nickname}" />` 
+              : ''}
+          </div>
           <div class="user_details">
             <span class="user_name">${user.nickname}</span>
             <span class="post_date">${new Date(user.createdAt).toLocaleString()}</span>

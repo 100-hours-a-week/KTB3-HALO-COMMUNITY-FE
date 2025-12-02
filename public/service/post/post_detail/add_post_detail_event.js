@@ -35,7 +35,11 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
         // 2. 댓글 리스트 조회
         const comments = await fetchComments(postId);
 
-        renderUserInfoWrap(userInfoEl, { nickname: data.nickname, createdAt: data.createdAt }, postId);
+        renderUserInfoWrap(userInfoEl, { 
+            nickname: data.author?.nickname || '익명', 
+            profileImageUrl: data.author?.profileImageUrl,
+            createdAt: data.createdAt 
+        }, postId);
         renderArticleWrap(articleEl, { title: data.title, content: data.content, imageUrl: data.imageUrl });
         renderStatsWrap(statsEl, { likeCount: data.likeCount, viewCount: data.viewCount, commentCount: data.commentCount });
         renderCommentWrap(commentEl, comments);
