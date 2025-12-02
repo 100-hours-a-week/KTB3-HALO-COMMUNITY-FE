@@ -8,6 +8,7 @@ import { renderFooter } from "/component/common/footer/footer_inner.js";
 import { addProfileLoadEvent } from "/service/user/profile/add_profile_load_event.js";
 import { addProfileChangeEvent } from "/service/user/profile/add_profile_change_event.js";
 import { addProfileDeleteEvent } from "/service/user/profile/add_profile_delete_event.js";
+import { addProfileImageChangeEvent } from "/service/user/profile/add_profile_image_change_event.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFooter(footer);
 
     addProfileLoadEvent(account_wrap);
+    addProfileImageChangeEvent(account_wrap); // 프로필 이미지 변경 이벤트
     addProfileChangeEvent(account_wrap);
     addProfileDeleteEvent(account_wrap);
 });
