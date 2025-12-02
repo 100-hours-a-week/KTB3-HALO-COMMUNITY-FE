@@ -37,7 +37,7 @@ export function renderPostWrap(rootEl) {
       const isLoggedIn = !!localStorage.getItem('accessToken');
       if (!isLoggedIn) {
           alert('게시글을 작성하려면 로그인이 필요합니다.');
-          window.location.href = 'auth/login';
+          window.location.href = '/auth/login';
           return;
       }
       window.location.href = '/posts/write';
