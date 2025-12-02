@@ -1,4 +1,5 @@
 import { API_BASE } from "/config.js";
+import { setupImagePreview, displayImageUrlPreview } from "/utils/imagePreview.js";
 
 export async function addPostUpdateEvent(postId) {
   if (!postId) {
@@ -36,14 +37,27 @@ export async function addPostUpdateEvent(postId) {
     // 폼 필드를 미리 채웁니다.
     document.querySelector(".title_input").value = post.title; // 제목 입력 필드의 클래스로 가정
     document.querySelector(".article_textarea").value = post.content; // 내용 입력 필드의 클래스로 가정
-    // 기존 이미지가 있는 경우, 표시하고 변경할 수 있는 옵션을 제공할 수 있습니다.
-    // 지금은 텍스트 필드만 미리 채웁니다.
+    
+    // 기존 이미지가 있는 경우 미리보기 표시
+    const imagePreview = document.querySelector(".image_preview");
+    const imagePlaceholder = document.querySelector(".image_placeholder");
+    if (post.imageUrl) {
+      displayImageUrlPreview(post.imageUrl, imagePreview, imagePlaceholder, "기존 이미지");
+    }
 
   } catch (error) {
     console.error("게시글 정보 로드 중 오류 발생:", error);
     alert(`게시글 정보 로드 실패: ${error.message}`);
     return;
   }
+
+  // 이미지 미리보기 기능 설정
+  setupImagePreview(
+    "#image_input",
+    ".image_preview",
+    ".image_placeholder",
+    ".btn_image_upload"
+  );
 
   // 2. 게시글 수정을 위한 폼 제출을 처리합니다.
   const updateButton = document.querySelector(".btn_submit"); // 이 클래스를 가진 버튼으로 가정
