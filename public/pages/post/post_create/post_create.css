@@ -1,26 +1,62 @@
 body {
-    background: linear-gradient(180deg, #f8f9ff 0%, #e8ebff 100%);
-    font-family: "Pretendard", sans-serif;
+    background: linear-gradient(135deg, #0F161E 0%, #1A2530 30%, #253040 60%, #0F161E 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+.wrap {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* 배경 이미지 */
+    background-image: url('https://not-me-be.s3.ap-northeast-2.amazonaws.com/public/image/curation/profileImage-1764742698193-797787277.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 22, 30, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(26, 37, 48, 0.2);
+    border-bottom: 1px solid rgba(53, 64, 80, 0.2);
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .post_create_wrap {
-    background: #fff;
-    border-radius: 24px;
+    background: rgba(97, 109, 124, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 4px 16px rgba(124, 92, 255, 0.1);
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    box-shadow: 0 0 40px rgba(26, 37, 48, 0.15);
 }
 
 .page_title {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 800;
     margin-bottom: 32px;
-    color: #212121;
+    background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 50%, #B8C0C8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+    text-align: center;
 }
 
 .form_group {
@@ -32,44 +68,158 @@ body {
 .form_group label {
     margin-bottom: 8px;
     font-weight: 600;
-    color: #333;
+    color: #B8C0C8;
+    text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
+    font-size: 14px;
 }
 
 .post_title,
 .post_content {
-    border: 2px solid #e8ebff;
-    border-radius: 16px;
-    padding: 16px;
+    background: rgba(15, 22, 30, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    border-radius: 12px;
+    padding: 14px;
     font-size: 14px;
-    transition: all 0.3s ease;
+    color: #B8C0C8;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post_title::placeholder,
+.post_content::placeholder {
+    color: #889098;
+    opacity: 0.6;
 }
 
 .post_title:focus,
 .post_content:focus {
     outline: none;
-    border-color: #9c7ff2;
-    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.1);
+    border-color: rgba(64, 74, 85, 0.6);
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
 }
 
 .post_content {
     min-height: 200px;
     resize: vertical;
+    font-family: inherit;
 }
 
 .btn_submit {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #9c7ff2 0%, #7c5cff 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #253040 0%, #354050 100%);
+    color: #B8C0C8;
     border: none;
-    border-radius: 16px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+    margin-top: 8px;
 }
 
 .btn_submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
+    background: linear-gradient(135deg, #354050 0%, #253040 100%);
+    box-shadow: 0 0 30px rgba(53, 64, 80, 0.5);
+    color: #fff;
+}
+
+/* 이미지 미리보기 영역 */
+.image_preview_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.image_preview {
+    width: 100%;
+    height: 200px;
+    background: rgba(15, 22, 30, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(53, 64, 80, 0.3);
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.2s ease;
+}
+
+.image_preview:hover {
+    border-color: rgba(64, 74, 85, 0.5);
+}
+
+.image_preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.image_placeholder {
+    font-size: 14px;
+    color: #889098;
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
+}
+
+.btn_image_upload {
+    width: 100%;
+    padding: 14px;
+    background: rgba(26, 37, 48, 0.15);
+    color: #B8C0C8;
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn_image_upload:hover {
+    background: rgba(37, 48, 64, 0.25);
+    border-color: rgba(64, 74, 85, 0.5);
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 16px;
+    }
+
+    .post_create_wrap {
+        padding: 24px;
+    }
+
+    .page_title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .form_group {
+        margin-bottom: 20px;
+    }
+
+    .post_title,
+    .post_content {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .post_content {
+        min-height: 150px;
+    }
+
+    .btn_submit {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .image_preview {
+        height: 180px;
+    }
 }

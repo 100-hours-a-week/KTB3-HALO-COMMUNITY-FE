@@ -13,20 +13,22 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: linear-gradient(135deg, #F8F9FF 0%, #E8EBFF 100%);
+  background: linear-gradient(135deg, rgba(26, 37, 48, 0.3) 0%, rgba(37, 48, 64, 0.2) 100%);
   border-radius: 20px;
   transition: all 0.3s ease;
+  border: 1px solid rgba(53, 64, 80, 0.2);
 }
 
 .stat_card:hover {
   transform: translateY(-4px);
-  background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
+  background: linear-gradient(135deg, rgba(37, 48, 64, 0.4) 0%, rgba(26, 37, 48, 0.3) 100%);
+  border-color: rgba(53, 64, 80, 0.4);
 }
 
 .stat_number {
   font-size: 32px;
   font-weight: 700;
-  background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+  background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -35,6 +37,10 @@
 
 .stat_label {
   font-size: 13px;
-  color: #757575;
+  color: #889098;
   font-weight: 500;
+}
+
+#like_stat_card {
+  cursor: pointer;
 }

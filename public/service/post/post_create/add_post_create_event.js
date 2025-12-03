@@ -1,14 +1,24 @@
 import { API_BASE } from "/config.js";
 import { post_image_lambda_url } from "/config.js";
+import { setupImagePreview } from "/utils/imagePreview.js";
 
 export function addPostCreateEvent() {
+  // 이미지 미리보기 기능 설정
+  setupImagePreview(
+    ".post_image",
+    ".image_preview",
+    ".image_placeholder",
+    ".btn_image_upload"
+  );
+
+  const imageInput = document.querySelector(".post_image");
+
   const submitButton = document.querySelector(".btn_submit");
   if (submitButton) {
     submitButton.addEventListener("click", async () => {
       const title = document.querySelector(".post_title").value;
       const content = document.querySelector(".post_content").value;
-      const imageInput = document.querySelector(".post_image");
-      const imageFile = imageInput.files[0];
+      const imageFile = imageInput?.files[0];
       let imageUrl = ""; // Default to empty string
 
       if (!title || !content) {
@@ -50,7 +60,7 @@ export function addPostCreateEvent() {
       const accessToken = localStorage.getItem('accessToken');
       if (!accessToken) {
         alert('로그인이 필요합니다.');
-        window.location.href = '/login';
+        window.location.href = '/auth/login';
         return;
       }
 

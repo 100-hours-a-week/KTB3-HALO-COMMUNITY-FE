@@ -2,13 +2,21 @@ import { API_BASE } from "/config.js";
 import { renderPostItem } from "/component/post/post_wrap/post_item/post_item.js";
 
 export function addPostListEvent(rootEl) {
-    if (!rootEl) return;
-
-    const listContainer = rootEl.querySelector(".post-wrap__list");
-    if (!listContainer) {
-        console.error("post-wrap__list 요소를 찾을 수 없습니다.");
+    if (!rootEl) {
+        console.error("rootEl이 없습니다.");
         return;
     }
+
+    // renderPostWrap이 실행된 후에 호출되므로 .post-wrap__list를 찾기
+    const listContainer = rootEl.querySelector(".post-wrap__list");
+    
+    if (!listContainer) {
+        console.error("post-wrap__list 요소를 찾을 수 없습니다.");
+        console.error("rootEl.innerHTML:", rootEl.innerHTML.substring(0, 200));
+        return;
+    }
+    
+    console.log("게시글 목록 로드 시작");
 
     let nextCursor = 0;
     let hasNext = true;
@@ -36,11 +44,14 @@ export function addPostListEvent(rootEl) {
                 const postsHTML = data.posts.map(post => renderPostItem({
                     id: post.postId,
                     title: post.title,
-                    date: new Date(post.createdAt).toLocaleString(),
+                    content: post.content || '',
+                    postImageUrl: post.postImageUrl || '',
+                    date: post.createdAt,
                     likes: post.likeCount,
                     comments: post.commentCount,
                     views: post.viewCount,
-                    author: post.nickname
+                    author: post.nickname,
+                    profileImageUrl: post.profileImageUrl
                 })).join("");
 
                 listContainer.innerHTML += postsHTML;

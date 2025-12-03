@@ -6,13 +6,11 @@ const router = express.Router();
 
 
 
-router.get("/auth/login", (req, res) => {
+router.get("/login", (req, res) => {
   res.sendFile(path.join(rootDir, "public/pages/auth/login/login.html"));
 });
 
-
-
-router.get("/auth/signup", (req, res) => {
+router.get("/signup", (req, res) => {
   res.sendFile(path.join(rootDir, "public/pages/auth/signup/signup.html"));
 });
 

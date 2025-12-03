@@ -20,7 +20,19 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    background: linear-gradient(135deg, #253040 0%, #354050 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .user_avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
   
   .user_details {
@@ -32,12 +44,13 @@
   .user_name {
     font-weight: 600;
     font-size: 15px;
-    color: #212121;
+    color: #E0E8F0;
+    text-shadow: 0 0 10px rgba(224, 232, 240, 0.2);
   }
   
   .post_date {
     font-size: 13px;
-    color: #9E9E9E;
+    color: #A0A8B0;
   }
   
   .action_buttons {
@@ -48,20 +61,22 @@
   .btn_follow,
   .btn_message {
     padding: 10px 20px;
-    border: 2px solid #E8EBFF;
+    border: 2px solid rgba(64, 74, 85, 0.5);
     border-radius: 20px;
-    background-color: #fff;
+    background: linear-gradient(135deg, rgba(37, 48, 64, 0.5) 0%, rgba(26, 37, 48, 0.4) 100%);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: #7C5CFF;
-    font-weight: 500;
+    color: #E0E8F0;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(15, 22, 30, 0.3);
   }
   
-  .btn_edit:hover,
+  .btn_follow:hover,
   .btn_message:hover {
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    background: linear-gradient(135deg, #354050 0%, #253040 100%);
     color: #fff;
-    border-color: transparent;
+    border-color: rgba(74, 84, 95, 0.7);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(53, 64, 80, 0.5);
   }

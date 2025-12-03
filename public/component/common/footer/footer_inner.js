@@ -9,10 +9,10 @@ export function renderFooter(rootEl) {
     <div class="footer_inner">
       <div class="footer_content">
         <div class="footer_section footer_brand">
-          <h3 class="footer_logo">NOT ME</h3>
+          <h3 class="footer_logo">Our Universe</h3>
           <p class="footer_description">
             "가끔 너가 아니여도 돼"<br>
-            나다움과 개성을 강요받는 세상에 지쳐 모인 곳, Not Me
+            나다움과 개성을 강요받는 세상에 지쳐 모인 곳, Our Universe
           </p>
           <div class="footer_socials">
             <a href="#" class="social_link" aria-label="Thread">🧵</a>
@@ -50,7 +50,7 @@ export function renderFooter(rootEl) {
       </div>
 
       <div class="footer_bottom">
-        <p class="footer_copyright">© 2025 NOT ME. All rights reserved.</p>
+        <p class="footer_copyright">© 2025 Our Universe. All rights reserved.</p>
         <p class="footer_contact">문의: dongjin778@naver.com | 대표: Halo | 사업자등록번호: 123-45-67890</p>
       </div>
     </div>

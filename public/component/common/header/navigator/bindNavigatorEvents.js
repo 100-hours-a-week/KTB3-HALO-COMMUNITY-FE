@@ -17,6 +17,16 @@ export function bindNavigatorEvents(isLoggedIn) {
     dropdownMenu.classList.remove('show');
   };
 
+  // 설정 메뉴 클릭 이벤트
+  const settingLink = dropdownMenu.querySelector('a[href="/users/edit-profile"]');
+  if (settingLink) {
+    settingLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdownMenu.classList.remove('show');
+      alert('추후 개발될 예정입니다.');
+    });
+  }
+
   // 로그인/로그아웃 이벤트 분리 호출
   addLogoutEvent(authBtn, isLoggedIn);
 }

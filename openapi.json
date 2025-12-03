@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Not ME FE API",
+    "title": "Our Universe FE API",
     "version": "1.0.0",
     "description": "Static page routes for HALO Community project"
   },

@@ -1,3 +1,6 @@
+// API Client 초기화 (토큰 자동 갱신 활성화)
+import "/utils/initApiClient.js";
+
 import { renderNavigator } from "/component/common/header/navigator/navigator.js";
 import { renderPostWrap } from "/component/post/post_wrap/post_wrap.js";
 import { renderFooter } from "/component/common/footer/footer_inner.js";
@@ -16,6 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFooter(footer);
 
     // 이벤트 바인딩
-    addLogoutEvent();       // 로그아웃
-    addPostListEvent(posts_wrap);     // 게시글 리스트
+    addLogoutEvent();
+    addPostListEvent(posts_wrap);
 });
