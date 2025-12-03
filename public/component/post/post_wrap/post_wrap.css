@@ -2,8 +2,11 @@
 .post-wrap {
   width: 100%;
   padding: 20px 0;
-  background: white;
-  border-radius: 8px;
+  background: rgba(26, 10, 46, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 2px solid rgba(124, 92, 255, 0.3);
+  box-shadow: 0 0 40px rgba(124, 92, 255, 0.15);
   overflow: hidden;
 }
 
@@ -11,15 +14,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 0 20px;
+  margin-bottom: 16px;
+  padding: 0 16px;
 }
 
 .post-wrap__title {
   font-size: 18px;
-  font-weight: 600;
-  color: #2a2a2a;
+  font-weight: 700;
+  background: linear-gradient(135deg, #b794f6 0%, #e9d5ff 50%, #b794f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0;
+  text-shadow: 0 0 20px rgba(183, 148, 246, 0.3);
 }
 
 .post-wrap__add-btn {
@@ -27,46 +34,49 @@
   background: linear-gradient(135deg, #7c5cff 0%, #9b7aff 100%);
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 13px;
+  border-radius: 8px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 20px rgba(124, 92, 255, 0.3);
 }
 
 .post-wrap__add-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
+  background: linear-gradient(135deg, #9b7aff 0%, #b794f6 100%);
+  box-shadow: 0 0 30px rgba(124, 92, 255, 0.5);
 }
 
 .post-wrap__back-btn {
   padding: 8px 16px;
-  background: rgba(124, 92, 255, 0.1);
-  color: #7c5cff;
-  border: 1px solid rgba(124, 92, 255, 0.2);
+  background: rgba(124, 92, 255, 0.15);
+  color: #e9d5ff;
+  border: 1px solid rgba(124, 92, 255, 0.3);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(10px);
 }
 
 .post-wrap__back-btn:hover {
-  background: rgba(124, 92, 255, 0.15);
-  border-color: rgba(124, 92, 255, 0.3);
+  background: rgba(124, 92, 255, 0.25);
+  border-color: rgba(183, 148, 246, 0.5);
 }
 
 /* 카드 그리드 스타일 */
 .post-wrap__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 20px 0;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 12px;
 }
 
 @media (max-width: 768px) {
   .post-wrap__list {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 10px;
+    padding: 10px;
   }
 }

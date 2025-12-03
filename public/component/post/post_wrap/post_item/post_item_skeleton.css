@@ -1,16 +1,16 @@
 /* 스켈레톤 UI 스타일 - CLS 0 유지 */
 .post-item--skeleton {
     pointer-events: none;
-    min-height: 480px; /* 실제 카드와 동일한 높이 */
-    height: 480px;
-    max-height: 480px;
+    min-height: 240px; /* 실제 카드와 동일한 높이 */
+    height: 240px;
+    max-height: 240px;
 }
 
 .skeleton-image {
     width: 100%;
-    height: 200px;
-    min-height: 200px;
-    max-height: 200px;
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
     aspect-ratio: 16 / 9;
     background: linear-gradient(
         90deg,
@@ -23,12 +23,12 @@
 }
 
 .skeleton-avatar {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    max-width: 40px;
-    max-height: 40px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    max-width: 24px;
+    max-height: 24px;
     border-radius: 50%;
     background: linear-gradient(
         90deg,
@@ -54,23 +54,23 @@
 }
 
 .skeleton-text--name {
-    width: 80px;
-    height: 21px; /* 15px * 1.4 line-height */
-    min-height: 21px;
-    max-height: 21px;
+    width: 60px;
+    height: 15.4px; /* 11px * 1.4 line-height */
+    min-height: 15.4px;
+    max-height: 15.4px;
     margin-bottom: 2px; /* gap: 2px */
 }
 
 .skeleton-text--desc {
-    width: 120px;
-    height: 18.2px; /* 13px * 1.4 line-height */
-    min-height: 18.2px;
-    max-height: 18.2px;
+    width: 80px;
+    height: 12.6px; /* 9px * 1.4 line-height */
+    min-height: 12.6px;
+    max-height: 12.6px;
 }
 
 /* 작성자 정보 영역 고정 높이 */
 .post-item--skeleton .post-item__author-info {
-    min-height: 40px;
+    min-height: 24px;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -79,10 +79,10 @@
 
 .skeleton-text--title {
     width: 100%;
-    height: 20px;
-    min-height: 20px;
-    max-height: 20px;
-    margin-bottom: 8px;
+    height: 15px;
+    min-height: 15px;
+    max-height: 15px;
+    margin-bottom: 5px;
 }
 
 .skeleton-text--title:last-of-type {
@@ -92,30 +92,30 @@
 
 /* 제목 영역 전체 높이 고정 (2줄) */
 .post-item--skeleton .post-item__content > .skeleton-text--title:first-of-type {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .post-item--skeleton .post-item__content > .skeleton-text--title:last-of-type {
-    margin-bottom: 12px; /* 다음 요소와의 간격 */
+    margin-bottom: 8px; /* 다음 요소와의 간격 */
 }
 
 .skeleton-text--content {
     width: 100%;
-    height: 14px;
-    min-height: 14px;
-    max-height: 14px;
-    margin-bottom: 6px;
+    height: 10px;
+    min-height: 10px;
+    max-height: 10px;
+    margin-bottom: 4px;
 }
 
 .skeleton-text--content:last-of-type {
     width: 85%;
-    margin-bottom: 12px; /* 다음 요소와의 간격 */
+    margin-bottom: 8px; /* 다음 요소와의 간격 */
 }
 
 .skeleton-text--stat {
-    width: 40px;
-    height: 14px;
-    min-height: 14px;
-    max-height: 14px;
+    width: 30px;
+    height: 10px;
+    min-height: 10px;
+    max-height: 10px;
 }
 
