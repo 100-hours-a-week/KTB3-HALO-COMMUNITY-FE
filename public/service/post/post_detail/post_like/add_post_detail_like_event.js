@@ -33,20 +33,21 @@ export function addPostDetailLikeEvent() {
 
       if (response.ok) {
         const result = await response.json();
+        const { postId, liked } = result.data;
         
         // 좋아요 수 업데이트
         const statNumber = document.querySelector('#like_stat_card .stat_number');
         if (statNumber) {
           const currentCount = parseInt(statNumber.textContent) || 0;
-          const newCount = isLiked ? currentCount - 1 : currentCount + 1;
+          const newCount = liked ? currentCount + 1 : Math.max(0, currentCount - 1);
           statNumber.textContent = newCount;
         }
 
-        // 카드 상태 토글
-        if (isLiked) {
-          likeCard.classList.remove('liked');
-        } else {
+        // 카드 상태 업데이트
+        if (liked) {
           likeCard.classList.add('liked');
+        } else {
+          likeCard.classList.remove('liked');
         }
       } else {
         const errorData = await response.json().catch(() => ({}));
