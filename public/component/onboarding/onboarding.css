@@ -437,15 +437,16 @@
 }
 
 .category-card[data-category="random-planet"] {
-    opacity: 1;
-    filter: none;
+    opacity: 0.8;
+    filter: grayscale(40%) brightness(0.8);
     cursor: not-allowed;
 }
 
 .category-card[data-category="random-planet"]:hover {
     transform: none;
-    box-shadow: 0 0 40px rgba(26, 37, 48, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3);
-    border-color: rgba(37, 48, 64, 0.3);
+    opacity: 0.9;
+    box-shadow: 0 0 40px rgba(26, 37, 48, 0.1), 0 20px 60px rgba(0, 0, 0, 0.2);
+    border-color: rgba(37, 48, 64, 0.2);
 }
 
 .category-card[data-category="random-planet"] .category-image::before {
