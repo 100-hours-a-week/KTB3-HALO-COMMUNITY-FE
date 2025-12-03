@@ -38,12 +38,12 @@ export async function loadNavigatorProfileImage() {
                 img.src = profileImageUrl;
                 img.alt = '프로필';
                 img.style.width = '100%';
-                img.style.height = '100%';
+                img.style.height = '100%';ㄴ
                 img.style.objectFit = 'cover';
                 img.style.borderRadius = '50%';
                 img.onerror = () => {
                     // 이미지 로드 실패 시 기본 이모지로 복귀
-                    profileAvatar.innerHTML = '🐱';
+                    profileAvatar.innerHTML = '⚒️';
                     profileAvatar.style.background = '#333';
                 };
                 
