@@ -643,7 +643,7 @@
 }
 
 .manual-card {
-    background: linear-gradient(135deg, rgba(15, 22, 30, 0.7) 0%, rgba(26, 37, 48, 0.6) 100%);
+    background: rgba(97, 109, 124, 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 2px solid rgba(37, 48, 64, 0.3);
@@ -677,7 +677,7 @@
         0 0 60px rgba(53, 64, 80, 0.5),
         0 30px 80px rgba(15, 22, 30, 0.5),
         inset 0 1px 0 rgba(64, 74, 85, 0.2);
-    background: linear-gradient(135deg, rgba(15, 22, 30, 0.8) 0%, rgba(26, 37, 48, 0.7) 100%);
+    background: rgba(97, 109, 124, 0.5);
 }
 
 .manual-card-icon {

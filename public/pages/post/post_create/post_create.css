@@ -39,7 +39,7 @@ body {
 }
 
 .post_create_wrap {
-    background: rgba(15, 22, 30, 0.6);
+    background: rgba(97, 109, 124, 0.4);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 40px;
