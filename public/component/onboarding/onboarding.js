@@ -118,7 +118,6 @@ export function renderOnboarding(container) {
                 ${createBlackHoles()}
             </div>
             <div class="stars-container">${createFloatingStars()}</div>
-            <button class="skip-btn" id="skipBtn">건너뛰기</button>
             <div class="onboarding-container">
                 <h2 class="onboarding-title">Our Universe에 오신 것을 환영합니다!</h2>
                 <p class="onboarding-subtitle">서비스를 선택하여 시작하세요</p>

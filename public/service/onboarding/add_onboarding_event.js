@@ -9,7 +9,6 @@ export function addOnboardingEvent(container) {
         return;
     }
 
-    const skipBtn = container.querySelector('#skipBtn');
     const categoryCards = container.querySelectorAll('.category-card');
 
     function handleStart(categoryId) {
@@ -22,19 +21,6 @@ export function addOnboardingEvent(container) {
         } else {
             alert('랜덤 행성 방문은 추후 개발 예정입니다.');
         }
-    }
-
-    function handleSkip() {
-        // 웹사이트 온보딩 완료 플래그 저장
-        setOnboardingCompleted();
-        
-        // 커뮤니티 게시판으로 이동
-        window.location.href = '/posts';
-    }
-
-    // 건너뛰기 버튼 이벤트
-    if (skipBtn) {
-        skipBtn.addEventListener('click', handleSkip);
     }
 
     // 카테고리 카드 클릭 이벤트
