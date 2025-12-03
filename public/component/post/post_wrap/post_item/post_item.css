@@ -1,11 +1,11 @@
 /* 게시글 카드 스타일 */
 .post-item {
-  background: rgba(26, 10, 46, 0.6);
+  background: rgba(15, 22, 30, 0.6);
   backdrop-filter: blur(20px);
   border-radius: 12px;
-  border: 2px solid rgba(124, 92, 255, 0.3);
+  border: 2px solid rgba(37, 48, 64, 0.3);
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(124, 92, 255, 0.15);
+  box-shadow: 0 0 30px rgba(26, 37, 48, 0.15);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   display: flex;
@@ -14,8 +14,8 @@
 }
 
 .post-item:hover {
-  border-color: rgba(183, 148, 246, 0.5);
-  box-shadow: 0 0 40px rgba(124, 92, 255, 0.3);
+  border-color: rgba(53, 64, 80, 0.5);
+  box-shadow: 0 0 40px rgba(37, 48, 64, 0.3);
 }
 
 /* 이미지 영역 */
@@ -23,7 +23,7 @@
   width: 100%;
   height: 100px;
   overflow: hidden;
-  background: rgba(74, 20, 140, 0.3);
+  background: rgba(26, 37, 48, 0.3);
   position: relative;
 }
 
@@ -55,10 +55,10 @@
   height: 24px;
   border-radius: 50%;
   object-fit: cover;
-  background: linear-gradient(135deg, #7c5cff 0%, #b794f6 100%);
-  border: 1px solid rgba(183, 148, 246, 0.3);
+  background: linear-gradient(135deg, #253040 0%, #354050 100%);
+  border: 1px solid rgba(53, 64, 80, 0.3);
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(124, 92, 255, 0.3);
+  box-shadow: 0 0 10px rgba(37, 48, 64, 0.3);
 }
 
 .post-item__author-info {
@@ -70,14 +70,14 @@
 .post-item__author-name {
   font-size: 11px;
   font-weight: 600;
-  color: #e9d5ff;
+  color: #B8C0C8;
   line-height: 1.4;
-  text-shadow: 0 0 10px rgba(183, 148, 246, 0.3);
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
 }
 
 .post-item__author-desc {
   font-size: 9px;
-  color: #b794f6;
+  color: #889098;
   line-height: 1.4;
   opacity: 0.8;
 }
@@ -86,7 +86,7 @@
 .post-item__title {
   font-size: 13px;
   font-weight: 600;
-  color: #e9d5ff;
+  color: #B8C0C8;
   line-height: 1.4;
   margin: 0;
   display: -webkit-box;
@@ -94,18 +94,18 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-shadow: 0 0 10px rgba(183, 148, 246, 0.3);
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
 }
 
 .post-item:hover .post-item__title {
   color: #fff;
-  text-shadow: 0 0 15px rgba(183, 148, 246, 0.5);
+  text-shadow: 0 0 15px rgba(53, 64, 80, 0.5);
 }
 
 /* 내용 미리보기 */
 .post-item__preview {
   font-size: 10px;
-  color: #b794f6;
+  color: #889098;
   line-height: 1.5;
   margin: 0;
   display: -webkit-box;
@@ -123,7 +123,7 @@
   align-items: center;
   gap: 12px;
   padding-top: 8px;
-  border-top: 1px solid rgba(124, 92, 255, 0.2);
+  border-top: 1px solid rgba(37, 48, 64, 0.2);
   margin-top: auto;
 }
 
@@ -132,7 +132,7 @@
   align-items: center;
   gap: 4px;
   font-size: 9px;
-  color: #b794f6;
+  color: #889098;
   opacity: 0.8;
 }
 

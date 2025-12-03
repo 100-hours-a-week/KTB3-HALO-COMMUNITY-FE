@@ -14,9 +14,9 @@
     aspect-ratio: 16 / 9;
     background: linear-gradient(
         90deg,
-        rgba(124, 92, 255, 0.1) 0%,
-        rgba(183, 148, 246, 0.15) 50%,
-        rgba(124, 92, 255, 0.1) 100%
+        rgba(26, 37, 48, 0.1) 0%,
+        rgba(37, 48, 64, 0.15) 50%,
+        rgba(26, 37, 48, 0.1) 100%
     );
     background-size: 200% 100%;
     display: block;
@@ -32,9 +32,9 @@
     border-radius: 50%;
     background: linear-gradient(
         90deg,
-        rgba(124, 92, 255, 0.1) 0%,
-        rgba(183, 148, 246, 0.15) 50%,
-        rgba(124, 92, 255, 0.1) 100%
+        rgba(26, 37, 48, 0.1) 0%,
+        rgba(37, 48, 64, 0.15) 50%,
+        rgba(26, 37, 48, 0.1) 100%
     );
     background-size: 200% 100%;
     flex-shrink: 0;
@@ -44,9 +44,9 @@
 .skeleton-text {
     background: linear-gradient(
         90deg,
-        rgba(124, 92, 255, 0.1) 0%,
-        rgba(183, 148, 246, 0.15) 50%,
-        rgba(124, 92, 255, 0.1) 100%
+        rgba(26, 37, 48, 0.1) 0%,
+        rgba(37, 48, 64, 0.15) 50%,
+        rgba(26, 37, 48, 0.1) 100%
     );
     background-size: 200% 100%;
     border-radius: 4px;
