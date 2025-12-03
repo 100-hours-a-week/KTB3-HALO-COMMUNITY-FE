@@ -13,7 +13,7 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(180deg, #f8f9ff 0%, #e8ebff 100%);
+    background: linear-gradient(180deg, #0F161E 0%, #1A2530 100%);
     min-height: 100vh;
 }
 
@@ -35,9 +35,9 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(15, 22, 30, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(124, 92, 255, 0.05);
+    box-shadow: 0 2px 10px rgba(26, 37, 48, 0.05);
 }
 
 /* 컨테이너 */
@@ -48,23 +48,44 @@ body {
     padding: 20px;
 }
 
-/* 각 섹션 공통 스타일 - 둥글둥글 */
+/* 통합 카드 스타일 */
+.content {
+    background: rgba(15, 22, 30, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 2px solid rgba(64, 74, 85, 0.4);
+    box-shadow: 0 4px 20px rgba(15, 22, 30, 0.4), 0 0 40px rgba(26, 37, 48, 0.2);
+    overflow: hidden;
+}
+
+/* 각 섹션 스타일 - 카드 내부 섹션 */
 .user_info_wrap,
 .article_wrap,
 .stats_wrap,
 .comment_wrap {
-    background: #ffffff;
-    border-radius: 24px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(124, 92, 255, 0.08);
-    transition: box-shadow 0.3s ease;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none;
+    box-shadow: none;
+    transition: none;
 }
 
-.user_info_wrap:hover,
-.article_wrap:hover,
-.stats_wrap:hover,
-.comment_wrap:hover {
-    box-shadow: 0 4px 16px rgba(124, 92, 255, 0.12);
+.user_info_wrap {
+    border-bottom: 1px solid rgba(53, 64, 80, 0.2);
+}
+
+.article_wrap {
+    border-bottom: 1px solid rgba(53, 64, 80, 0.2);
+}
+
+.stats_wrap {
+    border-bottom: 1px solid rgba(53, 64, 80, 0.2);
+}
+
+.comment_wrap {
+    border-bottom: none;
 }
 
 /* user_info_wrap */
@@ -88,7 +109,7 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    background: linear-gradient(135deg, #253040 0%, #354050 100%);
 }
 
 .user_details {
@@ -100,12 +121,13 @@ body {
 .user_name {
     font-weight: 600;
     font-size: 15px;
-    color: #212121;
+    color: #E0E8F0;
+    text-shadow: 0 0 10px rgba(224, 232, 240, 0.2);
 }
 
 .post_date {
     font-size: 13px;
-    color: #9E9E9E;
+    color: #A0A8B0;
 }
 
 .action_buttons {
@@ -116,22 +138,24 @@ body {
 .btn_follow,
 .btn_message {
     padding: 10px 20px;
-    border: 2px solid #E8EBFF;
+    border: 2px solid rgba(64, 74, 85, 0.5);
     border-radius: 20px;
-    background-color: #fff;
+    background: linear-gradient(135deg, rgba(37, 48, 64, 0.5) 0%, rgba(26, 37, 48, 0.4) 100%);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: #7C5CFF;
-    font-weight: 500;
+    color: #E0E8F0;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(15, 22, 30, 0.3);
 }
 
 .btn_follow:hover,
 .btn_message:hover {
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    background: linear-gradient(135deg, #354050 0%, #253040 100%);
     color: #fff;
-    border-color: transparent;
+    border-color: rgba(74, 84, 95, 0.7);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(53, 64, 80, 0.5);
 }
 
 /* article_wrap */
@@ -142,15 +166,16 @@ body {
 .article_title {
     font-size: 24px;
     font-weight: 700;
-    color: #212121;
+    color: #E0E8F0;
     margin-bottom: 24px;
     line-height: 1.4;
+    text-shadow: 0 0 10px rgba(224, 232, 240, 0.2);
 }
 
 .article_image {
     width: 100%;
     height: 300px;
-    background: linear-gradient(135deg, #E8EBFF 0%, #F8F9FF 100%);
+    background: linear-gradient(135deg, rgba(26, 37, 48, 0.3) 0%, rgba(37, 48, 64, 0.2) 100%);
     border-radius: 20px;
     margin-bottom: 28px;
 }
@@ -158,7 +183,7 @@ body {
 .article_content {
     font-size: 15px;
     line-height: 1.8;
-    color: #424242;
+    color: #C8D0D8;
 }
 
 .article_content p {
@@ -183,20 +208,22 @@ body {
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: linear-gradient(135deg, #F8F9FF 0%, #E8EBFF 100%);
+    background: linear-gradient(135deg, rgba(26, 37, 48, 0.3) 0%, rgba(37, 48, 64, 0.2) 100%);
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(53, 64, 80, 0.2);
 }
 
 .stat_card:hover {
     transform: translateY(-4px);
-    background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
+    background: linear-gradient(135deg, rgba(37, 48, 64, 0.4) 0%, rgba(26, 37, 48, 0.3) 100%);
+    border-color: rgba(53, 64, 80, 0.4);
 }
 
 .stat_number {
     font-size: 32px;
     font-weight: 700;
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
+    background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -205,7 +232,7 @@ body {
 
 .stat_label {
     font-size: 13px;
-    color: #757575;
+    color: #889098;
     font-weight: 500;
 }
 
@@ -223,38 +250,45 @@ body {
 .comment_input {
     flex: 1;
     padding: 16px 20px;
-    border: 2px solid #E8EBFF;
+    border: 2px solid rgba(64, 74, 85, 0.5);
     border-radius: 20px;
     font-size: 14px;
+    background: rgba(26, 37, 48, 0.5);
+    color: #E0E8F0;
     transition: all 0.3s ease;
 }
 
 .comment_input:focus {
     outline: none;
-    border-color: #9C7FF2;
-    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.1);
+    border-color: rgba(74, 84, 95, 0.8);
+    box-shadow: 0 0 0 4px rgba(64, 74, 85, 0.2);
+    background: rgba(37, 48, 64, 0.6);
 }
 
 .comment_input::placeholder {
-    color: #BDBDBD;
+    color: #A0A8B0;
 }
 
 .btn_submit {
     padding: 16px 32px;
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
-    color: #fff;
-    border: none;
+    background: linear-gradient(135deg, #354050 0%, #253040 100%);
+    color: #E0E8F0;
+    border: 2px solid rgba(64, 74, 85, 0.5);
     border-radius: 20px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(15, 22, 30, 0.3);
 }
 
 .btn_submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(53, 64, 80, 0.5);
+    color: #fff;
+    background: linear-gradient(135deg, #455060 0%, #354050 100%);
+    border-color: rgba(74, 84, 95, 0.7);
 }
 
 .comment_list {
@@ -268,14 +302,16 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
-    background: #FAFAFA;
+    background: rgba(26, 37, 48, 0.4);
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(64, 74, 85, 0.3);
 }
 
 .comment_item:hover {
-    background: #F5F5F5;
+    background: rgba(37, 48, 64, 0.5);
     transform: translateX(4px);
+    border-color: rgba(74, 84, 95, 0.5);
 }
 
 .comment_profile {
@@ -288,8 +324,9 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
+    background: linear-gradient(135deg, rgba(26, 37, 48, 0.3) 0%, rgba(37, 48, 64, 0.2) 100%);
     flex-shrink: 0;
+    border: 1px solid rgba(53, 64, 80, 0.3);
 }
 
 .comment_info {
@@ -306,18 +343,18 @@ body {
 .comment_author {
     font-size: 14px;
     font-weight: 600;
-    color: #212121;
+    color: #E0E8F0;
 }
 
 .comment_date {
     font-size: 12px;
-    color: #9E9E9E;
+    color: #A0A8B0;
 }
 
 .comment_text {
     font-size: 14px;
     line-height: 1.6;
-    color: #424242;
+    color: #C8D0D8;
 }
 
 .comment_actions {
@@ -328,26 +365,29 @@ body {
 .btn_edit,
 .btn_delete {
     padding: 8px 16px;
-    border: 2px solid #E8EBFF;
+    border: 2px solid rgba(64, 74, 85, 0.4);
     border-radius: 16px;
-    background-color: #fff;
+    background: rgba(37, 48, 64, 0.4);
     font-size: 12px;
-    color: #757575;
+    color: #C8D0D8;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(15, 22, 30, 0.2);
 }
 
 .btn_edit:hover {
-    background: #E8EBFF;
-    border-color: #9C7FF2;
-    color: #7C5CFF;
+    background: rgba(53, 64, 80, 0.6);
+    border-color: rgba(74, 84, 95, 0.6);
+    color: #E0E8F0;
+    box-shadow: 0 4px 10px rgba(53, 64, 80, 0.3);
 }
 
 .btn_delete:hover {
-    background: #FFE8E8;
-    border-color: #FF6B6B;
-    color: #FF6B6B;
+    background: rgba(80, 40, 40, 0.6);
+    border-color: rgba(120, 60, 60, 0.6);
+    color: #ff8fb3;
+    box-shadow: 0 4px 10px rgba(120, 60, 60, 0.3);
 }
 
 /* 푸터 */

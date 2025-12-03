@@ -2,11 +2,11 @@
 .post-wrap {
   width: 100%;
   padding: 20px 0;
-  background: rgba(15, 22, 30, 0.4);
+  background: rgba(97, 109, 124, 0.4);
   backdrop-filter: blur(20px);
   border-radius: 16px;
   border: 2px solid rgba(37, 48, 64, 0.3);
-  box-shadow: 0 0 40px rgba(26, 37, 48, 0.15);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
   overflow: hidden;
 }
 
