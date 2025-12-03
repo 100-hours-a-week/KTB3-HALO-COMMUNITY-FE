@@ -9,6 +9,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* 미국 야간 위성 이미지 배경 */
+    background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .header {
