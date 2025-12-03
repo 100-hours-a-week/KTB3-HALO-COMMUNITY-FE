@@ -32,7 +32,13 @@
 
                 <div class="form_group">
                     <label>이미지</label>
-                    <input type="file" class="post_image" accept="image/*" />
+                    <div class="image_preview_wrap">
+                        <div class="image_preview">
+                            <span class="image_placeholder">이미지를 선택해주세요</span>
+                        </div>
+                        <input type="file" class="post_image" accept="image/*" hidden />
+                        <button type="button" class="btn_image_upload">이미지 업로드</button>
+                    </div>
                 </div>
 
                 <button class="btn_submit">등록</button>
@@ -42,4 +48,4 @@
     </div>
 </body>
 
-</html>`
+</html>

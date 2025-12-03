@@ -19,6 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFooter(footer);
 
     // 이벤트 바인딩
-    addLogoutEvent();       // 로그아웃
-    addPostListEvent(posts_wrap);     // 게시글 리스트
+    addLogoutEvent();
+    addPostListEvent(posts_wrap);
 });

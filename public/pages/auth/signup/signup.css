@@ -9,6 +9,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* 배경 이미지 */
+    background-image: url('https://not-me-be.s3.ap-northeast-2.amazonaws.com/public/image/curation/profileImage-1764742698193-797787277.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .header {

@@ -24,11 +24,13 @@ export async function loadNavigatorProfileImage() {
 
         const result = await response.json().catch(() => ({}));
         
+        const profileAvatar = document.querySelector('.profile_avatar');
+        if (!profileAvatar) return;
+        
         if (result.status === 200 && result.data?.profileImage) {
             const profileImageUrl = result.data.profileImage;
-            const profileAvatar = document.querySelector('.profile_avatar');
             
-            if (profileAvatar && profileImageUrl) {
+            if (profileImageUrl) {
                 // 기존 텍스트 제거하고 이미지 표시
                 profileAvatar.innerHTML = '';
                 profileAvatar.style.background = 'none';
@@ -43,12 +45,21 @@ export async function loadNavigatorProfileImage() {
                 img.style.borderRadius = '50%';
                 img.onerror = () => {
                     // 이미지 로드 실패 시 기본 이모지로 복귀
-                    profileAvatar.innerHTML = '🐱';
-                    profileAvatar.style.background = '#333';
+                    profileAvatar.innerHTML = '👤';
+                    profileAvatar.style.background = 'linear-gradient(135deg, #0F161E 0%, #1A2530 50%, #253040 100%)';
+                    profileAvatar.style.padding = '';
                 };
                 
                 profileAvatar.appendChild(img);
+            } else {
+                // 프로필 이미지가 없는 경우 기본 이모지 유지
+                profileAvatar.innerHTML = '👤';
+                profileAvatar.style.background = 'linear-gradient(135deg, #0F161E 0%, #1A2530 50%, #253040 100%)';
             }
+        } else {
+            // 프로필 정보를 가져오지 못한 경우 기본 이모지 유지
+            profileAvatar.innerHTML = '👤';
+            profileAvatar.style.background = 'linear-gradient(135deg, #0F161E 0%, #1A2530 50%, #253040 100%)';
         }
     } catch (error) {
         console.error("프로필 이미지 로드 실패:", error);

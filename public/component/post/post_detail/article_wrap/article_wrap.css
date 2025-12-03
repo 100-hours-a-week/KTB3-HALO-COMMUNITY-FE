@@ -7,7 +7,7 @@
 .article_title {
   font-size: 24px;
   font-weight: 700;
-  color: #212121;
+  color: #ffffff;
   margin-bottom: 24px;
   line-height: 1.4;
 }
@@ -30,7 +30,7 @@
 .article_content {
   font-size: 15px;
   line-height: 1.8;
-  color: #424242;
+  color: #ffffff;
 }
 
 .article_content p {

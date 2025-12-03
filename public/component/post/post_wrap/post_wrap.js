@@ -17,11 +17,11 @@ export function renderPostWrap(rootEl) {
   // 모든 게시글 HTML을 합쳐서 만들기
   const postsHTML = dummyPosts.map(post => renderPostItem(post)).join('');
 
-  // post_wrap 전체 HTML 구조 생성
+  // post_wrap 전체 HTML 구조 생성 (카드 그리드 형식)
   rootEl.innerHTML = `
   <div class="post-wrap">
     <div class="post-wrap__header">
-      <span class="post-wrap__greeting">평소 하고싶었던 말을 적어봐</span>
+      <h2 class="post-wrap__title">전체 카테고리</h2>
       <button class="post-wrap__add-btn">게시글 작성</button>
     </div>
     <div class="post-wrap__list">
@@ -43,14 +43,7 @@ export function renderPostWrap(rootEl) {
       window.location.href = '/posts/write';
   });
 
-  const postItems = rootEl.querySelectorAll('.post-item');
-  postItems.forEach(item => {
-      item.style.cursor = 'pointer';
-      item.addEventListener('click', () => {
-          const postId = item.getAttribute('data-post-id');
-          window.location.href = `/posts/${postId}`;
-      });
-  });
+  // 테이블 행 클릭 이벤트는 addPostListEvent에서 처리
 }
 
 // 이벤트 바인딩 함수
