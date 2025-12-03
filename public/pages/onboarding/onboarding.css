@@ -43,6 +43,7 @@ body {
     min-height: calc(100vh - 200px);
     position: relative;
     z-index: 1;
+    padding-top: 300px;
 }
 
 /* 푸터는 footer_inner.css에서 관리 */

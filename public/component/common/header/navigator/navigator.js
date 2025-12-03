@@ -14,7 +14,7 @@ export function renderNavigator(rootEl) {
         <div class="profile_dropdown">
           <button class="profile_btn" id="profileBtn">
             <div class="profile_icon">
-              <div class="profile_avatar"></div>
+              <div class="profile_avatar">👤</div>
             </div>
           </button>
           <div class="dropdown_menu" id="dropdownMenu">
