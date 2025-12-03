@@ -44,6 +44,8 @@ export function addPostListEvent(rootEl) {
                 const postsHTML = data.posts.map(post => renderPostItem({
                     id: post.postId,
                     title: post.title,
+                    content: post.content || '',
+                    postImageUrl: post.postImageUrl || '',
                     date: post.createdAt,
                     likes: post.likeCount,
                     comments: post.commentCount,

@@ -17,27 +17,16 @@ export function renderPostWrap(rootEl) {
   // 모든 게시글 HTML을 합쳐서 만들기
   const postsHTML = dummyPosts.map(post => renderPostItem(post)).join('');
 
-  // post_wrap 전체 HTML 구조 생성 (테이블 형식)
+  // post_wrap 전체 HTML 구조 생성 (카드 그리드 형식)
   rootEl.innerHTML = `
   <div class="post-wrap">
     <div class="post-wrap__header">
       <h2 class="post-wrap__title">전체 카테고리</h2>
       <button class="post-wrap__add-btn">게시글 작성</button>
     </div>
-    <table class="post-table">
-      <thead>
-        <tr>
-          <th class="col-number">번호</th>
-          <th class="col-board">게시판</th>
-          <th class="col-title">제목</th>
-          <th class="col-date">날짜</th>
-          <th class="col-views">조회</th>
-        </tr>
-      </thead>
-      <tbody class="post-wrap__list">
-        ${postsHTML}
-      </tbody>
-    </table>
+    <div class="post-wrap__list">
+      ${postsHTML}
+    </div>
   </div>
   `;
 

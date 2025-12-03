@@ -56,49 +56,17 @@
   border-color: rgba(124, 92, 255, 0.3);
 }
 
-/* 테이블 스타일 */
-.post-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.post-table thead {
-  background: #f8f9fa;
-  border-bottom: 2px solid #e9ecef;
-}
-
-.post-table th {
-  padding: 12px 16px;
-  text-align: left;
-  font-weight: 600;
-  color: #495057;
-  font-size: 13px;
-}
-
-.post-table th.col-number {
-  width: 80px;
-  text-align: center;
-}
-
-.post-table th.col-board {
-  width: 120px;
-}
-
-.post-table th.col-title {
-  width: auto;
-}
-
-.post-table th.col-date {
-  width: 100px;
-  text-align: center;
-}
-
-.post-table th.col-views {
-  width: 80px;
-  text-align: center;
-}
-
+/* 카드 그리드 스타일 */
 .post-wrap__list {
-  /* tbody는 별도 스타일 없음 */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .post-wrap__list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
