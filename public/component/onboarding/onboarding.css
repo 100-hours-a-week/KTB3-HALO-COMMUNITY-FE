@@ -358,6 +358,27 @@
     overflow: hidden;
 }
 
+/* 커뮤니티 카드에 이미지 표시 */
+.category-card[data-category="community"] .category-image {
+    background-image: url('https://www.elespace.io/wiki/page/e/file/thumbnail/view/1232/e_template;jsessionid=230CFC624B675619AAB33D80C64542B0') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* 커뮤니티 카드의 모든 오버레이 제거 */
+.category-card[data-category="community"] .category-glow {
+    display: none !important;
+}
+
+.category-card[data-category="community"] .category-image-overlay {
+    display: none !important;
+}
+
+.category-card[data-category="community"] .category-image::before {
+    display: none !important;
+}
+
 .category-glow {
     position: absolute;
     top: -50%;
@@ -367,6 +388,7 @@
     background: radial-gradient(circle at center, rgba(183, 148, 246, 0.2), transparent);
     animation: pulseGlow 4s ease-in-out infinite;
     pointer-events: none;
+    z-index: 0;
 }
 
 @keyframes pulseGlow {
@@ -390,11 +412,33 @@
     background: 
         radial-gradient(circle at 20% 50%, rgba(183, 148, 246, 0.2) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(124, 92, 255, 0.15) 0%, transparent 50%);
+    z-index: 1;
+}
+
+/* 이미지가 있는 경우 ::before 오버레이 숨기기 */
+.category-image[data-has-image="true"]::before {
+    display: none;
+}
+
+.category-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.15) 0%, rgba(155, 122, 255, 0.1) 50%, rgba(183, 148, 246, 0.15) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* 커뮤니티 카드의 오버레이 더 투명하게 */
+.category-card[data-category="community"] .category-image-overlay {
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.1) 0%, rgba(155, 122, 255, 0.05) 50%, rgba(183, 148, 246, 0.1) 100%);
 }
 
 .category-card[data-category="random-planet"] {
-    opacity: 0.6;
-    filter: grayscale(40%) brightness(0.7);
+    opacity: 1;
+    filter: none;
     cursor: not-allowed;
 }
 
@@ -414,7 +458,7 @@
 /* 오버레이 */
 .category-overlay {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     color: white;
     padding: 30px;
@@ -469,15 +513,16 @@
 .coming-soon-badge {
     display: inline-block;
     padding: 8px 20px;
-    background: rgba(106, 27, 154, 0.3);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     font-size: 12px;
-    font-weight: 600;
-    border: 2px solid rgba(183, 148, 246, 0.4);
-    text-shadow: 0 0 10px rgba(183, 148, 246, 0.5);
-    box-shadow: 0 0 20px rgba(106, 27, 154, 0.3), inset 0 0 20px rgba(106, 27, 154, 0.1);
-    color: #e9d5ff;
+    font-weight: 400;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-shadow: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.4);
+    opacity: 0.8;
 }
 
 /* 반응형 디자인 */

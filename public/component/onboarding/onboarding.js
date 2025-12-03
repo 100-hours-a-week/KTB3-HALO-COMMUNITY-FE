@@ -19,7 +19,8 @@ export function renderOnboarding(container) {
             icon: '💬',
             gradient: 'linear-gradient(135deg, #7c5cff 0%, #9b7aff 50%, #b794f6 100%)',
             glowColor: 'rgba(124, 92, 255, 0.5)',
-            available: true
+            available: true,
+            backgroundImage: 'https://www.elespace.io/wiki/page/e/file/thumbnail/view/1232/e_template;jsessionid=230CFC624B675619AAB33D80C64542B0'
         },
         {
             id: 'random-planet',

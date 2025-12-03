@@ -2,10 +2,14 @@
  * 카테고리 카드 컴포넌트
  */
 export function renderCategoryCard(category) {
+    const backgroundStyle = category.backgroundImage 
+        ? `background-image: url('${category.backgroundImage}') !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important;`
+        : `background: ${category.gradient} !important;`;
+    
     return `
         <div class="category-card" data-category="${category.id}" style="--glow-color: ${category.glowColor};">
-            <div class="category-image" style="background: ${category.gradient};">
-                <div class="category-glow"></div>
+            <div class="category-image" style="${backgroundStyle}" ${category.backgroundImage ? 'data-has-image="true"' : ''}>
+                ${!category.backgroundImage ? '<div class="category-glow"></div>' : ''}
                 <div class="category-overlay">
                     <div class="category-icon">${category.icon}</div>
                     <h3 class="category-name">${category.name}</h3>
