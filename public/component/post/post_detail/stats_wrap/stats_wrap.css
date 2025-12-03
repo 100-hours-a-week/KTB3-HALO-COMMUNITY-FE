@@ -18,7 +18,7 @@
   transition: all 0.3s ease;
 }
 
-.stat_card:not(.like_card):hover {
+.stat_card:hover {
   transform: translateY(-4px);
   background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
 }
@@ -31,70 +31,10 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 8px;
-  transition: all 0.3s ease;
 }
 
 .stat_label {
   font-size: 13px;
   color: #757575;
   font-weight: 500;
-}
-
-/* 좋아요 카드 스타일 */
-.like_card {
-  cursor: pointer;
-  position: relative;
-  user-select: none;
-}
-
-.like_card:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
-  box-shadow: 0 8px 20px rgba(124, 92, 255, 0.2);
-}
-
-.like_card:active {
-  transform: translateY(-2px);
-}
-
-.like_card.liked {
-  background: linear-gradient(135deg, #FFE8F0 0%, #FFD6E3 100%);
-  border: 2px solid #FFB6C1;
-}
-
-.like_card.liked:hover {
-  background: linear-gradient(135deg, #FFD6E3 0%, #FFC4D5 100%);
-  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
-}
-
-.like_card.liked .stat_number {
-  background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: heartBeat 0.6s ease-in-out;
-}
-
-.like_card:disabled {
-  opacity: 0.6;
-  cursor: wait;
-  pointer-events: none;
-}
-
-@keyframes heartBeat {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.2);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  75% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
