@@ -17,8 +17,8 @@ export function renderOnboarding(container) {
             name: '커뮤니티',
             description: '자유롭게 소통하는 공간',
             icon: '💬',
-            gradient: 'linear-gradient(135deg, #7c5cff 0%, #9b7aff 50%, #b794f6 100%)',
-            glowColor: 'rgba(124, 92, 255, 0.5)',
+            gradient: 'linear-gradient(135deg, #1A2530 0%, #253040 50%, #354050 100%)',
+            glowColor: 'rgba(26, 37, 48, 0.5)',
             available: true,
             backgroundImage: 'https://www.elespace.io/wiki/page/e/file/thumbnail/view/1232/e_template;jsessionid=230CFC624B675619AAB33D80C64542B0'
         },
@@ -27,8 +27,8 @@ export function renderOnboarding(container) {
             name: '랜덤 행성 방문',
             description: '다른 행성을 탐험해보세요',
             icon: '🪐',
-            gradient: 'linear-gradient(135deg, #4a148c 0%, #6a1b9a 50%, #7b1fa2 100%)',
-            glowColor: 'rgba(106, 27, 154, 0.4)',
+            gradient: 'linear-gradient(135deg, #0F161E 0%, #1A2530 50%, #253040 100%)',
+            glowColor: 'rgba(26, 37, 48, 0.4)',
             available: false
         }
     ];

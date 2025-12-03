@@ -5,13 +5,32 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 30px;
-    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #16213e 100%);
-    border-bottom: 1px solid rgba(124, 92, 255, 0.3);
-    box-shadow: 0 2px 20px rgba(124, 92, 255, 0.2), 0 0 40px rgba(124, 92, 255, 0.1);
+    background: linear-gradient(135deg, #0F161E 0%, #1A2530 50%, #253040 100%);
+    border-bottom: 1px solid rgba(53, 64, 80, 0.2);
+    box-shadow: 0 4px 30px rgba(15, 22, 30, 0.4), 0 0 60px rgba(26, 37, 48, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .navigator_inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(53, 64, 80, 0.1) 0%, transparent 100%);
+    pointer-events: none;
   }
 
   .navigator_left {
     flex: 1;
+  }
+
+  .navigator_center {
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
   .navigator_right {
@@ -19,6 +38,8 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 100px;
+    position: relative;
+    z-index: 1;
   }
   
   /* 로고 */
@@ -26,18 +47,37 @@
     display: inline-block;
     margin: 0;
     font-size: 1.8rem;
-    font-weight: 700;
-    color: #b794f6;
+    font-weight: 800;
+    background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 50%, #889098 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-decoration: none;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 20px rgba(183, 148, 246, 0.5), 0 0 40px rgba(124, 92, 255, 0.3);
-    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 2px;
+    position: relative;
+    filter: drop-shadow(0 0 20px rgba(53, 64, 80, 0.4));
+  }
+  
+  .nav_logo::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #B8C0C8, #889098);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(74, 111, 165, 0.6);
   }
   
   .nav_logo:hover {
-    color: #e9d5ff;
-    text-shadow: 0 0 30px rgba(183, 148, 246, 0.8), 0 0 60px rgba(124, 92, 255, 0.5);
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 30px rgba(53, 64, 80, 0.7));
+  }
+
+  .nav_logo:hover::after {
+    width: 100%;
   }
   
   /* 프로필 아이콘 */
@@ -61,26 +101,57 @@
   .profile_icon {
     width: 48px;
     height: 48px;
-    background: rgba(124, 92, 255, 0.2);
+    background: linear-gradient(135deg, rgba(26, 37, 48, 0.3) 0%, rgba(37, 48, 64, 0.2) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgba(183, 148, 246, 0.4);
-    box-shadow: 0 0 20px rgba(124, 92, 255, 0.3), inset 0 0 20px rgba(124, 92, 255, 0.1);
-    transition: all 0.3s ease;
+    border: 2px solid rgba(53, 64, 80, 0.5);
+    box-shadow: 
+      0 0 20px rgba(26, 37, 48, 0.4),
+      inset 0 0 20px rgba(53, 64, 80, 0.1),
+      0 4px 15px rgba(15, 22, 30, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile_icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(53, 64, 80, 0.2) 0%, transparent 70%);
+    animation: rotateGlow 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rotateGlow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   .profile_btn:hover .profile_icon {
-    border-color: rgba(183, 148, 246, 0.7);
-    box-shadow: 0 0 30px rgba(124, 92, 255, 0.5), inset 0 0 30px rgba(124, 92, 255, 0.2);
-    transform: scale(1.05);
+    border-color: rgba(64, 74, 85, 0.8);
+    box-shadow: 
+      0 0 40px rgba(53, 64, 80, 0.6),
+      inset 0 0 30px rgba(53, 64, 80, 0.2),
+      0 6px 25px rgba(15, 22, 30, 0.4);
+    transform: scale(1.08) translateY(-2px);
   }
 
   .profile_avatar {
     width: 36px;
     height: 36px;
-    background: linear-gradient(135deg, #7c5cff 0%, #9b7aff 100%);
+    background: linear-gradient(135deg, #253040 0%, #2A3540 50%, #354050 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -88,7 +159,12 @@
     font-size: 24px;
     color: white;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(124, 92, 255, 0.5);
+    box-shadow: 
+      0 0 20px rgba(53, 64, 80, 0.5),
+      inset 0 2px 10px rgba(64, 74, 85, 0.3);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
   }
 
   .profile_avatar img {
@@ -100,60 +176,105 @@
   /* 드롭다운 메뉴 */
   .dropdown_menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 12px);
     right: 0;
-    background: linear-gradient(135deg, #1a0a2e 0%, #16213e 100%);
-    border: 1px solid rgba(124, 92, 255, 0.4);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(124, 92, 255, 0.3);
-    min-width: 180px;
+    background: linear-gradient(135deg, rgba(10, 25, 41, 0.95) 0%, rgba(30, 58, 95, 0.9) 100%);
+    border: 1px solid rgba(74, 111, 165, 0.3);
+    border-radius: 16px;
+    box-shadow: 
+      0 8px 32px rgba(10, 25, 41, 0.6),
+      0 0 40px rgba(30, 58, 95, 0.4),
+      inset 0 1px 0 rgba(107, 141, 184, 0.1);
+    min-width: 200px;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
+    transform: translateY(-10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 8px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+  }
+
+  .dropdown_menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(53, 64, 80, 0.5), transparent);
   }
 
   .dropdown_menu.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   .dropdown_item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 16px;
-    color: #e9d5ff;
+    padding: 14px 20px;
+    color: #B8C0C8;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     background: none;
     width: 100%;
     text-align: left;
     cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    margin: 4px 8px;
+    width: calc(100% - 16px);
+  }
+
+  .dropdown_item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #8fb3d9, #4a6fa5);
+    border-radius: 0 3px 3px 0;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dropdown_item:hover {
-    background-color: rgba(124, 92, 255, 0.2);
+    background: linear-gradient(90deg, rgba(53, 64, 80, 0.15) 0%, rgba(26, 37, 48, 0.1) 100%);
     color: #fff;
-    text-shadow: 0 0 10px rgba(183, 148, 246, 0.5);
+    transform: translateX(4px);
+    box-shadow: 0 2px 10px rgba(26, 37, 48, 0.2);
+  }
+
+  .dropdown_item:hover::before {
+    height: 60%;
   }
 
   .dropdown_icon {
-    font-size: 1rem;
-    width: 16px;
+    font-size: 1.1rem;
+    width: 20px;
     text-align: center;
+    filter: drop-shadow(0 0 8px rgba(53, 64, 80, 0.4));
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown_item:hover .dropdown_icon {
+    transform: scale(1.2) rotate(5deg);
   }
 
   .dropdown_divider {
-    margin: 8px 0;
+    margin: 8px 16px;
     border: none;
-    border-top: 1px solid rgba(124, 92, 255, 0.3);
+    border-top: 1px solid rgba(74, 111, 165, 0.2);
+    box-shadow: 0 1px 2px rgba(10, 25, 41, 0.3);
   }
 
   .logout_btn {
@@ -161,9 +282,10 @@
   }
 
   .logout_btn:hover {
-    background-color: rgba(255, 107, 157, 0.2) !important;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.2) 0%, rgba(255, 143, 179, 0.15) 100%) !important;
     color: #ff8fb3 !important;
-    text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.6);
+    box-shadow: 0 2px 10px rgba(255, 107, 157, 0.3) !important;
   }
   
 

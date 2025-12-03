@@ -12,8 +12,8 @@ body {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    /* 미국 야간 위성 이미지 배경 */
-    background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=1920');
+    /* 배경 이미지 */
+    background-image: url('https://not-me-be.s3.ap-northeast-2.amazonaws.com/public/image/curation/profileImage-1764742698193-797787277.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

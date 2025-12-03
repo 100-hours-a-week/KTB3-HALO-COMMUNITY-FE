@@ -1,10 +1,10 @@
 /* Our Universe 푸터 스타일 */
 
 .footer {
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #16213e 100%);
-  border-top: 1px solid rgba(124, 92, 255, 0.3);
+  background: linear-gradient(135deg, #0F161E 0%, #1A2530 50%, #253040 100%);
+  border-top: 1px solid rgba(37, 48, 64, 0.3);
   margin-top: 80px;
-  box-shadow: 0 -2px 20px rgba(124, 92, 255, 0.2), 0 0 40px rgba(124, 92, 255, 0.1);
+  box-shadow: 0 -2px 20px rgba(26, 37, 48, 0.2), 0 0 40px rgba(26, 37, 48, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -17,9 +17,9 @@
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(1px 1px at 20% 30%, rgba(183, 148, 246, 0.4), transparent),
-    radial-gradient(1px 1px at 60% 70%, rgba(124, 92, 255, 0.3), transparent),
-    radial-gradient(1px 1px at 80% 10%, rgba(183, 148, 246, 0.3), transparent);
+    radial-gradient(1px 1px at 20% 30%, rgba(53, 64, 80, 0.4), transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(37, 48, 64, 0.3), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(53, 64, 80, 0.3), transparent);
   background-size: 200% 200%;
   animation: footerStarMove 30s linear infinite;
   pointer-events: none;
@@ -59,16 +59,16 @@
 .footer_logo {
   font-size: 24px;
   font-weight: 700;
-  color: #b794f6;
+  color: #889098;
   margin-bottom: 16px;
   letter-spacing: 1px;
-  text-shadow: 0 0 20px rgba(183, 148, 246, 0.5), 0 0 40px rgba(124, 92, 255, 0.3);
+  text-shadow: 0 0 20px rgba(53, 64, 80, 0.5), 0 0 40px rgba(37, 48, 64, 0.3);
 }
 
 .footer_description {
   font-size: 14px;
   line-height: 1.6;
-  color: #b794f6;
+  color: #889098;
   margin-bottom: 20px;
   opacity: 0.9;
 }
@@ -82,22 +82,22 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(124, 92, 255, 0.2);
-  border: 1px solid rgba(183, 148, 246, 0.3);
+  background: rgba(26, 37, 48, 0.2);
+  border: 1px solid rgba(53, 64, 80, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   font-size: 16px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(124, 92, 255, 0.2);
+  box-shadow: 0 0 15px rgba(26, 37, 48, 0.2);
 }
 
 .social_link:hover {
-  background: rgba(124, 92, 255, 0.4);
-  border-color: rgba(183, 148, 246, 0.6);
+  background: rgba(37, 48, 64, 0.4);
+  border-color: rgba(53, 64, 80, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(124, 92, 255, 0.5), 0 0 40px rgba(183, 148, 246, 0.3);
+  box-shadow: 0 0 25px rgba(37, 48, 64, 0.5), 0 0 40px rgba(53, 64, 80, 0.3);
 }
 
 /* 푸터 섹션 */
@@ -109,9 +109,9 @@
 .footer_title {
   font-size: 16px;
   font-weight: 700;
-  color: #e9d5ff;
+  color: #8fb3d9;
   margin-bottom: 16px;
-  text-shadow: 0 0 10px rgba(183, 148, 246, 0.3);
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
 }
 
 .footer_links {
@@ -123,21 +123,21 @@
 
 .footer_links a {
   font-size: 14px;
-  color: #b794f6;
+  color: #889098;
   text-decoration: none;
   transition: all 0.2s ease;
   opacity: 0.8;
 }
 
 .footer_links a:hover {
-  color: #e9d5ff;
+  color: #8fb3d9;
   opacity: 1;
-  text-shadow: 0 0 10px rgba(183, 148, 246, 0.5);
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.5);
 }
 
 /* 푸터 하단 */
 .footer_bottom {
-  border-top: 1px solid rgba(124, 92, 255, 0.3);
+  border-top: 1px solid rgba(37, 48, 64, 0.3);
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -151,25 +151,25 @@
   gap: 12px;
   align-items: center;
   font-size: 13px;
-  color: #b794f6;
+  color: #889098;
   opacity: 0.8;
 }
 
 .footer_links_bottom a {
-  color: #b794f6;
+  color: #889098;
   text-decoration: none;
   transition: all 0.2s ease;
   opacity: 0.8;
 }
 
 .footer_links_bottom a:hover {
-  color: #e9d5ff;
+  color: #8fb3d9;
   opacity: 1;
-  text-shadow: 0 0 10px rgba(183, 148, 246, 0.5);
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.5);
 }
 
 .divider {
-  color: rgba(183, 148, 246, 0.4);
+  color: rgba(53, 64, 80, 0.4);
 }
 
 .footer_copyright {
@@ -177,20 +177,20 @@
   gap: 8px;
   align-items: center;
   font-size: 13px;
-  color: #b794f6;
+  color: #889098;
   opacity: 0.8;
 }
 
 .brand_highlight {
   font-weight: 700;
-  color: #b794f6;
+  color: #889098;
   font-size: 14px;
-  text-shadow: 0 0 10px rgba(183, 148, 246, 0.5);
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.5);
 }
 
 .footer_contact {
   font-size: 12px;
-  color: #b794f6;
+  color: #889098;
   opacity: 0.7;
 }
 

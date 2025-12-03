@@ -2,11 +2,11 @@
 .post-wrap {
   width: 100%;
   padding: 20px 0;
-  background: rgba(26, 10, 46, 0.4);
+  background: rgba(15, 22, 30, 0.4);
   backdrop-filter: blur(20px);
   border-radius: 16px;
-  border: 2px solid rgba(124, 92, 255, 0.3);
-  box-shadow: 0 0 40px rgba(124, 92, 255, 0.15);
+  border: 2px solid rgba(37, 48, 64, 0.3);
+  box-shadow: 0 0 40px rgba(26, 37, 48, 0.15);
   overflow: hidden;
 }
 
@@ -21,17 +21,17 @@
 .post-wrap__title {
   font-size: 18px;
   font-weight: 700;
-  background: linear-gradient(135deg, #b794f6 0%, #e9d5ff 50%, #b794f6 100%);
+  background: linear-gradient(135deg, #B8C0C8 0%, #D0D8E0 50%, #B8C0C8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin: 0;
-  text-shadow: 0 0 20px rgba(183, 148, 246, 0.3);
+  text-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
 }
 
 .post-wrap__add-btn {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #7c5cff 0%, #9b7aff 100%);
+  background: linear-gradient(135deg, #354050 0%, #2A3540 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -39,19 +39,19 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 20px rgba(124, 92, 255, 0.3);
+  box-shadow: 0 0 20px rgba(37, 48, 64, 0.3);
 }
 
 .post-wrap__add-btn:hover {
-  background: linear-gradient(135deg, #9b7aff 0%, #b794f6 100%);
-  box-shadow: 0 0 30px rgba(124, 92, 255, 0.5);
+  background: linear-gradient(135deg, #2A3540 0%, #354050 100%);
+  box-shadow: 0 0 30px rgba(37, 48, 64, 0.5);
 }
 
 .post-wrap__back-btn {
   padding: 8px 16px;
-  background: rgba(124, 92, 255, 0.15);
-  color: #e9d5ff;
-  border: 1px solid rgba(124, 92, 255, 0.3);
+  background: rgba(26, 37, 48, 0.15);
+  color: #D0D8E0;
+  border: 1px solid rgba(37, 48, 64, 0.3);
   border-radius: 8px;
   font-size: 12px;
   font-weight: 500;
@@ -61,8 +61,8 @@
 }
 
 .post-wrap__back-btn:hover {
-  background: rgba(124, 92, 255, 0.25);
-  border-color: rgba(183, 148, 246, 0.5);
+  background: rgba(37, 48, 64, 0.25);
+  border-color: rgba(53, 64, 80, 0.5);
 }
 
 /* 카드 그리드 스타일 */
