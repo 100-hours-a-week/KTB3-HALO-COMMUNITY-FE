@@ -16,13 +16,31 @@ body {
 /* 전체 래퍼 */
 .wrap {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 30%, #16213e 60%, #0f1419 100%);
     position: relative;
     overflow: hidden;
+    /* 미국 야간 위성 이미지 배경 */
+    background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* 배경 이미지 오버레이 */
+.wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.6) 0%, rgba(26, 10, 46, 0.5) 30%, rgba(22, 33, 62, 0.5) 60%, rgba(15, 20, 25, 0.6) 100%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* 별 배경 효과 */
-.wrap::before {
+.wrap::after {
     content: '';
     position: absolute;
     top: 0;
@@ -50,29 +68,7 @@ body {
         radial-gradient(1px 1px at 65% 95%, rgba(124, 92, 255, 0.4), transparent);
     background-size: 300% 300%;
     animation: starMove 25s linear infinite;
-    pointer-events: none;
-}
-
-.wrap::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 15% 25%, rgba(183, 148, 246, 0.6), transparent),
-        radial-gradient(2px 2px at 75% 55%, rgba(124, 92, 255, 0.5), transparent),
-        radial-gradient(1px 1px at 45% 75%, rgba(255, 255, 255, 0.7), transparent),
-        radial-gradient(2px 2px at 85% 15%, rgba(183, 148, 246, 0.5), transparent),
-        radial-gradient(1px 1px at 25% 85%, rgba(124, 92, 255, 0.4), transparent),
-        radial-gradient(1px 1px at 55% 35%, rgba(183, 148, 246, 0.6), transparent),
-        radial-gradient(2px 2px at 35% 65%, rgba(124, 92, 255, 0.5), transparent),
-        radial-gradient(1px 1px at 95% 85%, rgba(255, 255, 255, 0.6), transparent),
-        radial-gradient(2px 2px at 5% 45%, rgba(183, 148, 246, 0.5), transparent),
-        radial-gradient(1px 1px at 65% 15%, rgba(124, 92, 255, 0.4), transparent);
-    background-size: 250% 250%;
-    animation: starMoveReverse 30s linear infinite;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -118,6 +114,8 @@ body {
 .onboarding_container {
     width: 100%;
     min-height: calc(100vh - 200px);
+    position: relative;
+    z-index: 2;
 }
 
 /* 푸터는 footer_inner.css에서 관리 */
