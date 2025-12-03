@@ -73,3 +73,53 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
 }
+
+/* 이미지 미리보기 영역 */
+.image_preview_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.image_preview {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #F8F9FF 0%, #E8EBFF 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #E8EBFF;
+    overflow: hidden;
+    position: relative;
+}
+
+.image_preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.image_placeholder {
+    font-size: 14px;
+    color: #9E9E9E;
+}
+
+.btn_image_upload {
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    color: #7C5CFF;
+    border: 2px solid #E8EBFF;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn_image_upload:hover {
+    background: #F8F9FF;
+    border-color: #9C7FF2;
+}
