@@ -73,8 +73,8 @@ export async function addPostUpdateEvent(postId) {
     }
 
     // 폼 필드를 미리 채웁니다.
-    document.querySelector(".title_input").value = post.title; // 제목 입력 필드의 클래스로 가정
-    document.querySelector(".article_textarea").value = post.content; // 내용 입력 필드의 클래스로 가정
+    document.querySelector(".post_title").value = post.title;
+    document.querySelector(".post_content").value = post.content;
     
     // 기존 이미지가 있는 경우 미리보기 표시
     const imagePreview = document.querySelector(".image_preview");
@@ -91,20 +91,20 @@ export async function addPostUpdateEvent(postId) {
 
   // 이미지 미리보기 기능 설정
   setupImagePreview(
-    "#image_input",
+    ".post_image",
     ".image_preview",
     ".image_placeholder",
     ".btn_image_upload"
   );
 
   // 2. 게시글 수정을 위한 폼 제출을 처리합니다.
-  const updateButton = document.querySelector(".btn_submit"); // 이 클래스를 가진 버튼으로 가정
+  const updateButton = document.querySelector(".btn_submit");
   if (updateButton) {
     updateButton.addEventListener("click", async () => {
-      const title = document.querySelector(".title_input").value;
-      const content = document.querySelector(".article_textarea").value;
-      const imageInput = document.querySelector(".image_input"); // 이미지 입력 필드의 클래스로 가정
-      const imageFile = imageInput.files[0];
+      const title = document.querySelector(".post_title").value;
+      const content = document.querySelector(".post_content").value;
+      const imageInput = document.querySelector(".post_image");
+      const imageFile = imageInput?.files[0];
 
       if (!title || !content) {
         alert("제목과 내용을 모두 입력해주세요.");
