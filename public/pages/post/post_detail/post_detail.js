@@ -37,4 +37,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     await addPostDetailEvent(postId, user_info_wrap, article_wrap, stats_wrap, comment_wrap); // Await the async function
     addPostDeleteEvent(); // Add delete event listener
     addPostDetailLikeEvent();
+
+    // 페이지 포커스 시 프로필 이미지 업데이트
+    const refreshPostDetail = async () => {
+        await addPostDetailEvent(postId, user_info_wrap, article_wrap, stats_wrap, comment_wrap);
+    };
+
+    // 페이지가 다시 보일 때 프로필 이미지 갱신
+    document.addEventListener('visibilitychange', async () => {
+        if (!document.hidden) {
+            await refreshPostDetail();
+        }
+    });
+
+    // 페이지 포커스 시 프로필 이미지 갱신
+    window.addEventListener('focus', refreshPostDetail);
 });
