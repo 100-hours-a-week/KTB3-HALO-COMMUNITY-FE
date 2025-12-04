@@ -8,15 +8,24 @@ export function renderPostItem(post) {
     };
 
     // 프로필 이미지 또는 기본 이미지
-    const profileImg = post.profileImageUrl || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNFNUU3RUIiLz4KPHBhdGggZD0iTTIwIDIwQzIyLjc2MTQgMjAgMjUgMTcuNzYxNCAyNSAxNUM1NSAxNy43NjE0IDIyLjc2MTQgMTUgMjAgMTVDMTcuMjM4NiAxNSAxNSAxNy4yMzg2IDE1IDIwQzE1IDIyLjc2MTQgMTcuMjM4NiAyNSAyMCAyNVoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+';
+    const profileImg = (post.profileImageUrl && post.profileImageUrl.trim() !== '') 
+        ? post.profileImageUrl 
+        : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNFNUU3RUIiLz4KPHBhdGggZD0iTTIwIDIwQzIyLjc2MTQgMjAgMjUgMTcuNzYxNCAyNSAxNUM1NSAxNy43NjE0IDIyLjc2MTQgMTUgMjAgMTVDMTcuMjM4NiAxNSAxNSAxNy4yMzg2IDE1IDIwQzE1IDIyLjc2MTQgMTcuMjM4NiAyNSAyMCAyNVoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+';
     
-    // 이미지 URL (있으면 표시, 없으면 플레이스홀더)
-    const imageUrl = post.postImageUrl || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0xMjUgMTAwTDE1MCA3NUwxNzUgMTAwTDIwMCA3NUwyMjUgMTAwVjEzMEgxMjVWMTAwWiIgZmlsbD0iI0Q1RDVENSIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMjAiIHI9IjIwIiBmaWxsPSIjRDVENUQ1Ii8+Cjwvc3ZnPg==';
+    // 이미지 URL 처리 (null, undefined, 빈 문자열 체크)
+    // 백엔드에서 postImageUrl 필드로 전달됨
+    let imageUrl = '';
+    if (post.postImageUrl && typeof post.postImageUrl === 'string' && post.postImageUrl.trim() !== '') {
+        imageUrl = post.postImageUrl.trim();
+    } else {
+        // 플레이스홀더 이미지 (SVG base64)
+        imageUrl = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0xMjUgMTAwTDE1MCA3NUwxNzUgMTAwTDIwMCA3NUwyMjUgMTAwVjEzMEgxMjVWMTAwWiIgZmlsbD0iI0Q1RDVENSIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMjAiIHI9IjIwIiBmaWxsPSIjRDVENUQ1Ii8+Cjwvc3ZnPg==';
+    }
 
     return `
       <div class="post-item" data-post-id="${post.id}">
         <div class="post-item__image">
-          <img src="${imageUrl}" alt="${post.title}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0xMjUgMTAwTDE1MCA3NUwxNzUgMTAwTDIwMCA3NUwyMjUgMTAwVjEzMEgxMjVWMTAwWiIgZmlsbD0iI0Q1RDVENSIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMjAiIHI9IjIwIiBmaWxsPSIjRDVENUQ1Ii8+Cjwvc3ZnPg=='">
+          <img src="${imageUrl}" alt="${post.title || '게시글 이미지'}" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0xMjUgMTAwTDE1MCA3NUwxNzUgMTAwTDIwMCA3NUwyMjUgMTAwVjEzMEgxMjVWMTAwWiIgZmlsbD0iI0Q1RDVENSIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMjAiIHI9IjIwIiBmaWxsPSIjRDVENUQ1Ii8+Cjwvc3ZnPg=='">
         </div>
         <div class="post-item__content">
           <div class="post-item__author">

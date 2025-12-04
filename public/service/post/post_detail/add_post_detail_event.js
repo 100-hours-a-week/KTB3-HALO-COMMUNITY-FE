@@ -27,7 +27,8 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
             const errorData = await detailRes.json();
             throw new Error(errorData.message);
         }
-        const { data } = await detailRes.json();
+        const result = await detailRes.json();
+        const { data } = result;
 
         // 2. 작성자 여부 확인 (게시글 수정 API를 호출해서 권한 확인)
         let isAuthor = false;
@@ -60,9 +61,11 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
         // 3. 댓글 리스트 조회
         const comments = await fetchComments(postId);
 
+        // author 객체가 있는지 확인하고 안전하게 접근
+        const author = data.author || {};
         renderUserInfoWrap(userInfoEl, { 
-            nickname: data.author?.nickname || '익명', 
-            profileImageUrl: data.author?.profileImageUrl,
+            nickname: author.nickname || '익명', 
+            profileImageUrl: author.profileImageUrl || null,
             createdAt: data.createdAt 
         }, postId, isAuthor);
         renderArticleWrap(articleEl, { title: data.title, content: data.content, imageUrl: data.imageUrl });
