@@ -2,94 +2,96 @@
 .signup_wrap {
   width: 100%;
   max-width: 400px;
-  margin-right: auto;
-  margin-bottom: 30px;
-  margin-left: auto;
-
+  margin: 0 auto;
   padding: 40px 32px;
-
-  background: rgba(255, 255, 255ㄴ, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(97, 109, 124, 0.4);
+  backdrop-filter: blur(20px);
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(160, 120, 255, 0.15);
+  border: 2px solid rgba(53, 64, 80, 0.3);
+  box-shadow: 0 0 40px rgba(26, 37, 48, 0.15);
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  border: 1px solid rgba(200, 180, 255, 0.3);
 }
 
 /* ===== 입력 필드 ===== */
 .input_item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .input_item label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #555;
-  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #B8C0C8;
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
+  margin-bottom: 8px;
 }
 
 .input_item input {
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #c9baff;
-  border-radius: 10px;
-  background-color: #faf8ff;
-  color: #333;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  padding: 14px;
+  font-size: 14px;
+  border: 2px solid rgba(53, 64, 80, 0.3);
+  border-radius: 12px;
+  background: rgba(15, 22, 30, 0.4);
+  backdrop-filter: blur(10px);
+  color: #B8C0C8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input_item input::placeholder {
-  color: #aaa;
+  color: #889098;
+  opacity: 0.6;
 }
 
 .input_item input:focus {
   outline: none;
-  border-color: #8e2de2;
-  box-shadow: 0 0 8px rgba(142, 45, 226, 0.2);
-  background-color: #fff;
+  border-color: rgba(64, 74, 85, 0.6);
+  box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
 }
 
 /* ===== 회원가입 버튼 ===== */
 .btn_signup_button {
-  background: linear-gradient(135deg, #a66cff, #7f5eff, #4a00e0);
-  color: white;
-  font-size: 1rem;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #253040 0%, #354050 100%);
+  color: #B8C0C8;
+  font-size: 16px;
   font-weight: 600;
-  padding: 14px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   margin-top: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
 }
 
 .btn_signup_button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(120, 80, 255, 0.3);
+  background: linear-gradient(135deg, #354050 0%, #253040 100%);
+  box-shadow: 0 0 30px rgba(53, 64, 80, 0.5);
+  color: #fff;
 }
 
 /* ===== 로그인 안내 ===== */
 .login_cta {
   text-align: center;
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 14px;
+  color: #889098;
   margin-top: 24px;
 }
 
 .login_cta a {
-  color: #7f5eff;
+  color: #B8C0C8;
   font-weight: 600;
   text-decoration: none;
   margin-left: 4px;
   transition: color 0.2s ease;
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
 }
 
 .login_cta a:hover {
-  color: #4a00e0;
+  color: #fff;
   text-decoration: underline;
 }
 
