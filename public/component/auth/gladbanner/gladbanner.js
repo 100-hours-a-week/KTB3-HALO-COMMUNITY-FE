@@ -3,7 +3,7 @@ export function renderGladBanner(rootEl) {
     const bannerImages = [
         'https://not-me-be.s3.ap-northeast-2.amazonaws.com/Unsaved/2025/11/13/image+(1).avif',
         'https://cdn.srtimes.kr/news/photo/201911/50047_44451_2910.jpg',
-        'https://not-me-be.s3.ap-northeast-2.amazonaws.com/Unsaved/2025/11/13/34bb2233-382e-4b63-913e-266a1ebb5d6d.txt'
+        'https://not-me-be.s3.ap-northeast-2.amazonaws.com/Unsaved/2025/11/13/header_efc7a909-453c-4eb8-968c-69919e248b2b.jpg'
     ];
     
     // 랜덤으로 이미지 선택
