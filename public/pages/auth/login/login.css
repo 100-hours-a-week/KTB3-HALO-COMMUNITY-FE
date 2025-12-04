@@ -34,7 +34,7 @@ body {
 .logo {
     position: relative;
     z-index: 100;
-    padding: 90px 20px 20px;
+    padding: 100px 20px 20px;
     text-align: center;
 }
 
@@ -65,7 +65,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 20px 0px 20px;
     position: relative;
     z-index: 1;
 }
@@ -79,8 +79,7 @@ body {
 
 .footer {
     background: transparent;
-    margin-top: 60px;
-    padding: 40px 20px;
+    padding: 25px 20px;
     text-align: center;
     color: #889098;
     font-size: 14px;
