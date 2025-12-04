@@ -18,16 +18,15 @@ export function renderNavigator(rootEl) {
             </div>
           </button>
           <div class="dropdown_menu" id="dropdownMenu">
+            ${isLoggedIn ? `
             <a href="/account" class="dropdown_item">
               <span class="dropdown_icon">👨‍🚀</span> 프로필
-            </a>
-            <a href="/users/edit-profile" class="dropdown_item">
-              <span class="dropdown_icon">🛸</span> 설정
             </a>
             <a href="/password" class="dropdown_item">
               <span class="dropdown_icon">🛡️</span> 비밀번호 변경
             </a>
             <hr class="dropdown_divider">
+            ` : ''}
             <button class="dropdown_item" id="authBtn">
               <span class="dropdown_icon">
                 ${isLoggedIn ? '🪐' : '🚀'}
