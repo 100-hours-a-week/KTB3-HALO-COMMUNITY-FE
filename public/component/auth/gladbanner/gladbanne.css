@@ -6,6 +6,7 @@
 .gladbanner img {
   width: 100%;
   max-width: 380px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(120, 80, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(26, 37, 48, 0.3);
+  border: 2px solid rgba(53, 64, 80, 0.3);
 }

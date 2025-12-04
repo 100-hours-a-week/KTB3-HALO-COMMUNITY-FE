@@ -2,7 +2,7 @@
   width: 100%;
   text-align: center;
   padding: 30px 0 36px;
-  background-color: #fff; /* 완전 흰색 배경 */
+  background-color: transparent;
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
 }
 
@@ -13,37 +13,42 @@
 
 .footer_links a {
   font-size: 0.9rem;
-  color: #777;
+  color: #A0A8B0;
   text-decoration: none;
   margin: 0 6px;
   transition: color 0.2s ease;
+  text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
 }
 
 .footer_links a:hover {
-  color: #7f5eff;
+  color: #B8C0C8;
+  text-decoration: underline;
 }
 
 .footer_links .divider {
-  color: #ccc;
+  color: #889098;
   margin: 0 6px;
 }
 
 /* 하단 브랜드 정보 */
 .footer_brand {
   font-size: 0.85rem;
-  color: #888;
+  color: #889098;
 }
 
 .brand_name {
   font-weight: 800;
-  color: #7f5eff; /* OUR SPACE 포인트 컬러 */
+  background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 50%, #B8C0C8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-right: 6px;
   font-size: 1rem;
   letter-spacing: 0.3px;
 }
 
 .copyright {
-  color: #555;
+  color: #889098;
   font-size: 0.85rem;
 }
 
