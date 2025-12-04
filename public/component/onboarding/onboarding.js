@@ -20,7 +20,7 @@ export function renderOnboarding(container) {
             gradient: 'linear-gradient(135deg, #1A2530 0%, #253040 50%, #354050 100%)',
             glowColor: 'rgba(26, 37, 48, 0.5)',
             available: true,
-            backgroundImage: 'https://www.elespace.io/wiki/page/e/file/thumbnail/view/1232/e_template;jsessionid=230CFC624B675619AAB33D80C64542B0'
+            backgroundImage: 'https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/image/onboarding/pixnio-4992x3328.jpeg'
         },
         {
             id: 'random-planet',
