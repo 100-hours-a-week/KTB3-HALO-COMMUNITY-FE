@@ -1,23 +1,24 @@
 .find_wrap {
     text-align: center;
-    margin-top: 20px;
-    color: #999;
-    font-size: 0.9rem;
+    margin-top: -2px;
+    color: #889098;
+    font-size: 14px;
 }
 
 .find_wrap .find_link {
-    color: #777;
+    color: #A0A8B0;
     text-decoration: none;
     margin: 0 6px;
     transition: color 0.2s ease;
+    text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
 }
 
 .find_wrap .find_link:hover {
-    color: #7f5eff;
-    /* Our Space 보라 포인트 */
+    color: #B8C0C8;
+    text-decoration: underline;
 }
 
 .find_wrap .divider {
-    color: #ccc;
+    color: #889098;
     margin: 0 4px;
 }

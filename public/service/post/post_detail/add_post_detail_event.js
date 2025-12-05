@@ -27,7 +27,8 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
             const errorData = await detailRes.json();
             throw new Error(errorData.message);
         }
-        const { data } = await detailRes.json();
+        const result = await detailRes.json();
+        const { data } = result;
 
         // 2. 작성자 여부 확인 (게시글 수정 API를 호출해서 권한 확인)
         let isAuthor = false;
@@ -57,22 +58,38 @@ export async function addPostDetailEvent(postId, userInfoEl, articleEl, statsEl,
             }
         }
 
-        // 3. 댓글 리스트 조회
+        // 3. 현재 로그인한 사용자 ID 가져오기
+        let currentUserId = null;
+        if (accessToken) {
+            const tokenPayload = decodeJwtToken(accessToken);
+            currentUserId = tokenPayload?.userId || tokenPayload?.id || tokenPayload?.sub || null;
+        }
+
+        // 4. 댓글 리스트 조회
         const comments = await fetchComments(postId);
 
+        // author 객체가 있는지 확인하고 안전하게 접근
+        const author = data.author || {};
         renderUserInfoWrap(userInfoEl, { 
-            nickname: data.author?.nickname || '익명', 
-            profileImageUrl: data.author?.profileImageUrl,
+            nickname: author.nickname || '익명', 
+            profileImageUrl: author.profileImageUrl || null,
             createdAt: data.createdAt 
         }, postId, isAuthor);
         renderArticleWrap(articleEl, { title: data.title, content: data.content, imageUrl: data.imageUrl });
         renderStatsWrap(statsEl, { likeCount: data.likeCount, viewCount: data.viewCount, commentCount: data.commentCount });
-        renderCommentWrap(commentEl, comments);
+        renderCommentWrap(commentEl, comments, currentUserId);
 
-        // 4. 댓글 이벤트 바인딩 (모듈화)
+        // 5. 댓글 이벤트 바인딩 (모듈화)
         const refreshComments = async () => {
             const comments = await fetchComments(postId);
-            renderCommentWrap(commentEl, comments);
+            // 현재 사용자 ID 다시 가져오기 (토큰이 갱신되었을 수 있음)
+            const updatedToken = localStorage.getItem('accessToken');
+            let updatedUserId = null;
+            if (updatedToken) {
+                const tokenPayload = decodeJwtToken(updatedToken);
+                updatedUserId = tokenPayload?.userId || tokenPayload?.id || tokenPayload?.sub || null;
+            }
+            renderCommentWrap(commentEl, comments, updatedUserId);
             // 댓글 리스트 갱신 후 수정/삭제 이벤트만 다시 바인딩 (등록 이벤트는 한 번만)
             addCommentUpdateDeleteEvent(commentEl, refreshComments);
         };

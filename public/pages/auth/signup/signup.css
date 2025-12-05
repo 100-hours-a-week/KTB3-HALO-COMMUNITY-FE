@@ -1,13 +1,25 @@
-body {
+* {
     margin: 0;
-    background-color: #f7f8fa;
-    font-family: "Pretendard", "Noto Sans KR", sans-serif;
-    color: #222;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0F161E 0%, #1A2530 30%, #253040 60%, #0F161E 100%) !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .wrap {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -19,39 +31,63 @@ body {
     background-repeat: no-repeat;
 }
 
-.header {
-    width: 100%;
-    background-color: #f6f7f9;
-    border-bottom: 1px solid #dcdcdc;
-    padding: 16px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0;
+.logo {
+    position: relative;
     z-index: 100;
+    padding: 100px 20px 20px;
+    text-align: center;
+}
+
+.logo_link {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.logo_link:hover {
+    transform: scale(1.05);
+}
+
+.logo_text {
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 50%, #B8C0C8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+    letter-spacing: 1px;
+    margin: 0;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+    cursor: pointer;
 }
 
 .container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 0px 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .content {
-    width: 100%;
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
 
 .footer {
-    flex-shrink: 0;
+    background: transparent;
+    padding: 25px 20px;
     text-align: center;
-    padding: 20px 0;
-    background-color: #f6f7f9;
-    border-top: 1px solid #dcdcdc;
-    color: #666;
-    font-size: 0.9rem;
+    color: #889098;
+    font-size: 14px;
 }
 
+/* 반응형 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 16px;
+    }
+}

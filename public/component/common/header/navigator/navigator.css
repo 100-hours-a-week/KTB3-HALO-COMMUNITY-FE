@@ -25,21 +25,16 @@
   .nav_logo {
     display: inline-block;
     margin: 0;
-    font-size: 1.8rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 50%, #889098 100%);
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #E8F4F8 0%, #B8D4E3 25%, #A0C8D8 50%, #B8D4E3 75%, #E8F4F8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 2px;
-    filter: drop-shadow(0 0 20px rgba(53, 64, 80, 0.4));
-  }
-  
-  .nav_logo:hover {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 0 30px rgba(53, 64, 80, 0.7));
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 20px rgba(184, 212, 227, 0.5));
   }
   
   /* 프로필 아이콘 */

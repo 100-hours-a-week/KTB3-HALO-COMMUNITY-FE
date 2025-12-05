@@ -19,7 +19,7 @@ router.use("/auth", authRouter);
 // 게시글 관련 라우트 - 직접 경로 사용
 router.use("/", postRouter);
 
-// 사용자 관련 라우트 (/users/*)
-router.use("/users", userRouter);
+// 사용자 관련 라우트 - 직접 경로 사용 (/account, /password)
+router.use("/", userRouter);
 
 export default router;
