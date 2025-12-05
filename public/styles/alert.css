@@ -1,0 +1,98 @@
+/* 커스텀 알림 스타일 */
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  z-index: 10000;
+  background: rgba(26, 37, 48, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(53, 64, 80, 0.5);
+  border-radius: 16px;
+  padding: 20px 32px;
+  box-shadow: 
+    0 8px 32px rgba(15, 22, 30, 0.6),
+    0 0 40px rgba(26, 37, 48, 0.4);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 280px;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.custom-alert__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.custom-alert__icon {
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.custom-alert[data-type="success"] {
+  border-color: rgba(76, 175, 80, 0.5);
+  background: rgba(26, 37, 48, 0.95);
+}
+
+.custom-alert[data-type="success"] .custom-alert__icon {
+  color: #4CAF50;
+}
+
+.custom-alert[data-type="error"] {
+  border-color: rgba(244, 67, 54, 0.5);
+  background: rgba(26, 37, 48, 0.95);
+}
+
+.custom-alert[data-type="error"] .custom-alert__icon {
+  color: #F44336;
+}
+
+.custom-alert[data-type="warning"] {
+  border-color: rgba(255, 152, 0, 0.5);
+  background: rgba(26, 37, 48, 0.95);
+}
+
+.custom-alert[data-type="warning"] .custom-alert__icon {
+  color: #FF9800;
+}
+
+.custom-alert[data-type="info"] {
+  border-color: rgba(33, 150, 243, 0.5);
+  background: rgba(26, 37, 48, 0.95);
+}
+
+.custom-alert[data-type="info"] .custom-alert__icon {
+  color: #2196F3;
+}
+
+.custom-alert__message {
+  font-size: 14px;
+  color: #E0E8F0;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .custom-alert {
+    min-width: 240px;
+    max-width: 90%;
+    padding: 16px 24px;
+  }
+
+  .custom-alert__message {
+    font-size: 13px;
+  }
+}
+
