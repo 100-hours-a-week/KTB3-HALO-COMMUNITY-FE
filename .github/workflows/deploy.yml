@@ -1,4 +1,4 @@
-name: Express Deploy CI/CD (v2.1)
+name: Express Deploy CI/CD (v2.2)
 
 env:
   IMAGE_TAG: 1.0.0
