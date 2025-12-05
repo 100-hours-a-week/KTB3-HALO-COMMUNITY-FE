@@ -1,20 +1,7 @@
 /**
- * 토스트 알림 컴포넌트
- * 화면 상단에 표시되는 토스트 알림을 생성하고 관리합니다.
+ * 토스트 알림 유틸리티
+ * 메타데이터 포맷에 따라 토스트 알림을 표시합니다.
  */
-
-// CSS 파일 동적 로드 (한 번만 로드)
-let cssLoaded = false;
-
-function loadToastCSS() {
-  if (cssLoaded) return;
-  
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = '/component/common/toast/toast.css';
-  document.head.appendChild(link);
-  cssLoaded = true;
-}
 
 // 아이콘 SVG 정의
 const TOAST_ICONS = {
@@ -52,9 +39,6 @@ const TOAST_ICONS = {
  * @param {number} options.gap - 아이콘과 메시지 간격 (기본값: 8)
  */
 export function showToast(options = {}) {
-  // CSS 로드
-  loadToastCSS();
-
   const {
     type = "toast",
     position = "top-center",
@@ -137,21 +121,6 @@ export function showToast(options = {}) {
       }
     }, 300);
   }, duration);
-}
-
-/**
- * 토스트를 즉시 제거하는 함수
- */
-export function hideToast() {
-  const toast = document.querySelector('.toast-notification');
-  if (toast) {
-    toast.classList.remove('toast-show');
-    setTimeout(() => {
-      if (toast.parentNode) {
-        toast.remove();
-      }
-    }, 300);
-  }
 }
 
 /**
