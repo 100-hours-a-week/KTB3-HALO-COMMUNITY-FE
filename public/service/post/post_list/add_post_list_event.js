@@ -70,7 +70,8 @@ export function addPostListEvent(rootEl) {
                         title: post.title || '',
                         content: '', // 백엔드 DTO에 content 필드가 없음
                         postImageUrl: post.postImageUrl || null,
-                        date: post.createdAt,
+                        createdAt: post.createdAt,
+                        date: post.createdAt, // 호환성을 위해 둘 다 전달
                         likes: post.likeCount || 0,
                         comments: post.commentCount || 0,
                         views: post.viewCount || 0,
