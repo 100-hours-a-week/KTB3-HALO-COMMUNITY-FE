@@ -4,10 +4,13 @@ env:
   IMAGE_TAG: 1.0.0
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-    types: [ closed ]
+      - infra/ci-cd
+  # pull_request:
+  #   branches:
+  #     - main
+  #   types: [ closed ]
 
 
 jobs:
