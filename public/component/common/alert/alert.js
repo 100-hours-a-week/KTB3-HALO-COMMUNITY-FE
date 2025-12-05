@@ -84,4 +84,3 @@ export function hideAlert() {
     }, 300);
   }
 }
-

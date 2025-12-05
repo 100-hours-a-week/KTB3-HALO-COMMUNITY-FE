@@ -1,4 +1,4 @@
-export function renderCommentWrap(container, comments = []) {
+export function renderCommentWrap(container, comments = [], currentUserId = null) {
   container.innerHTML = `
     <div class="comment_container">
       <div class="comment_input_wrap">
@@ -9,7 +9,11 @@ export function renderCommentWrap(container, comments = []) {
       <div class="comment_list">
         ${comments
           .map(
-            (comment) => `
+            (comment) => {
+              // 댓글 작성자 ID와 현재 사용자 ID 비교
+              const isCommentAuthor = currentUserId !== null && comment.userId === currentUserId;
+              
+              return `
           <div class="comment_item" data-comment-id="${comment.commentId}">
             <div class="comment_profile">
               <div class="comment_avatar">
@@ -31,12 +35,15 @@ export function renderCommentWrap(container, comments = []) {
                 <p class="comment_text">${comment.content ?? ""}</p>
               </div>
             </div>
+            ${isCommentAuthor ? `
             <div class="comment_actions">
               <button class="btn_edit" data-comment-id="${comment.commentId}">수정</button>
               <button class="btn_delete" data-comment-id="${comment.commentId}">삭제</button>
             </div>
+            ` : ''}
           </div>
-        `
+        `;
+            }
           )
           .join("")}
       </div>
