@@ -1,0 +1,97 @@
+/* 토스트 알림 스타일 */
+.toast-notification {
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border: 1px solid rgba(91, 143, 184, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.toast-notification.toast-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 위치별 스타일 */
+.toast-notification[data-position="top-center"] {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+.toast-notification[data-position="top-center"].toast-show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-notification[data-position="top-left"] {
+    top: 20px;
+    left: 20px;
+}
+
+.toast-notification[data-position="top-right"] {
+    top: 20px;
+    right: 20px;
+}
+
+.toast-notification[data-position="bottom-center"] {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+}
+
+.toast-notification[data-position="bottom-center"].toast-show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-notification[data-position="bottom-left"] {
+    bottom: 20px;
+    left: 20px;
+    transform: translateY(20px);
+}
+
+.toast-notification[data-position="bottom-left"].toast-show {
+    transform: translateY(0);
+}
+
+.toast-notification[data-position="bottom-right"] {
+    bottom: 20px;
+    right: 20px;
+    transform: translateY(20px);
+}
+
+.toast-notification[data-position="bottom-right"].toast-show {
+    transform: translateY(0);
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 4px currentColor);
+}
+
+.toast-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.toast-message {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+

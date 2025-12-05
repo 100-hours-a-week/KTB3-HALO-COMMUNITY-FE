@@ -4,7 +4,7 @@ import "/utils/initApiClient.js";
 import { renderNavigator } from "/component/common/header/navigator/navigator.js";
 import { renderFooter } from "/component/common/footer/footer_inner.js";
 import { addPostUpdateEvent } from "/service/post/post_update/add_post_update_event.js";
-import { showAlert } from "/utils/showAlert.js";
+import { toast } from "/component/common/toast/toast.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const header = document.getElementById("header");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const postId = parseInt(path.split('/')[2], 10);
 
   if (isNaN(postId)) {
-    showAlert("유효하지 않은 게시글 ID입니다.", 'error');
+    toast.error("유효하지 않은 게시글 ID입니다.");
     return;
   }
 

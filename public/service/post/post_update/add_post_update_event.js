@@ -2,8 +2,7 @@ import { API_BASE } from "/config.js";
 import { post_image_lambda_url } from "/config.js";
 import { setupImagePreview, displayImageUrlPreview } from "/utils/imagePreview.js";
 import { fetchWithAuth } from "/utils/fetchWithAuth.js";
-import { showAlert } from "/utils/showAlert.js";
-import { toast } from "/utils/toast.js";
+import { toast } from "/component/common/toast/toast.js";
 
 export async function addPostUpdateEvent(postId) {
   if (!postId) {
@@ -14,7 +13,7 @@ export async function addPostUpdateEvent(postId) {
   // 1. 로그인 체크
   const accessToken = localStorage.getItem('accessToken');
   if (!accessToken) {
-    showAlert('로그인이 필요합니다.', 'warning');
+    toast.warning('로그인이 필요합니다.');
     setTimeout(() => {
       window.location.href = '/auth/login';
     }, 2000);
@@ -34,7 +33,7 @@ export async function addPostUpdateEvent(postId) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      showAlert(errorData.message || "게시글 정보를 불러오는데 실패했습니다.", 'error');
+      toast.error(errorData.message || "게시글 정보를 불러오는데 실패했습니다.");
       setTimeout(() => {
         window.location.href = `/posts/${postId}`;
       }, 2000);
@@ -63,13 +62,13 @@ export async function addPostUpdateEvent(postId) {
         const errorData = await permissionCheckResponse.json();
         // 권한이 없거나 게시글이 없는 경우
         if (permissionCheckResponse.status === 403 || permissionCheckResponse.status === 401) {
-          showAlert('수정 권한이 없습니다. 본인이 작성한 게시글만 수정할 수 있습니다.', 'error');
+          toast.error('수정 권한이 없습니다. 본인이 작성한 게시글만 수정할 수 있습니다.');
           setTimeout(() => {
             window.location.href = `/posts/${postId}`;
           }, 2000);
           return;
         }
-        showAlert(errorData.message || "게시글 수정 권한을 확인할 수 없습니다.", 'error');
+        toast.error(errorData.message || "게시글 수정 권한을 확인할 수 없습니다.");
         setTimeout(() => {
           window.location.href = `/posts/${postId}`;
         }, 2000);
@@ -77,7 +76,7 @@ export async function addPostUpdateEvent(postId) {
       }
     } catch (permissionError) {
       console.error("권한 확인 중 오류 발생:", permissionError);
-      showAlert("게시글 수정 권한을 확인할 수 없습니다.", 'error');
+      toast.error("게시글 수정 권한을 확인할 수 없습니다.");
       setTimeout(() => {
         window.location.href = `/posts/${postId}`;
       }, 2000);
@@ -97,7 +96,7 @@ export async function addPostUpdateEvent(postId) {
 
   } catch (error) {
     console.error("게시글 정보 로드 중 오류 발생:", error);
-    showAlert(`게시글 정보 로드 실패: ${error.message}`, 'error');
+    toast.error(`게시글 정보 로드 실패: ${error.message}`);
     return;
   }
 
@@ -119,7 +118,7 @@ export async function addPostUpdateEvent(postId) {
       const imageFile = imageInput?.files[0];
 
       if (!title || !content) {
-        showAlert("제목과 내용을 모두 입력해주세요.", 'warning');
+        toast.warning("제목과 내용을 모두 입력해주세요.");
         return;
       }
 
@@ -137,7 +136,7 @@ export async function addPostUpdateEvent(postId) {
           );
 
           if (!uploadResponse.ok) {
-            showAlert("이미지 업로드 실패", 'error');
+            toast.error("이미지 업로드 실패");
             return;
           }
 
@@ -145,7 +144,7 @@ export async function addPostUpdateEvent(postId) {
           imageUrl = uploadResult.data?.filePath || uploadResult.data?.imageUrl || uploadResult.filePath || "";
         } catch (error) {
           console.error("이미지 업로드 중 오류 발생:", error);
-          showAlert("이미지 업로드 중 오류가 발생했습니다.", 'error');
+          toast.error("이미지 업로드 중 오류가 발생했습니다.");
           return;
         }
       }
@@ -163,7 +162,7 @@ export async function addPostUpdateEvent(postId) {
       }
 
       if (Object.keys(updatedFields).length === 0) {
-        showAlert("변경된 내용이 없습니다.", 'info');
+        toast.info("변경된 내용이 없습니다.");
         return;
       }
 
@@ -184,11 +183,11 @@ export async function addPostUpdateEvent(postId) {
           }, 2000);
         } else {
           const errorData = await response.json();
-          showAlert(`게시글 수정 실패: ${errorData.message || response.statusText}`, 'error');
+          toast.error(`게시글 수정 실패: ${errorData.message || response.statusText}`);
         }
       } catch (error) {
         console.error("게시글 수정 중 오류 발생:", error);
-        showAlert("게시글 수정 중 오류가 발생했습니다.", 'error');
+        toast.error("게시글 수정 중 오류가 발생했습니다.");
       }
     });
   }
