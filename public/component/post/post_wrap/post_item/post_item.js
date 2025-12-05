@@ -71,6 +71,10 @@ export function renderPostItem(post) {
               <span class="post-item__stat-label">댓글</span>
               <span>${post.commentCount || post.comments || 0}</span>
             </div>
+            <div class="post-item__stat">
+              <span class="post-item__stat-label">조회수</span>
+              <span>${post.viewCount || post.views || 0}</span>
+            </div>
           </div>
         </div>
         <div class="post-item__image">
