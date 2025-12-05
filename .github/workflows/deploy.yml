@@ -5,10 +5,14 @@ env:
   IMAGE_TAG: 1.0.0
 
 on:
-  pull_request:
+  push:
     branches:
-      - main      # develop을 대상으로 하는 PR만 감지
-    types: [ closed ]   # PR이 닫힐 때만 실행   # 실제 운영되는 브랜치 develop -> main 으로 변경
+      - infra/ci-cd
+      
+  # pull_request:
+  #   branches:
+  #     - main      # develop을 대상으로 하는 PR만 감지
+  #   types: [ closed ]   # PR이 닫힐 때만 실행   # 실제 운영되는 브랜치 develop -> main 으로 변경
 
 jobs:
 
