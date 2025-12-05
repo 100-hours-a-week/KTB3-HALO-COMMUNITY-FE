@@ -32,7 +32,7 @@ export function addProfileChangeEvent(container) {
                 },
                 body: JSON.stringify({
                     nickName,
-                    profileImage
+                    profileImage: profileImage || null
                 })
             });
 
@@ -44,12 +44,14 @@ export function addProfileChangeEvent(container) {
                 if (profileImg.getAttribute('data-uploaded-url')) {
                     profileImg.removeAttribute('data-uploaded-url');
                 }
+                // 게시글 리스트 페이지로 이동
+                window.location.href = '/posts';
             } else {
                 alert(result.message || "프로필 수정에 실패했습니다.");
             }
         } catch (err) {
-            console.error(err);
-            alert("프로필 수정 중 오류가 발생했습니다.");
+            console.error("프로필 수정 오류:", err);
+            alert(err.message || "프로필 수정 중 오류가 발생했습니다.");
         }
     });
 }

@@ -12,8 +12,8 @@ export function renderFooter(rootEl) {
       </div>
 
       <div class="footer_brand">
-        <span class="brand_name">OUR SPACE</span>
-        <span class="copyright">Copyright © Our Space Corp. All Rights Reserved.</span>
+        <span class="brand_name">OUR UNIVERSE</span>
+        <span class="copyright">Copyright © Our Universe Corp. All Rights Reserved.</span>
       </div>
     </footer>
   `;

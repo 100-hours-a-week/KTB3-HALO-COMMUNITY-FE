@@ -1,31 +1,37 @@
 .account_container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 32px 24px;
+    padding: 40px;
     background: rgba(97, 109, 124, 0.4);
     backdrop-filter: blur(20px);
-    border-radius: 24px;
-    box-shadow: 0 2px 8px rgba(124, 92, 255, 0.08);
+    border-radius: 20px;
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    box-shadow: 0 0 40px rgba(26, 37, 48, 0.15);
 }
 
 .account_title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #212121;
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #B8C0C8 0%, #A0A8B0 50%, #B8C0C8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
 }
 
 /* 프로필 섹션 */
 .profile_section {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .profile_label {
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #212121;
+    color: #B8C0C8;
+    text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
     margin-bottom: 16px;
 }
 
@@ -40,12 +46,12 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #E8EBFF 0%, #F8F9FF 100%);
+    background: rgba(15, 22, 30, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 3px solid #E8EBFF;
+    border: 3px solid rgba(53, 64, 80, 0.3);
 }
 
 .profile_img {
@@ -56,24 +62,27 @@
 
 .btn_change_profile {
     padding: 10px 24px;
-    background: #fff;
-    color: #7C5CFF;
-    border: 2px solid #E8EBFF;
-    border-radius: 20px;
+    background: rgba(26, 37, 48, 0.15);
+    color: #B8C0C8;
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .btn_change_profile:hover {
-    background: #F8F9FF;
-    border-color: #9C7FF2;
+    background: rgba(37, 48, 64, 0.25);
+    border-color: rgba(64, 74, 85, 0.5);
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+    color: #fff;
 }
 
 /* 폼 섹션 */
 .form_section {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .form_group {
@@ -84,40 +93,44 @@
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #212121;
-    margin-bottom: 10px;
+    color: #B8C0C8;
+    text-shadow: 0 0 10px rgba(53, 64, 80, 0.3);
+    margin-bottom: 8px;
 }
 
 .form_input {
     width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #E8EBFF;
-    border-radius: 16px;
+    padding: 14px;
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    border-radius: 12px;
     font-size: 14px;
-    transition: all 0.3s ease;
-    color: #212121;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(15, 22, 30, 0.4);
+    backdrop-filter: blur(10px);
+    color: #B8C0C8;
 }
 
 .form_input:focus {
     outline: none;
-    border-color: #9C7FF2;
-    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.1);
+    border-color: rgba(64, 74, 85, 0.6);
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
 }
 
 .form_input:read-only {
-    background: #F8F9FF;
-    color: #9E9E9E;
+    background: rgba(15, 22, 30, 0.3);
+    color: #889098;
     cursor: not-allowed;
 }
 
 .form_input::placeholder {
-    color: #BDBDBD;
+    color: #889098;
+    opacity: 0.6;
 }
 
 .helper_text {
     display: block;
     font-size: 12px;
-    color: #FF6B6B;
+    color: #A0A8B0;
     margin-top: 8px;
 }
 
@@ -125,40 +138,45 @@
 .button_group {
     display: flex;
     gap: 12px;
-    margin-top: 32px;
+    margin-top: 24px;
 }
 
 .btn_primary,
 .btn_secondary {
     flex: 1;
-    padding: 16px 24px;
-    border-radius: 20px;
-    font-size: 15px;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
     border: none;
 }
 
 .btn_primary {
-    background: linear-gradient(135deg, #9C7FF2 0%, #7C5CFF 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #253040 0%, #354050 100%);
+    color: #B8C0C8;
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
 }
 
 .btn_primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(124, 92, 255, 0.4);
+    background: linear-gradient(135deg, #354050 0%, #253040 100%);
+    box-shadow: 0 0 30px rgba(53, 64, 80, 0.5);
+    color: #fff;
 }
 
 .btn_secondary {
-    background: #fff;
-    color: #FF6B6B;
-    border: 2px solid #FFE8E8;
+    background: rgba(26, 37, 48, 0.15);
+    color: #B8C0C8;
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .btn_secondary:hover {
-    background: #FFE8E8;
-    border-color: #FF6B6B;
+    background: rgba(37, 48, 64, 0.25);
+    border-color: rgba(64, 74, 85, 0.5);
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+    color: #fff;
 }
 
 /* 로그아웃 섹션 */
@@ -166,24 +184,27 @@
     display: flex;
     justify-content: center;
     padding-top: 24px;
-    border-top: 1px solid #F0F0F0;
+    border-top: 1px solid rgba(53, 64, 80, 0.3);
 }
 
 .btn_logout {
     padding: 14px 48px;
-    background: linear-gradient(135deg, #E8EBFF 0%, #D8DBFF 100%);
-    color: #7C5CFF;
-    border: none;
-    border-radius: 20px;
+    background: rgba(26, 37, 48, 0.15);
+    color: #B8C0C8;
+    border: 2px solid rgba(53, 64, 80, 0.3);
+    border-radius: 12px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .btn_logout:hover {
-    background: linear-gradient(135deg, #D8DBFF 0%, #C8CBEF 100%);
-    transform: translateY(-2px);
+    background: rgba(37, 48, 64, 0.25);
+    border-color: rgba(64, 74, 85, 0.5);
+    box-shadow: 0 0 20px rgba(53, 64, 80, 0.3);
+    color: #fff;
 }
 
 /* 반응형 */
