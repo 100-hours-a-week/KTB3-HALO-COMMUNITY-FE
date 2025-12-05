@@ -12,7 +12,11 @@ export function renderCommentWrap(container, comments = []) {
             (comment) => `
           <div class="comment_item" data-comment-id="${comment.commentId}">
             <div class="comment_profile">
-              <div class="comment_avatar"></div>
+              <div class="comment_avatar">
+                ${comment.profileImageUrl 
+                  ? `<img src="${comment.profileImageUrl}" alt="${comment.nickname || '작성자'}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, rgba(26, 37, 48, 0.3) 0%, rgba(37, 48, 64, 0.2) 100%)';" />` 
+                  : ''}
+              </div>
               <div class="comment_info">
                 <div class="comment_header">
                   <span class="comment_author">${comment.nickname || "익명"}</span>
