@@ -7,7 +7,7 @@ env:
 on:
   pull_request:
     branches:
-      - develop      # develop을 대상으로 하는 PR만 감지
+      - main      # develop을 대상으로 하는 PR만 감지
     types: [ closed ]   # PR이 닫힐 때만 실행   # 실제 운영되는 브랜치 develop -> main 으로 변경
 
 jobs:
