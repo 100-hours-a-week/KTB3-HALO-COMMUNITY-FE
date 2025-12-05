@@ -14,17 +14,11 @@
     flex: 1;
   }
 
-  .navigator_center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
   .navigator_right {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    padding-right: 100px;
   }
   
   /* 로고 */
