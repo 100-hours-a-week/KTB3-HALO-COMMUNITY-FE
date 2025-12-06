@@ -1,5 +1,4 @@
-name: Express Deploy CI/CD (v1.2)
-
+name: Express Deploy CI/CD (v2.3)
 
 env:
   IMAGE_TAG: 1.0.0
@@ -7,19 +6,17 @@ env:
 on:
   pull_request:
     branches:
-      - main      # develop을 대상으로 하는 PR만 감지
-    types: [ closed ]   # PR이 닫힐 때만 실행   # 실제 운영되는 브랜치 develop -> main 으로 변경
+      - main
+    types: [ closed ]
+
 
 jobs:
-
 
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 # 깃허브 액션이 코드가져옴
+      - uses: actions/checkout@v2
       
-
-
       - name: Docker Hub Login
         uses: docker/login-action@v3
         with:
@@ -30,14 +27,12 @@ jobs:
         run: |
           docker build -t wonseoop/not-me-fe:1.0.0 . --push
 
+
   deploy:
     needs: build-and-push
-    if: github.event.pull_request.merged == true  
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-
-      - name: 1. checkout repo
-        uses: actions/checkout@v2 # 깃허브 액션이 코드가져옴
 
       # 1. SSH 설정
       - name: Set up SSH    
@@ -46,19 +41,18 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
         
-      # 2. 깃허브 액션에서 env 생성
+      # 2. env 생성
       - name: Create .env file
         run: |
           echo "IMAGE=${{ secrets.IMAGE }}" >> .env       
-      
 
-      # 3. 깃허브 액션에 AWS CLI 설치
+      # 3. AWS CLI 설치
       - name: Install AWS CLI
         uses: unfor19/install-aws-cli-action@v1
         with:
           version: 2
 
-      # 4. 깃허브 액션 CLI 환경변수 설정
+      # 4. AWS 인증 설정
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
@@ -66,87 +60,49 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
-      # 5. FE1 인스턴스 퍼블릭 IP 반환
-      - name: Get FE1 Public IP
+      # 5. FE 대상그룹에서 Healthy 인스턴스 ID 목록 가져오기
+      - name: Get Healthy FE Instance IDs
         run: |
-          FE1_IP=$(aws ec2 describe-instances \
-            --filters "Name=tag:Name,Values=Our-Universe-FE1" \
-                      "Name=instance-state-name,Values=running" \
+          FE_INSTANCE_IDS=$(aws elbv2 describe-target-health \
+            --target-group-arn "${{ secrets.FE_TARGET_GROUP_ARN }}" \
+            --query "TargetHealthDescriptions[?TargetHealth.State=='healthy'].Target.Id" \
+            --output text)
+
+          if [ -z "$FE_INSTANCE_IDS" ]; then
+            echo "❌ ERROR: No healthy FE instances found."
+            exit 1
+          fi
+
+          echo "FE_INSTANCE_IDS=$FE_INSTANCE_IDS" >> $GITHUB_ENV
+          echo "Healthy FE Instance IDs: $FE_INSTANCE_IDS"
+
+      # 6. Healthy 인스턴스들의 Public IP 추출
+      - name: Get FE Public IPs
+        run: |
+          FE_IPS=$(aws ec2 describe-instances \
+            --instance-ids $FE_INSTANCE_IDS \
             --query "Reservations[].Instances[].PublicIpAddress" \
-            --output text \
-          )
-          echo "FE1_IP=$FE1_IP" >> $GITHUB_ENV
-          echo "불러온 FE1 IP => $FE1_IP"
+            --output text)
 
+          if [ -z "$FE_IPS" ]; then
+            echo "❌ ERROR: No Public IP found for healthy FE instances."
+            exit 1
+          fi
 
-      # 6. B2 IP 가져오기
-      - name: Get FE2 Public IP
+          echo "FE_IPS=$FE_IPS" >> $GITHUB_ENV
+          echo "Healthy FE Public IPs: $FE_IPS"
+
+      # 7. Healthy FE 인스턴스들에 배포
+      - name: Deploy to all FE instances
         run: |
-          FE2_IP=$(aws ec2 describe-instances \
-            --filters "Name=tag:Name,Values=Our-Universe-FE2" \
-                      "Name=instance-state-name,Values=running" \
-            --query "Reservations[].Instances[].PublicIpAddress" \
-            --output text \
-          )
-          echo "FE2_IP=$FE2_IP" >> $GITHUB_ENV
-          echo "불러온 FE2 IP => $FE2_IP"
+          for IP in $FE_IPS; do
+            echo "🚀 Deploying FE to $IP ..."
 
+            # env 파일 전송
+            scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa .env \
+              ubuntu@$IP:/home/ubuntu/AWS_DOCKER/fe
 
-
-      # 7. B1에 .env 전송
-      - name: Upload .env to FE1
-        run: |
-          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa .env \
-          ubuntu@$FE1_IP:/home/ubuntu/AWS_DOCKER/fe
-
-
-      # 8. B2에 .env 전송
-      - name: Upload .env to FE2
-        run: |
-          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa .env \
-          ubuntu@$FE2_IP:/home/${{ secrets.SERVER_USER }}/AWS_DOCKER/fe
-      
-      
-      
-
-      # 9. FE1 배포
-      - name: Deploy to FE1
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@$FE1_IP 'bash -s' <<'EOF'
-            set -e
-            cd /home/ubuntu/AWS_DOCKER/fe
-            docker compose down
-            docker compose pull
-            docker compose up -d
-          EOF
-
-
-
-      # 10. FE2 배포
-      - name: Deploy to FE2
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@$FE2_IP 'bash -s' <<'EOF'
-            set -e
-            cd /home/ubuntu/AWS_DOCKER/fe
-            docker compose down
-            docker compose pull
-            docker compose up -d
-          EOF
-
-    
-    
-    
-
-
-          
-          
-          
-          
-
-
-
-
-     
-
-
-    
+            # docker compose 재배포
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@$IP \
+              "set -e; cd /home/ubuntu/AWS_DOCKER/fe && docker compose down && docker compose pull && docker compose up -d"
+          done
