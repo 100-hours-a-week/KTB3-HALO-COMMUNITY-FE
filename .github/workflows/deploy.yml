@@ -1,4 +1,4 @@
-name: Express Deploy CI/CD (v2.2)
+name: Express Deploy CI/CD (v2.3)
 
 env:
   IMAGE_TAG: 1.0.0
@@ -71,10 +71,15 @@ jobs:
             --query "TargetHealthDescriptions[?TargetHealth.State=='healthy'].Target.Id" \
             --output text)
 
+          if [ -z "$FE_INSTANCE_IDS" ]; then
+            echo "❌ ERROR: No healthy FE instances found."
+            exit 1
+          fi
+
           echo "FE_INSTANCE_IDS=$FE_INSTANCE_IDS" >> $GITHUB_ENV
           echo "Healthy FE Instance IDs: $FE_INSTANCE_IDS"
 
-      # 6. Healthy 인스턴스의 Public IP 추출
+      # 6. Healthy 인스턴스들의 Public IP 추출
       - name: Get FE Public IPs
         run: |
           FE_IPS=$(aws ec2 describe-instances \
@@ -82,14 +87,19 @@ jobs:
             --query "Reservations[].Instances[].PublicIpAddress" \
             --output text)
 
+          if [ -z "$FE_IPS" ]; then
+            echo "❌ ERROR: No Public IP found for healthy FE instances."
+            exit 1
+          fi
+
           echo "FE_IPS=$FE_IPS" >> $GITHUB_ENV
           echo "Healthy FE Public IPs: $FE_IPS"
 
-      # 7. 모든 Healthy FE 인스턴스에 배포
+      # 7. Healthy FE 인스턴스들에 배포
       - name: Deploy to all FE instances
         run: |
           for IP in $FE_IPS; do
-            echo "Deploying FE to $IP ..."
+            echo "🚀 Deploying FE to $IP ..."
 
             # env 파일 전송
             scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa .env \

@@ -3,6 +3,7 @@ import authRouter from "./authRoutes.js";
 import postRouter from "./postRoutes.js";
 import userRouter from "./userRoutes.js";
 import onboardingRouter from "./onboardingRoutes.js";
+import healthCheck from "./healthCheck.js";
 
 const router = express.Router();
 
@@ -21,5 +22,8 @@ router.use("/", postRouter);
 
 // 사용자 관련 라우트 - 직접 경로 사용 (/account, /password)
 router.use("/", userRouter);
+
+// 헬스체크 라우트 (/health) - 가장 먼저 체크
+router.use("/", healthCheck);
 
 export default router;
