@@ -251,78 +251,40 @@
 
 
 
-<img width="543" height="597" alt="image" src="https://github.com/user-attachments/assets/4e175003-5e3e-47af-8dbe-a96573093444" />
-
-
-`게시글 목록`
-|전체 게시글|
-|---|
-|![image](https://github.com/user-attachments/assets/4e175003-5e3e-47af-8dbe-a96573093444)|
-
-`작성`
-<img width="445" height="515" alt="image" src="https://github.com/user-attachments/assets/ac7070c0-4ab0-4fea-8b61-cefb0b2a7c10" />
 
 
 
-`상세`
-<img width="465" height="562" alt="image" src="https://github.com/user-attachments/assets/83e4f3d9-d8c1-4b2a-9e22-948058d1efce" />
-
-수정
-<img width="455" height="506" alt="image" src="https://github.com/user-attachments/assets/1b58c704-fc55-4f9f-a54c-689190665f88" />
-
-
-삭제
-<img width="530" height="662" alt="image" src="https://github.com/user-attachments/assets/4c9daa63-4332-4b38-8854-e6b1fb9b907d" />
-
-
-`게시물 작성 / 상세 / 수정 / 삭제`
-
-|게시물 작성|게시물 상세|게시글 수정|게시글 삭제|
-|---|---|---|---|
-|![image](https://github.com/user-attachments/assets/ac7070c0-4ab0-4fea-8b61-cefb0b2a7c10)|![image](https://github.com/user-attachments/assets/83e4f3d9-d8c1-4b2a-9e22-948058d1efce)|![image](https://github.com/user-attachments/assets/1b58c704-fc55-4f9f-a54c-689190665f88)|![image](https://github.com/user-attachments/assets/4c9daa63-4332-4b38-8854-e6b1fb9b907d)|
 
 
 
-댓글 목록
-<img width="420" height="596" alt="image" src="https://github.com/user-attachments/assets/ca9cc958-bf49-425b-be8b-81e1f6aea1b3" />
 
-댓글 등록
-<img width="475" height="644" alt="image" src="https://github.com/user-attachments/assets/d16bd4ca-c110-4dbe-a695-4fd17e647971" />
+`전체 게시글 / 게시물 작성 / 상세 / 수정 / 삭제`
 
-댓글 수정
-<img width="491" height="648" alt="image" src="https://github.com/user-attachments/assets/d38a94ae-397b-4df4-b874-f78135c30aa6" />
+|전체 게시글|게시물 작성|게시물 상세|게시글 수정|게시글 삭제|
+|---|---|---|---|---|
+|![image](https://github.com/user-attachments/assets/4e175003-5e3e-47af-8dbe-a96573093444)|![image](https://github.com/user-attachments/assets/ac7070c0-4ab0-4fea-8b61-cefb0b2a7c10)|![image](https://github.com/user-attachments/assets/83e4f3d9-d8c1-4b2a-9e22-948058d1efce)|![image](https://github.com/user-attachments/assets/1b58c704-fc55-4f9f-a54c-689190665f88)|![image](https://github.com/user-attachments/assets/4c9daa63-4332-4b38-8854-e6b1fb9b907d)|
 
-댓글 삭제
-<img width="485" height="622" alt="image" src="https://github.com/user-attachments/assets/21a089cc-b74a-4dde-a220-24780c6666b7" />
+
+
+
 
 
 `댓글 목록 / 등록 / 수정 /삭제`
 
 |댓글 화면|댓글 등록|댓글 수정|댓글 삭제|
 |---|---|---|---|
-|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/d57fa86e-d1d8-4fb7-b86c-021129053ef0)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/076fa883-e20f-46ad-8649-67b38448676a)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/1c70a6e6-1f4c-4334-aaf9-f8a9ee5d5f9c)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/3f411243-9cc0-49d7-b3d0-511c961ada60)|
+|![image](https://github.com/user-attachments/assets/ca9cc958-bf49-425b-be8b-81e1f6aea1b3)|![image](https://github.com/user-attachments/assets/d16bd4ca-c110-4dbe-a695-4fd17e647971)|![image](https://github.com/user-attachments/assets/d38a94ae-397b-4df4-b874-f78135c30aa6)|![image](https://github.com/user-attachments/assets/21a089cc-b74a-4dde-a220-24780c6666b7)|
 
   
 `프로필 수정 / 비밀번호 수정 / 회원 탈퇴 / 로그아웃`
 
-프로필 수정
-<img width="394" height="493" alt="image" src="https://github.com/user-attachments/assets/2f038f23-5cb7-4c73-a913-8978be381a1f" />
 
-
-비밀번호 수정
-<img width="459" height="404" alt="image" src="https://github.com/user-attachments/assets/d2fb3211-d21c-4731-a5f0-b2cf5291bc3c" />
-
-회원 탈퇴
-<img width="481" height="566" alt="image" src="https://github.com/user-attachments/assets/f09aa1da-9674-4187-8ca5-06144a7e8ef1" />
-
-로그아웃
-<img width="504" height="594" alt="image" src="https://github.com/user-attachments/assets/f518c1a9-d9ec-463d-bd63-cc7fbb68bf7b" />
 
 
 
 |프로필 수정|비밀번호 수정|회원 탈퇴|로그아웃|
 |---|---|---|---|
-|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/f96873ad-36f8-4258-92e0-b0f0f5c047d0)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/17ac88da-b06a-4b47-ab01-06fdcdced779)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/95e9e091-139a-4cf2-9d99-e0d22d8d24e5)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/878fb30b-fdb2-448f-aa16-24e3e088e94d)|
+|![image](https://github.com/user-attachments/assets/2f038f23-5cb7-4c73-a913-8978be381a1f)|![image](https://github.com/user-attachments/assets/d2fb3211-d21c-4731-a5f0-b2cf5291bc3c)|![image](https://github.com/user-attachments/assets/f09aa1da-9674-4187-8ca5-06144a7e8ef1)|![image](https://github.com/user-attachments/assets/f518c1a9-d9ec-463d-bd63-cc7fbb68bf7b)|
 
 <br/>
 
