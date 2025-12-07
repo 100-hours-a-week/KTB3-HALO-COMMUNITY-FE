@@ -279,7 +279,7 @@
 
 |게시물 작성|게시물 상세|게시글 수정|게시글 삭제|
 |---|---|---|---|
-|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/d5920b5c-6e6f-4e7c-9eda-9bccba44d267)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/08804c41-5640-4d37-baf3-9c0ece156ff6)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/eed24594-d475-499f-bf9b-d580fc782396)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/88cdcea2-b3b2-4cd0-abdc-52836eb2a92b)|
+|![image](https://github.com/user-attachments/assets/ac7070c0-4ab0-4fea-8b61-cefb0b2a7c10)|![image](https://github.com/user-attachments/assets/83e4f3d9-d8c1-4b2a-9e22-948058d1efce)|![image](https://github.com/user-attachments/assets/1b58c704-fc55-4f9f-a54c-689190665f88)|![image](https://github.com/user-attachments/assets/4c9daa63-4332-4b38-8854-e6b1fb9b907d)|
 
 
 
