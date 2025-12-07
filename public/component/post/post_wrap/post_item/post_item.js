@@ -1,10 +1,13 @@
 // 개별 게시글 HTML 생성 (카드 형식)
 export function renderPostItem(post) {
-    // 내용 미리보기 생성 (HTML 태그 제거, 100자 제한)
+    // 내용 미리보기 생성 (백엔드에서 이미 처리된 경우 그대로 사용, 아니면 추가 처리)
     const getContentPreview = (content) => {
-        if (!content) return '';
-        const text = content.replace(/<[^>]*>/g, ''); // HTML 태그 제거
-        return text.length > 100 ? text.substring(0, 100) + '...' : text;
+        if (!content || content.trim() === '') return '';
+        // 백엔드에서 이미 HTML 태그 제거 및 길이 제한을 했을 수 있으므로
+        // 추가로 HTML 태그가 있으면 제거
+        const text = content.replace(/<[^>]*>/g, '').trim();
+        // 백엔드에서 이미 150자로 제한했지만, 혹시 모를 경우를 대비해 다시 체크
+        return text.length > 150 ? text.substring(0, 150) + '...' : text;
     };
 
     // 시간 표시 함수 (몇 시간 전 형식)
@@ -61,7 +64,7 @@ export function renderPostItem(post) {
             </div>
           </div>
           <h3 class="post-item__title">${post.title || '제목 없음'}</h3>
-          ${post.content ? `<p class="post-item__preview">${getContentPreview(post.content)}</p>` : ''}
+          ${post.content && post.content.trim() ? `<p class="post-item__preview">${getContentPreview(post.content)}</p>` : ''}
           <div class="post-item__stats">
             <div class="post-item__stat">
               <span class="post-item__stat-label">공감</span>

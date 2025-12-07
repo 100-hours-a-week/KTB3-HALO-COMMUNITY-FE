@@ -8,7 +8,7 @@ export function renderNavigator(rootEl) {
     <div class="navigator_inner">
       <div class="navigator_left"></div>
       <div class="navigator_center">
-        <a href="/onboarding" class="nav_logo">Our Universe</a>
+        <a href="/posts" class="nav_logo">Our Universe</a>
       </div>
       <div class="navigator_right">
         <div class="profile_dropdown">
