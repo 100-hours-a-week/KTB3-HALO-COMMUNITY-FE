@@ -1,4 +1,4 @@
-<img width="1262" height="1398" alt="image" src="https://github.com/user-attachments/assets/4afa8928-d136-4b78-8f8d-dd7c9882bb2a" /># 🚀 Our Space
+<img width="673" height="718" alt="image" src="https://github.com/user-attachments/assets/ea080035-2a74-4f0e-a9af-f7467f142e1d" /># 🚀 Our Space
 
 ## Front-end 소개
 
@@ -249,12 +249,14 @@
 
 
 
+<img width="673" height="718" alt="image" src="" />
+
 
 
 `게시글 목록`
-|전체 게시글|개발 게시글|고민 게시글|
-|---|---|---|
-|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/8cf84f26-cc6f-4cac-a25e-116875345185)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/0eb19661-b049-4dbb-b319-9b188bed412d)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/b81534fa-90bd-4cd6-aa89-045573447c6c)|
+|전체 게시글|
+|---|
+|![image](https://github.com/user-attachments/assets/67b2203d-c7ad-494d-a3d9-0996e2a73bbe)|
 
 
 `게시물 작성 / 상세 / 수정 / 삭제`
