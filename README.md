@@ -17,6 +17,9 @@
 ### 사용 기술 및 tools
 - Express.js
 
+### 서비스 시연 연상
+- 
+
 ### Back-end
 - <a href="https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-BE">Back-end Github</a>
 
