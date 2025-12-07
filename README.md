@@ -236,7 +236,6 @@
             ├── textUtils.js
             └── toast.js
         </div>
-  </details>
   <br/>
 
 ## 서비스 화면
