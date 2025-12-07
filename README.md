@@ -3,7 +3,7 @@
 ## Front-end 소개
 
 - `우주에 대해 소통하는 커뮤니티` 프로젝트입니다.
-- `express` 프레임워크를 사용하여 구현했습니다.
+- `express.js` 프레임워크를 사용하여 구현했습니다.
 - 개발은 초기 프로젝트 화면부터, 기능, 백엔드 연결까지 `직접 구현`했습니다.
 
 ### 개발 인원 및 기간
@@ -245,7 +245,11 @@
 `홈`
 |로그인|회원가입|
 |---|---|
-|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/366e6139-fd0e-4d0c-b71b-d66845bc5449)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/ced09612-80c1-4ef8-b102-55e57c5c2a78)|
+|![image](https://github.com/user-attachments/assets/b36773fa-a777-4994-a808-c78919bac76f)|![image](https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/ced09612-80c1-4ef8-b102-55e57c5c2a78)|
+
+
+
+
 
 `게시글 목록`
 |전체 게시글|개발 게시글|고민 게시글|
