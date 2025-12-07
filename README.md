@@ -1,4 +1,4 @@
-# 🚀 Our Space
+<img width="1262" height="1398" alt="image" src="https://github.com/user-attachments/assets/4afa8928-d136-4b78-8f8d-dd7c9882bb2a" /># 🚀 Our Space
 
 ## Front-end 소개
 
@@ -245,7 +245,7 @@
 `홈`
 |로그인|회원가입|
 |---|---|
-|![image](https://github.com/user-attachments/assets/b36773fa-a777-4994-a808-c78919bac76f)|![image]([https://github.com/100-hours-a-week/5-erica-express-fe/assets/81230764/ced09612-80c1-4ef8-b102-55e57c5c2a78](https://github.com/user-attachments/assets/b3b08b41-ca96-4eb3-a97a-13026c388e7c))|
+|![image](https://github.com/user-attachments/assets/b36773fa-a777-4994-a808-c78919bac76f)|![image](https://github.com/user-attachments/assets/3853709e-fe2b-4a34-b46d-8bb3edc176a2)|
 
 
 
