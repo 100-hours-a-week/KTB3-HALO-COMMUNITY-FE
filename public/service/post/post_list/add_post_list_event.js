@@ -63,18 +63,21 @@ export function addPostListEvent(rootEl) {
                 });
 
                 // 게시글 HTML 생성 후 추가
-                // 백엔드 DTO 구조: postId, title, content, nickname, profileImageUrl, postImageUrl, likeCount, commentCount, viewCount, createdAt, updatedAt
+                // 백엔드 DTO 구조: postId, title, content(미리보기), nickname, profileImageUrl, postImageUrl, likeCount, commentCount, viewCount, createdAt, updatedAt
                 const postsHTML = data.posts.map(post => {
                     return renderPostItem({
                         id: post.postId,
                         title: post.title || '',
-                        content: post.content || '', // 게시글 내용 미리보기용
+                        content: post.content || '', // 백엔드에서 미리보기로 처리된 내용
                         postImageUrl: post.postImageUrl || null,
                         createdAt: post.createdAt,
                         date: post.createdAt, // 호환성을 위해 둘 다 전달
                         likes: post.likeCount || 0,
+                        likeCount: post.likeCount || 0,
                         comments: post.commentCount || 0,
+                        commentCount: post.commentCount || 0,
                         views: post.viewCount || 0,
+                        viewCount: post.viewCount || 0,
                         author: post.nickname || '익명',
                         profileImageUrl: post.profileImageUrl || null
                     });
