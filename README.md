@@ -235,7 +235,9 @@
             ├── skeletonConfig.js
             ├── textUtils.js
             └── toast.js
-        </div>
+        
+  </div>
+  </details>
   <br/>
 
 ## 서비스 화면
