@@ -262,7 +262,7 @@
 
 |전체 게시글|게시물 작성|게시물 상세|게시글 수정|게시글 삭제|
 |---|---|---|---|---|
-|![image](https://github.com/user-attachments/assets/4e175003-5e3e-47af-8dbe-a96573093444)|![image](https://github.com/user-attachments/assets/ac7070c0-4ab0-4fea-8b61-cefb0b2a7c10)|![image](https://github.com/user-attachments/assets/83e4f3d9-d8c1-4b2a-9e22-948058d1efce)|![image](https://github.com/user-attachments/assets/1b58c704-fc55-4f9f-a54c-689190665f88)|![image](https://github.com/user-attachments/assets/4c9daa63-4332-4b38-8854-e6b1fb9b907d)|
+|![image](https://github.com/user-attachments/assets/4e175003-5e3e-47af-8dbe-a96573093444)|![image](https://github.com/user-attachments/assets/ac7070c0-4ab0-4fea-8b61-cefb0b2a7c10)|![image](https://github.com/user-attachments/assets/83e4f3d9-d8c1-4b2a-9e22-948058d1efce)|![image](https://github.com/user-attachments/assets/1b58c704-fc55-4f9f-a54c-689190665f88)|![image](https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/pages_intro/KakaoTalk_Photo_2025-12-07-11-53-51.png)|
 
 
 
@@ -273,7 +273,7 @@
 
 |댓글 화면|댓글 등록|댓글 수정|댓글 삭제|
 |---|---|---|---|
-|![image](https://github.com/user-attachments/assets/ca9cc958-bf49-425b-be8b-81e1f6aea1b3)|![image](https://github.com/user-attachments/assets/d16bd4ca-c110-4dbe-a695-4fd17e647971)|![image](https://github.com/user-attachments/assets/d38a94ae-397b-4df4-b874-f78135c30aa6)|![image](https://github.com/user-attachments/assets/21a089cc-b74a-4dde-a220-24780c6666b7)|
+|![image](https://github.com/user-attachments/assets/ca9cc958-bf49-425b-be8b-81e1f6aea1b3)|![image](https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/pages_intro/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-07+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+12.03.36.png)|![image](https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/pages_intro/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-07+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+11.59.38.png)|![image](https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/pages_intro/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-07+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+11.59.27.png)|
 
   
 `프로필 수정 / 비밀번호 수정 / 회원 탈퇴 / 로그아웃`
@@ -284,7 +284,7 @@
 
 |프로필 수정|비밀번호 수정|회원 탈퇴|로그아웃|
 |---|---|---|---|
-|![image](https://github.com/user-attachments/assets/2f038f23-5cb7-4c73-a913-8978be381a1f)|![image](https://github.com/user-attachments/assets/d2fb3211-d21c-4731-a5f0-b2cf5291bc3c)|![image](https://github.com/user-attachments/assets/f09aa1da-9674-4187-8ca5-06144a7e8ef1)|![image](https://github.com/user-attachments/assets/f518c1a9-d9ec-463d-bd63-cc7fbb68bf7b)|
+|![image](https://github.com/user-attachments/assets/2f038f23-5cb7-4c73-a913-8978be381a1f)|![image](https://github.com/user-attachments/assets/d2fb3211-d21c-4731-a5f0-b2cf5291bc3c)|![image](https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/pages_intro/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-07+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+12.07.51.png)|![image](https://not-me-be.s3.ap-northeast-2.amazonaws.com/our_universe/pages_intro/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2025-12-07+%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE+12.07.05.png)|
 
 <br/>
 
