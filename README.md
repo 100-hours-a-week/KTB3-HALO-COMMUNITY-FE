@@ -18,7 +18,7 @@
 - Express.js
 
 ### 서비스 시연 연상
-- 
+- https://drive.google.com/file/d/1EttwNVwtdNoeDy3Ic6i3Nkh6yxIf5e_k/view?usp=sharing
 
 ### Back-end
 - <a href="https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-BE">Back-end Github</a>
