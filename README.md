@@ -249,7 +249,6 @@
 
 
 
-<img width="673" height="718" alt="image" src="" />
 
 
 
@@ -257,6 +256,13 @@
 |전체 게시글|
 |---|
 |![image](https://github.com/user-attachments/assets/67b2203d-c7ad-494d-a3d9-0996e2a73bbe)|
+
+`작성`
+
+
+
+`상세`
+<img width="448" height="562" alt="image" src="https://github.com/user-attachments/assets/a6637e1f-60ff-4f1e-ae0e-25429f57ed4f" />
 
 
 `게시물 작성 / 상세 / 수정 / 삭제`
