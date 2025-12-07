@@ -1,8 +1,8 @@
-# 🎙️volumeUp
+# 🚀 Our Space
 
 ## Front-end 소개
 
--  `우주에 대해 소통하는 커뮤니티` 프로젝트입니다.
+- `우주에 대해 소통하는 커뮤니티` 프로젝트입니다.
 - `express` 프레임워크를 사용하여 구현했습니다.
 - 개발은 초기 프로젝트 화면부터, 기능, 백엔드 연결까지 `직접 구현`했습니다.
 
@@ -15,80 +15,228 @@
 - Express.js
 
 ### Back-end
-- <a href="https://github.com/100-hours-a-week/5-erica-react-be">Back-end Github</a>
+- <a href="https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-BE">Back-end Github</a>
 
 ### 폴더 구조
 <details>
   <summary>폴더 구조 보기/숨기기</summary>
   <div markdown="1">
 
-    ├── README.md
-    ├── .gitignore
-    ├── package-lock.json
+    KTB3-HALO-COMMUNITY-FE/
+    ├── app.js
     ├── package.json
-    ├── public
-    │    ├── index.html
-    │    ├── manifest.json
-    │    └── robots.txt
-    └── src
-         ├── App.js
-         ├── App.test.js
-         ├── index.css
-         ├── index.js
-         ├── logo.svg
-         ├── reportWebVitals.js
-         ├── setupTests.js
-         ├── static.js
-         ├── components
-         │     ├── comments
-         │     │     ├── AddComment.js
-         │     │     ├── Comment.js
-         │     │     └── Comments.js
-         │     ├── modals
-         │     │     ├── DeleteCommentModal.js
-         │     │     ├── DeletePostModal.js
-         │     │     └── Modals.js
-         │     ├── posts
-         │     │     └── MiniPost.js
-         │     ├── users
-         │     │     └── UpdateProfileImage.js
-         │     ├── BackButton.js
-         │     └── Navbar.js
-         ├── pages
-         │     ├── AddPostPage.jsx
-         │     ├── LogInPage.jsx
-         │     ├── PostDetailPage.jsx
-         │     ├── PostPage.jsx
-         │     ├── SignUpPage.jsx
-         │     ├── UpdatePasswordPage.jsx
-         │     ├── UpdatePostPage.jsx
-         │     └── UpdateProfilePage.jsx
-         ├── images
-         │     ├── back.png
-         │     └── profile_img.webp
-         ├── hooks
-         │     └── useFetch.js
-         ├── utils
-         │     ├── numberToK.js
-         │     └── scroll.js
-         └── styles
-               ├── AddComment.module.css
-               ├── AddPost.module.css
-               ├── Comment.module.css
-               ├── Comments.module.css
-               ├── LogIn.module.css
-               ├── MiniPost.module.css
-               ├── Navbar.module.css
-               ├── PostDetail.module.css
-               ├── PostModal.module.css
-               ├── Posts.module.css
-               ├── SignUp.module.css
-               ├── UpdatePassword.module.css
-               ├── UpdatePost.module.css
-               ├── UpdateProfile.module.css
-               └── UserImage.module.css
-    </div>
-  </details>
+    ├── package-lock.json
+    ├── openapi.json
+    ├── Dockerfile
+    ├── .github/
+    │   └── workflows/
+    │       └── deploy.yml
+    ├── routes/
+    │   ├── index.js
+    │   ├── authRoutes.js
+    │   ├── healthCheck.js
+    │   ├── onboardingRoutes.js
+    │   ├── postRoutes.js
+    │   └── userRoutes.js
+    ├── utils/
+    │   └── path.js
+    └── public/
+        ├── config.js
+        ├── page_path.js
+        ├── component/
+        │   ├── auth/
+        │   │   ├── footer/
+        │   │   │   ├── footer_inner.css
+        │   │   │   └── footer_inner.js
+        │   │   ├── gladbanner/
+        │   │   │   ├── gladbanne.css
+        │   │   │   └── gladbanner.js
+        │   │   ├── header/
+        │   │   │   ├── header_inner.css
+        │   │   │   └── header_inner.js
+        │   │   ├── login_wrap/
+        │   │   │   ├── find_wrap.css
+        │   │   │   ├── find_wrap.js
+        │   │   │   ├── login_wrap.css
+        │   │   │   └── login_wrap.js
+        │   │   └── signup_wrap/
+        │   │       ├── signup_wrap.css
+        │   │       └── signup_wrap.js
+        │   ├── common/
+        │   │   ├── alert/
+        │   │   │   ├── alert.css
+        │   │   │   └── alert.js
+        │   │   ├── footer/
+        │   │   │   ├── footer_inner.css
+        │   │   │   └── footer_inner.js
+        │   │   ├── header/
+        │   │   │   └── navigator/
+        │   │   │       ├── bindNavigatorEvents.js
+        │   │   │       ├── navigator.css
+        │   │   │       └── navigator.js
+        │   │   └── toast/
+        │   │       ├── toast.css
+        │   │       └── toast.js
+        │   ├── onboarding/
+        │   │   ├── category_card/
+        │   │   │   └── category_card.js
+        │   │   ├── cosmic_background/
+        │   │   │   └── cosmic_background.js
+        │   │   ├── manual_section/
+        │   │   │   └── manual_section.js
+        │   │   ├── onboarding.css
+        │   │   └── onboarding.js
+        │   ├── post/
+        │   │   ├── category_wrap/
+        │   │   │   ├── category_wrap.css
+        │   │   │   └── category_wrap.js
+        │   │   ├── onboarding/
+        │   │   ├── post_detail/
+        │   │   │   ├── article_wrap/
+        │   │   │   │   ├── article_wrap.css
+        │   │   │   │   └── article_wrap.js
+        │   │   │   ├── comment_wrap/
+        │   │   │   │   ├── comment_wrap.css
+        │   │   │   │   └── comment_wrap.js
+        │   │   │   ├── stats_wrap/
+        │   │   │   │   ├── stats_wrap.css
+        │   │   │   │   └── stats_wrap.js
+        │   │   │   └── user_info_wrap/
+        │   │   │       ├── user_info_wrap.css
+        │   │   │       └── user_info_wrap.js
+        │   │   ├── post_modify/
+        │   │   │   ├── article_wrap/
+        │   │   │   │   ├── article_wrap.css
+        │   │   │   │   └── article_wrap.js
+        │   │   │   ├── image_wrap/
+        │   │   │   │   ├── image_wrap.css
+        │   │   │   │   └── image_wrap.js
+        │   │   │   ├── info_wrap/
+        │   │   │   │   ├── info_wrap.css
+        │   │   │   │   └── info_wrap.js
+        │   │   │   ├── modify_button_wrap/
+        │   │   │   │   ├── modify_button_wrap.css
+        │   │   │   │   └── modify_button_wrap.js
+        │   │   │   └── title_wrap/
+        │   │   │       ├── title_wrap.css
+        │   │   │       └── title_wrap.js
+        │   │   └── post_wrap/
+        │   │       ├── post_item/
+        │   │       │   ├── post_item_skeleton.css
+        │   │       │   ├── post_item_skeleton.js
+        │   │       │   ├── post_item.css
+        │   │       │   └── post_item.js
+        │   │       ├── post_wrap_handlers.js
+        │   │       ├── post_wrap.css
+        │   │       └── post_wrap.js
+        │   └── user/
+        │       ├── account/
+        │       │   └── account_wrap/
+        │       │       ├── account_wrap.css
+        │       │       └── account_wrap.js
+        │       └── password/
+        │           └── password_wrap/
+        │               ├── password_wrap.css
+        │               └── password_wrap.js
+        ├── pages/
+        │   ├── auth/
+        │   │   ├── login/
+        │   │   │   ├── login.css
+        │   │   │   ├── login.html
+        │   │   │   └── login.js
+        │   │   └── signup/
+        │   │       ├── signup.css
+        │   │       ├── signup.html
+        │   │       └── signup.js
+        │   ├── onboarding/
+        │   │   ├── onboarding.css
+        │   │   ├── onboarding.html
+        │   │   └── onboarding.js
+        │   ├── post/
+        │   │   ├── post_create/
+        │   │   │   ├── post_create.css
+        │   │   │   ├── post_create.html
+        │   │   │   └── post_create.js
+        │   │   ├── post_detail/
+        │   │   │   ├── post_detail.css
+        │   │   │   ├── post_detail.html
+        │   │   │   └── post_detail.js
+        │   │   ├── post_modify/
+        │   │   │   ├── post_modify.css
+        │   │   │   ├── post_modify.html
+        │   │   │   └── post_modify.js
+        │   │   └── postList/
+        │   │       ├── postList.css
+        │   │       ├── postList.html
+        │   │       └── postList.js
+        │   └── user/
+        │       ├── account/
+        │       │   ├── account.css
+        │       │   ├── account.html
+        │       │   └── account.js
+        │       └── password/
+        │           ├── password.css
+        │           ├── password.html
+        │           └── password.js
+        ├── service/
+        │   ├── auth/
+        │   │   ├── login/
+        │   │   │   └── addLoginEvent.js
+        │   │   ├── logout/
+        │   │   │   └── addLogoutEvent.js
+        │   │   ├── refresh/
+        │   │   │   └── refresh_service.js
+        │   │   └── signup/
+        │   │       └── addSignupEvent.js
+        │   ├── comment/
+        │   │   ├── add_comment_event.js
+        │   │   └── comment_service.js
+        │   ├── onboarding/
+        │   │   ├── add_onboarding_event.js
+        │   │   └── onboarding_service.js
+        │   ├── post/
+        │   │   ├── onboarding/
+        │   │   ├── post_create/
+        │   │   │   └── add_post_create_event.js
+        │   │   ├── post_delete/
+        │   │   │   └── add_post_delete_event.js
+        │   │   ├── post_detail/
+        │   │   │   ├── add_post_detail_event.js
+        │   │   │   └── post_like/
+        │   │   │       └── add_post_detail_like_event.js
+        │   │   ├── post_list/
+        │   │   │   └── add_post_list_event.js
+        │   │   └── post_update/
+        │   │       └── add_post_update_event.js
+        │   └── user/
+        │       ├── password/
+        │       │   └── addPasswordChangeEvent.js
+        │       └── profile/
+        │           ├── add_navigator_profile_image.js
+        │           ├── add_profile_change_event.js
+        │           ├── add_profile_delete_event.js
+        │           ├── add_profile_image_change_event.js
+        │           └── add_profile_load_event.js
+        ├── styles/
+        │   ├── alert.css
+        │   └── global.css
+        └── utils/
+            ├── apiClient.js
+            ├── confirmDialog.js
+            ├── eventHandlers.js
+            ├── fetchWithAuth.js
+            ├── iconSvgs.js
+            ├── imageConstants.js
+            ├── imagePreview.js
+            ├── initApiClient.js
+            ├── jwt.js
+            ├── scrollObserver.js
+            ├── showAlert.js
+            ├── skeletonConfig.js
+            ├── textUtils.js
+            └── toast.js
+        </div>
+      </details>
   <br/>
 
 ## 서비스 화면
