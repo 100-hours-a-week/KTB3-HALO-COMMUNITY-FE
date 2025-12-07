@@ -7,7 +7,7 @@
 - 개발은 초기 프로젝트 화면부터, 기능, 백엔드 연결까지 `직접 구현`했습니다.
 
 ## 프로젝트 컨셉
-- [https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-FE/issues/1](https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-FE/issues/1)
+- - <a href="https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-FE/issues/1">Our Universe Concept v1</a>
 
 ### 개발 인원 및 기간
 
