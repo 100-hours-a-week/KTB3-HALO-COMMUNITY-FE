@@ -23,10 +23,6 @@
 ### Back-end
 - <a href="https://github.com/100-hours-a-week/KTB3-HALO-COMMUNITY-BE">Back-end Github</a>
 
-### AWS Cloud 아키텍쳐
-<img width="812" height="1238" alt="image" src="https://github.com/user-attachments/assets/8f74d0f3-9e1b-4719-bb83-cac7a39a86da" />
-
-
 
 ### 폴더 구조
 <details>
